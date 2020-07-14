@@ -1,17 +1,26 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-    <h2> -- Choose a badge to give</h2>
+  <div>
+    <h2>{{ msg }}</h2>
+    <ul>
+      <SingleBadge/>
+    </ul>
   </div>
 </template>
 
-<script lang="ts">
-import { Component, Prop, Vue } from 'vue-property-decorator';
+<script>
+import SingleBadge from '@/components/SingleBadge.vue';
 
-@Component
-export default class HelloWorld extends Vue {
-  @Prop() private msg!: string;
-}
+export default ({
+  name: 'app',
+  components: {
+    SingleBadge,
+  },
+  data() {
+    return {
+      msg: '-- Choose a badge to give',
+    };
+  },
+});
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
