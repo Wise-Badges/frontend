@@ -35,7 +35,12 @@ export default ({
   text-align: center;
   color: white;
   background-color: #0B1147;
-  height: 100vh;
+  min-height: 100vh;
+  height: 100%;
+  background-image: url('assets/img/bg_xl.svg');
+  background-repeat: no-repeat;
+  background-size: 25rem;
+  background-position-x: 10rem;
 }
 
 #nav {

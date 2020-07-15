@@ -52,7 +52,7 @@ export default {
 
 // vars
 $color: #fff;		  // icon color
-$blue: #158fef;	  // background color
+$blue: #7C6DF1;	  // background color
 $animation: 0.6s;	// animation speed
 $scale: 1;			  // icon scale 68/68 default
 

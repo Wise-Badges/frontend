@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="badge-select">
     <h2>{{ msg }}</h2>
     <ul>
       <SingleBadge/>
@@ -38,5 +38,9 @@ li {
 }
 a {
   color: #42b983;
+}
+
+.badge-select {
+  margin-top: 4rem;
 }
 </style>
