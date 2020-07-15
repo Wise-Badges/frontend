@@ -1,4 +1,5 @@
 <template>
+<!-- eslint-disable -->
   <div id="app">
     <div id="nav">
       <router-link to="/">Home</router-link>
@@ -6,48 +7,26 @@
       <router-link to="/viewbadges">View badges</router-link>
       <router-link to="/community">Community</router-link>
     </div>
+
+    <!-- <Hamburger/> -->
+
     <router-view/>
-  </div>
+    </div>
 </template>
+
+<script>
+import Hamburger from '@/components/Hamburger.vue';
+
+export default ({
+  name: 'app',
+  components: {
+    Hamburger,
+  }
+})
+</script>
 
 <style lang="scss">
 @import 'reset-css';
-
-@font-face {
-    font-family: 'montserratbold';
-    src: url('./assets/fonts/montserrat-bold-webfont.woff2') format('woff2'),
-         url('./assets/fonts/montserrat-bold-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
-@font-face {
-    font-family: 'montserratsemibold';
-    src: url('./assets/fonts/montserrat-semibold-webfont.woff2') format('woff2'),
-         url('./assets/fonts/montserrat-semibold-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
-@font-face {
-    font-family: 'montserratmedium';
-    src: url('./assets/fonts/montserrat-medium-webfont.woff2') format('woff2'),
-         url('./assets/fonts/montserrat-medium-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-
-}
-
-@font-face {
-    font-family: 'montserratregular';
-    src: url('./assets/fonts/montserrat-regular-webfont.woff2') format('woff2'),
-         url('./assets/fonts/montserrat-regular-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-
-}
 
 #app {
   font-family: 'Montserratmedium', Avenir, Helvetica, Arial, sans-serif;
@@ -79,8 +58,8 @@
       text-decoration:underline;
       content:"TEST";
       position: relative;
-
     }
   }
 }
+
 </style>

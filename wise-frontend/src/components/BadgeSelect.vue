@@ -17,7 +17,7 @@ export default ({
   },
   data() {
     return {
-      msg: '-- Choose a badge to give',
+      msg: 'Choose a badge to give',
     };
   },
 });
