@@ -33,11 +33,16 @@ export default {
   align-items: center;
 }
 
+.wise-title {
+  margin-top: 4rem;
+}
+
 .subtext {
-  max-width: 30rem;
+  max-width: 28rem;
   text-align: left;
   line-height: 28px;
   font-size: 1rem;
+  margin-left: 21rem;
 
 }
 

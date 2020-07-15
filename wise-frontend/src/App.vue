@@ -39,7 +39,7 @@ export default ({
   height: 100%;
   background-image: url('assets/img/bg_xl.svg');
   background-repeat: no-repeat;
-  background-size: 25rem;
+  background-size: 24rem;
   background-position-x: 10rem;
 }
 

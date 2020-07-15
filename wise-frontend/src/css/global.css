@@ -44,11 +44,23 @@ h1 {
 #prim-btn {
     font-family: 'montserratbold';
     background-color: white;
-    padding: 1rem 2rem;
+    padding: 1rem 2rem 1rem 4rem;
     letter-spacing: 0.2em;
     border-radius: 2rem;
     border: none;
     text-transform: uppercase;
+    position: relative;
+}
+
+#prim-btn:before {
+    content: "";
+    position: absolute;
+    background-color: black;
+    width: 2rem;
+    height: 0.2rem;
+    top: 1.5rem;
+    left: 1rem;
+    border-radius: 1rem;
 }
 
 
