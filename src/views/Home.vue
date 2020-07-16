@@ -2,7 +2,7 @@
 <!-- eslint-disable max-len -->
   <div class="home">
     <!-- <img alt="Vue logo" src="../assets/logo.png"> -->
-    <h1 class="wise-title"><img src="@/assets/img/wise_h1.svg" alt="WISE" width=900></h1>
+    <h1 class="wise-title"><img src="/assets/img/wise_h1.svg" alt="WISE" width=900></h1>
 
     <p class="subtext">Do you know a powerful woman who has incredible self-taught skills? Do you want to praise a colleague, freelancer, …?
       Celebrate an accomplishment of a female STEM student? Support them by sending a WiseBadge, make them smile and empower them.

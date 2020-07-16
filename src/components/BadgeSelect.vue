@@ -37,7 +37,7 @@ export default ({
     };
   },
   getImgUrl(badge) {
-    var badgeImages = require.context('../assets/img/badges/', false, /\.svg$/)
+    //var badgeImages = require.context('./assets/img/badges/', false, /\.svg$/)
     return badgeImages('./' + badge + ".svg")
   },
   setActive() {
@@ -129,7 +129,7 @@ a {
 .active-badge-triangle {
   padding: 0.5rem;
   //border: 0.1rem solid transparent;
-  background-image: url('./../assets/img/shapes/triangle.svg');
+  background-image: url('/assets/img/shapes/triangle.svg');
   background-size: 100%;
   background-repeat: no-repeat;
 }
@@ -137,7 +137,7 @@ a {
 .active-badge-hexagon {
   padding: 0.5rem;
   //border: 0.1rem solid transparent;
-  background-image: url('./../assets/img/shapes/hexagon.svg');
+  background-image: url('/assets/img/shapes/hexagon.svg');
   background-size: 89%;
   background-repeat: no-repeat;
   background-position-x: 0.55rem;
@@ -148,7 +148,7 @@ a {
 .activeBadgeHexagon {
   padding: 0.5rem;
   //border: 0.1rem solid transparent;
-  background-image: url('./../assets/img/shapes/hexagon.svg');
+  background-image: url('/assets/img/shapes/hexagon.svg');
   background-size: 89%;
   background-repeat: no-repeat;
   background-position-x: 0.55rem;
