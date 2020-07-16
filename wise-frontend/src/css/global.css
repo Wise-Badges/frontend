@@ -81,3 +81,8 @@ h2:before {
     left: -3rem;
     border-radius: 1rem;
 }
+
+.container {
+    max-width: 60rem;
+    margin: 0 auto;
+}

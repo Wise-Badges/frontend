@@ -1,24 +1,20 @@
 <template>
 <!-- eslint-disable -->
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link>
-      <router-link to="/about">About</router-link>
-      <router-link to="/viewbadges">View badges</router-link>
-      <router-link to="/community">Community</router-link>
-    </div>
-
-
-
+    <Header />
     <router-view/>
-    </div>
+  </div>
 </template>
 
 <script>
 
+import Header from '@/components/Header.vue';
 
 export default ({
   name: 'app',
+  components: {
+    Header,
+  },
 })
 </script>
 
@@ -36,7 +32,7 @@ export default ({
   height: 100%;
   background-image: url('assets/img/bg_xl.svg');
   background-repeat: no-repeat;
-  background-size: 24rem;
+  background-size: 25rem;
   background-position-x: 10rem;
 }
 
