@@ -1,36 +1,36 @@
 <template>
   <div class="badge-select">
     <h2>{{ msg }}</h2>
-    <ul id="badgelist">
-      <li v-for="badge in badges" :key="badge.title">
-        <button>
+    <ul id="badgelist" v-for="badge in badges" :key="badge.name">
+      <li>
+        <input type="radio" v-model="currentBadge" :id="badge.name" :value="badge.id" name="currentBadge">
+        <label :for="badge.name">{{badge.name}}
           <img :src="'assets/img/' + badge.img + '.svg'" v-bind:alt="badge.img">
-          <!-- <img :src="getImgUrl(pic)" v-bind:alt="badge.message"> -->
-          <!-- <img class="bg-image" :src="'/assets/img/cover/' + workout.img + '.png'" alt="jump2" width=60%> -->
-          <p>{{badge.title}}</p>
-        </button>
+        </label>
       </li>
-      <SingleBadge/>
     </ul>
+    You have selected : {{currentBadge}}
   </div>
 </template>
 
 <script>
-import SingleBadge from '@/components/SingleBadge.vue';
 
 export default ({
   name: 'app',
-  components: {
-    SingleBadge,
-  },
   data() {
     return {
       msg: 'Choose a badge to give',
       badges: [
-        { title: 'didnt explode', img: 'didnt_explode'},
-        { title: 'woman empowerment', img: 'walking_sunshine'},
-        { title: 'Einstein', img: 'einstein'},
-      ]
+        { id: 1, name: 'did not explode', img: 'didnt_explode'},
+        { id: 2, name: 'eureka', img: 'eureka'},
+        { id: 3, name: 'leading lady', img: 'leading_lady'},
+        { id: 4, name: 'mathematics wizard', img: 'mathematics_wizard'},
+        { id: 5, name: 'next gen einstein', img: 'next_gen_einstein'},
+        { id: 6, name: 'the bigbang badge', img: 'the_bigbang_badge'},
+        { id: 7, name: 'you rock(et) science', img: 'you_rocket_science'},
+        { id: 8, name: 'another one', img: 'another_one'},
+      ],
+      currentBadge: 2
     };
   },
   getImgUrl(badge) {
