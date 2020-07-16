@@ -125,22 +125,28 @@ a {
   border: 0.1rem solid transparent;
 }
 
-.single-badge .active-badge-square {
+.active-badge-square {
   padding: 0.5rem;
 }
 
+/*
 .single-badge input[type="radio"]:checked + .active-badge-square {
   padding: 0.5rem;
   border: 0.1rem solid white;
 }
+*/
+.active-badge-square:hover {
+  padding: 0.5rem;
+  border: 0.1rem solid white;
+}
 
-.active-badge-circle {
+.active-badge-circle:hover {
   padding: 0.5rem;
   border: 0.1rem solid white;
   border-radius: 5rem;
 }
 
-.active-badge-triangle {
+.active-badge-triangle:hover {
   padding: 0.5rem;
   //border: 0.1rem solid transparent;
   background-image: url('/assets/img/shapes/triangle.svg');
@@ -148,7 +154,7 @@ a {
   background-repeat: no-repeat;
 }
 
-.active-badge-hexagon {
+.active-badge-hexagon:hover {
   padding: 0.5rem;
   //border: 0.1rem solid transparent;
   background-image: url('/assets/img/shapes/hexagon.svg');
