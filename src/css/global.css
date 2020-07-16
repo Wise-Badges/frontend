@@ -1,0 +1,88 @@
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../assets/fonts/montserrat-regular-webfont.woff2') format('woff2'),
+         url('../assets/fonts/montserrat-regular-webfont.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../assets/fonts/montserrat-medium-webfont.woff2') format('woff2'),
+         url('../assets/fonts/montserrat-medium-webfont.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../assets/fonts/montserrat-semibold-webfont.woff2') format('woff2'),
+         url('../assets/fonts/montserrat-semibold-webfont.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'Montserrat';
+    src: url('../assets/fonts/montserrat-bold-webfont.woff2') format('woff2'),
+         url('../assets/fonts/montserrat-bold-webfont.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+}
+
+
+h1 {
+    font-size: 5rem;
+    font-family: 'Montserrat';
+    font-weight: 700;
+    margin-bottom: 2rem;
+}
+
+
+#prim-btn {
+    font-family: 'Montserrat';
+    font-weight: 700;
+    background-color: white;
+    padding: 1rem 2rem 1rem 4rem;
+    letter-spacing: 0.2em;
+    border-radius: 2rem;
+    border: none;
+    text-transform: uppercase;
+    position: relative;
+}
+
+#prim-btn:before {
+    content: "";
+    position: absolute;
+    background-color: black;
+    width: 2rem;
+    height: 0.2rem;
+    top: 1.5rem;
+    left: 1rem;
+    border-radius: 1rem;
+}
+
+h2 {
+    font-size: 2rem;
+    font-family: 'Montserrat';
+    font-weight: 700;
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+h2:before {
+    content: "";
+    position: absolute;
+    background-color: white;
+    width: 2rem;
+    height: 0.3rem;
+    top: 1rem;
+    left: -3rem;
+    border-radius: 1rem;
+}
+
+.container {
+    max-width: 60rem;
+    margin: 0 auto;
+}

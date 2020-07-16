@@ -21,12 +21,13 @@ export default ({
 <style lang="scss">
   #nav {
     padding: 3.5rem 2.5rem 2.3rem 3rem;
-    font-family: 'montserratsemibold';
+    font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.2em;
     font-size: 14px;
     display: flex;
     justify-content: space-between;
+    margin-bottom: 12rem;
 
     a {
       color: white;
