@@ -27,6 +27,7 @@ export default ({
     font-size: 14px;
     display: flex;
     justify-content: space-between;
+    margin-bottom: 12rem;
 
     a {
       color: white;
