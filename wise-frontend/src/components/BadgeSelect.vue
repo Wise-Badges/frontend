@@ -1,11 +1,12 @@
 <template>
   <div class="badge-select">
     <h2>{{ msg }}</h2>
-    <ul id="badgelist" v-for="badge in badges" :key="badge.name">
-      <li>
+    <ul class="badges-ul">
+      <li id="badgelist" v-for="badge in badges" :key="badge.name">
         <input type="radio" v-model="currentBadge" :id="badge.name" :value="badge.id" name="currentBadge">
-        <label :for="badge.name">{{badge.name}}
+        <label class="badge-label" :for="badge.name">
           <img :src="'assets/img/' + badge.img + '.svg'" v-bind:alt="badge.img">
+          <p>{{badge.name}}</p>
         </label>
       </li>
     </ul>
@@ -60,4 +61,17 @@ a {
 .badge-select {
   margin-top: 4rem;
 }
+
+.badges-ul {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-width: 50rem;
+}
+
+.badge-label {
+
+}
+
 </style>
