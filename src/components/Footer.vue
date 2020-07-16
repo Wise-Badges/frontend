@@ -3,9 +3,9 @@
     <div class="footer__main">
       <div class="container">
         <ul class="social">
-          <li>Twitter</li>
-          <li>Instagram</li>
-          <li>Facebook</li>
+          <li><img alt="Twitter" src="/assets/img/footer/twitter.svg"/><span class="hidden">Twitter</span></li>
+          <li><img alt="Instagram" src="/assets/img/footer/instagram.svg"/><span class="hidden">Instagram</span></li>
+          <li><img alt="Facebook" src="/assets/img/footer/facebook.svg"/><span class="hidden">Facebook</span></li>
         </ul>
         <div class="info">
           <p class="info__site">WISEBadges is a project funded by the Erasmus+ project to improve gender equity in the access to STEM</p>
@@ -62,7 +62,7 @@ export default ({
       border-bottom: 1px solid $color-purpleLight;
 
       & li {
-      padding: 0 1rem;
+      padding: 0 .5rem;
       }
     }
 
@@ -79,11 +79,17 @@ export default ({
       & .info__links {
         line-height: 1.5rem;
         text-align: right;
-        transform: translateX(-1rem);
+        transform: translateX(-3rem);
 
         & p::after {
-            content: "\02192";
-            transform: translateX(1rem);
+            content: '';
+            background-image: url("/assets/img/footer/arrow.svg");
+            position: absolute;
+            background-repeat: no-repeat;
+            width: 2.5rem;
+            height: 100%;
+
+            transform: translate(1rem, .5rem);
             display: inline-block;
             vertical-align: top;
             transition: 0.4s;
