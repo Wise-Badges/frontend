@@ -4,9 +4,15 @@
     <ul class="badges-ul">
       <li class="single-badge" id="badgelist" v-for="badge in badges" :key="badge.name">
         <input class="radio-btn" type="radio" :checked="checked" v-on:change="$emit('change', $event.target.checked)" v-model="currentBadge" :id="badge.name" :value="badge.id" name="currentBadge">
-        <label class="badge-label" :for="badge.name">
+        <label v-if="currentBadge == badge.id" class="badge-label" :for="badge.name" :id="badge.name" name="currentBadge">
           <!-- <img v-bind:class="{activeBadgeHexagon: active}" :src="'assets/img/' + badge.img + '.svg'" v-bind:alt="badge.img"> -->
           <img :class="'img-stnd active-badge-' + badge.figure" :src="'assets/img/' + badge.img + '.svg'" v-bind:alt="badge.img">
+          <p class="badge-name">{{badge.name}}</p>
+        </label>
+
+        <label v-if="currentBadge !== badge.id" class="badge-label" :for="badge.name" :id="badge.name" name="currentBadge">
+          <!-- <img v-bind:class="{activeBadgeHexagon: active}" :src="'assets/img/' + badge.img + '.svg'" v-bind:alt="badge.img"> -->
+          <img :src="'assets/img/' + badge.img + '.svg'" v-bind:alt="badge.img">
           <p class="badge-name">{{badge.name}}</p>
         </label>
       </li>
@@ -129,12 +135,12 @@ a {
   padding: 0.5rem;
 }
 
-/*
-.single-badge input[type="radio"]:checked + .active-badge-square {
+
+.single-badge .radio-btn:checked + .active-badge-square {
   padding: 0.5rem;
   border: 0.1rem solid white;
 }
-*/
+
 .active-badge-square:hover {
   padding: 0.5rem;
   border: 0.1rem solid white;
