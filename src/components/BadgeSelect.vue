@@ -4,15 +4,15 @@
     <ul class="badges-ul">
       <li class="single-badge" id="badgelist" v-for="badge in badges" :key="badge.name">
         <input class="radio-btn" type="radio" :checked="checked" v-on:change="$emit('change', $event.target.checked)" v-model="currentBadge" :id="badge.name" :value="badge.id" name="currentBadge">
-        <label v-if="currentBadge == badge.id" class="badge-label" :for="badge.name" :id="badge.name" name="currentBadge">
+        <label v-if="currentBadge === badge.id" class="badge-label" :for="badge.name" :id="badge.name" name="currentBadge">
           <!-- <img v-bind:class="{activeBadgeHexagon: active}" :src="'assets/img/' + badge.img + '.svg'" v-bind:alt="badge.img"> -->
-          <img :class="'img-stnd active-badge-' + badge.figure" :src="'assets/img/' + badge.img + '.svg'" v-bind:alt="badge.img">
+          <img :class="'imgStnd active-badge-' + badge.figure" :src="'assets/img/' + badge.img + '.svg'" v-bind:alt="badge.img">
           <p class="badge-name">{{badge.name}}</p>
         </label>
 
         <label v-if="currentBadge !== badge.id" class="badge-label" :for="badge.name" :id="badge.name" name="currentBadge">
           <!-- <img v-bind:class="{activeBadgeHexagon: active}" :src="'assets/img/' + badge.img + '.svg'" v-bind:alt="badge.img"> -->
-          <img :src="'assets/img/' + badge.img + '.svg'" v-bind:alt="badge.img">
+          <img class="imgStnd" :src="'assets/img/' + badge.img + '.svg'" v-bind:alt="badge.img">
           <p class="badge-name">{{badge.name}}</p>
         </label>
       </li>
@@ -96,10 +96,6 @@ a {
   max-width: 60rem;
 }
 
-.badge-label {
-
-}
-
 .radio-btn {
   //display: none;
   opacity: 0;
@@ -126,7 +122,7 @@ a {
   opacity: 1;
 }
 
-.img-stnd {
+.imgStnd {
   padding: 0.5rem;
   border: 0.1rem solid transparent;
 }
@@ -141,18 +137,18 @@ a {
   border: 0.1rem solid white;
 }
 
-.active-badge-square:hover {
+.active-badge-square {
   padding: 0.5rem;
   border: 0.1rem solid white;
 }
 
-.active-badge-circle:hover {
+.active-badge-circle {
   padding: 0.5rem;
   border: 0.1rem solid white;
   border-radius: 5rem;
 }
 
-.active-badge-triangle:hover {
+.active-badge-triangle {
   padding: 0.5rem;
   //border: 0.1rem solid transparent;
   background-image: url('/assets/img/shapes/triangle.svg');
@@ -160,7 +156,7 @@ a {
   background-repeat: no-repeat;
 }
 
-.active-badge-hexagon:hover {
+.active-badge-hexagon {
   padding: 0.5rem;
   //border: 0.1rem solid transparent;
   background-image: url('/assets/img/shapes/hexagon.svg');
