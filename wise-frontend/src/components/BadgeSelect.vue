@@ -2,11 +2,11 @@
   <div class="badge-select">
     <h2>{{ msg }}</h2>
     <ul class="badges-ul">
-      <li id="badgelist" v-for="badge in badges" :key="badge.name">
-        <input type="radio" v-model="currentBadge" :id="badge.name" :value="badge.id" name="currentBadge">
+      <li class="single-badge" id="badgelist" v-for="badge in badges" :key="badge.name">
+        <input class="radio-btn" type="radio" v-model="currentBadge" :id="badge.name" :value="badge.id" name="currentBadge">
         <label class="badge-label" :for="badge.name">
-          <img :src="'assets/img/' + badge.img + '.svg'" v-bind:alt="badge.img">
-          <p>{{badge.name}}</p>
+          <img :class="'img-stnd active-badge-' + badge.figure" :src="'assets/img/' + badge.img + '.svg'" v-bind:alt="badge.img">
+          <p class="badge-name">{{badge.name}}</p>
         </label>
       </li>
     </ul>
@@ -22,14 +22,14 @@ export default ({
     return {
       msg: 'Choose a badge to give',
       badges: [
-        { id: 1, name: 'did not explode', img: 'didnt_explode'},
-        { id: 2, name: 'eureka', img: 'eureka'},
-        { id: 3, name: 'leading lady', img: 'leading_lady'},
-        { id: 4, name: 'mathematics wizard', img: 'mathematics_wizard'},
-        { id: 5, name: 'next gen einstein', img: 'next_gen_einstein'},
-        { id: 6, name: 'the bigbang badge', img: 'the_bigbang_badge'},
-        { id: 7, name: 'you rock(et) science', img: 'you_rocket_science'},
-        { id: 8, name: 'another one', img: 'another_one'},
+        { id: 1, name: 'Did not Explode', img: 'didnt_explode', figure: 'circle'},
+        { id: 2, name: 'Eureka', img: 'eureka', figure: 'circle'},
+        { id: 3, name: 'Leading Lady', img: 'leading_lady', figure: 'hexagon'},
+        { id: 4, name: 'Mathematics Wizard', img: 'mathematics_wizard', figure: 'square'},
+        { id: 5, name: 'Next gen Einstein', img: 'next_gen_einstein', figure: 'square'},
+        { id: 6, name: 'The Bigbang Badge', img: 'the_bigbang_badge', figure: 'hexagon'},
+        { id: 7, name: 'You rock(et) science', img: 'you_rocket_science', figure: 'triangle'},
+        { id: 8, name: 'Another one', img: 'another_one', figure: 'hexagon'},
       ],
       currentBadge: 2
     };
@@ -67,11 +67,68 @@ a {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  max-width: 50rem;
+  max-width: 60rem;
 }
 
 .badge-label {
 
+}
+
+.radio-btn {
+  display: none;
+}
+
+.badge-name {
+  max-width: 9rem;
+  justify-content: center;
+  text-align: center;
+  margin-top: 1rem;
+  line-height: 24px;
+}
+
+.single-badge {
+  font-family: 'montserratregular';
+  margin: 2rem;
+  opacity: 0.8;
+}
+
+.single-badge:hover {
+  font-family: 'montserratbold';
+  opacity: 1;
+}
+
+.img-stnd {
+  padding: 0.5rem;
+  border: 0.1rem solid transparent;
+}
+
+.active-badge-square {
+  padding: 0.5rem;
+  border: 0.1rem solid white;
+}
+
+.active-badge-circle {
+  padding: 0.5rem;
+  border: 0.1rem solid white;
+  border-radius: 5rem;
+}
+
+.active-badge-triangle {
+  padding: 0.5rem;
+  //border: 0.1rem solid transparent;
+  background-image: url('./../assets/img/shapes/triangle.svg');
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.active-badge-hexagon {
+  padding: 0.5rem;
+  //border: 0.1rem solid transparent;
+  background-image: url('./../assets/img/shapes/hexagon.svg');
+  background-size: 89%;
+  background-repeat: no-repeat;
+  background-position-x: 0.55rem;
+  background-position-y: -0.1rem;
 }
 
 </style>
