@@ -50,16 +50,17 @@ h1 {
     border: none;
     text-transform: uppercase;
     position: relative;
+    margin: 1rem;
 }
 
 #prim-btn:before {
     content: "";
     position: absolute;
     background-color: black;
-    width: 2rem;
+    width: 1.7rem;
     height: 0.2rem;
     top: 1.5rem;
-    left: 1rem;
+    left: 1.3rem;
     border-radius: 1rem;
 }
 
