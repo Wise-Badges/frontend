@@ -33,7 +33,7 @@ export default ({
   background-color: #0B1147;
   min-height: 100vh;
   height: 100%;
-  background-image: url('assets/img/bg_xl.svg');
+  background-image: url('/assets/img/bg_xl.svg');
   background-repeat: no-repeat;
   background-size: 25rem;
   background-position-x: 10rem;
