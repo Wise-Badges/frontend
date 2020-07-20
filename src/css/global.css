@@ -51,6 +51,7 @@ h1 {
     text-transform: uppercase;
     position: relative;
     transition: background-color 0.2s, color 0.2s;
+    cursor: pointer;
 }
 
 #prim-btn:before {
@@ -84,6 +85,26 @@ h1 {
 
 #prim-btn:focus {
     outline: 0.1rem solid transparent;
+}
+
+
+#sec-btn {
+    font-family: 'Montserrat';
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    background-color: transparent;
+    color: white;
+    border: transparent;
+    padding: 0.5rem;
+    border-bottom: 2px dotted white;
+    transition: font-weight 0.2s;
+    text-align: center;
+    cursor: pointer;
+}
+
+#sec-btn:hover {
+    font-weight: 700;
 }
 
 h2 {
