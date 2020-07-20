@@ -132,7 +132,7 @@ h2:before {
 }
 
 .container {
-    max-width: 60rem;
+    max-width: 100%;
     margin: 0 auto;
 }
 
@@ -155,7 +155,7 @@ h2:before {
     align-items: center;
     justify-content: center;
     align-content: center;
-    width: 65%;
+    width: 100%;
     margin: 3rem;
   }
 

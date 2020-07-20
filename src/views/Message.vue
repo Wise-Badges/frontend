@@ -18,7 +18,9 @@
           <router-link class="router-item" :to="'/receiver/' + this.$store.state.badges[$route.params.id - 1].id"><button id="sec-btn">Previous</button></router-link>
           <router-link class="router-item" :to="'/receiver/' + this.$store.state.badges[$route.params.id - 1].id + '/message'"><button id="prim-btn">Issue badge<img src="/assets/img/icons/twitterWhite.svg" alt="twitter"></button></router-link>
         </div>
+        <p class="issueBadge-info">Issue the Open Badge by sending a Tweet on Twitter.</p>
       </div>
+
     </div>
   </div>
 </template>
@@ -35,4 +37,13 @@
 .textarea-message:focus {
   outline: transparent;
 }
+
+.issueBadge-info {
+  opacity: 0.5;
+  width: 15rem;
+  text-align: right;
+  align-self: flex-end;
+  margin-top: 2rem;
+}
+
 </style>

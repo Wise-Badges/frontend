@@ -34,6 +34,10 @@ export default {
   handleSubmit: function(e) {
     this.$store.state.receiver = [];
 
+    if (this.$refs.receiver.value === '') {
+      console.log('ai empty')
+    }
+
       if(this.$store.state.pressedAtmark) {
         this.$store.state.receiver.push({receiver: this.$refs.receiver.value})
       } else {
