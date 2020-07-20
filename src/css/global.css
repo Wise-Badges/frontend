@@ -145,6 +145,7 @@ h2:before {
     justify-content: space-between;
     width: 100%;
     margin-top: 4rem;
+    align-items: center;
 }
 
 .form-container {

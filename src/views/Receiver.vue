@@ -6,7 +6,7 @@
     </div>
     <h2>Choose who you want to send the badge to</h2>
       <div class="form-container">
-        <input class="form-receiver" type="text" placeholder="test">
+        <input class="form-receiver" type="text" placeholder="@TwitterHandler">
         <div class="navigation-form">
           <router-link to="/"><button id="sec-btn">Previous</button></router-link>
           <router-link :to="'/receiver/' + this.$store.state.badges[$route.params.id - 1].id + '/message'"><button id="prim-btn">Next to 'sendwhy'</button></router-link>
@@ -23,8 +23,6 @@ export default {
 </script>
 
 <style lang="scss">
-
-
 
 .form-receiver {
   border-radius: 3rem;
