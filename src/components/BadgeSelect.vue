@@ -5,13 +5,11 @@
       <li class="single-badge" id="badgelist" v-for="badge in badges" :key="badge.name">
         <input class="radio-btn" type="radio" :checked="checked" v-on:change="$emit('change', $event.target.checked)" v-model="currentBadge" :id="badge.name" :value="badge.id" name="currentBadge">
         <label v-if="currentBadge === badge.id" class="badge-label" :for="badge.name" :id="badge.name" name="currentBadge">
-          <!-- <img v-bind:class="{activeBadgeHexagon: active}" :src="'assets/img/' + badge.img + '.svg'" v-bind:alt="badge.img"> -->
-          <img :class="'imgStnd active-badge-' + badge.figure" :src="'assets/img/' + badge.img + '.svg'" v-bind:alt="badge.img">
+          <img :class="'imgStnd active-badge-' + badge.figure" :src="'assets/img/badges/' + badge.img + '.svg'" v-bind:alt="badge.img">
           <p class="badge-name">{{badge.name}}</p>
         </label>
 
         <label v-if="currentBadge !== badge.id" class="badge-label" :for="badge.name" :id="badge.name" name="currentBadge">
-          <!-- <img v-bind:class="{activeBadgeHexagon: active}" :src="'assets/img/' + badge.img + '.svg'" v-bind:alt="badge.img"> -->
           <img class="imgStnd" :src="'assets/img/badges/' + badge.img + '.svg'" v-bind:alt="badge.img">
           <p class="badge-name">{{badge.name}}</p>
         </label>
