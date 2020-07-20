@@ -1,5 +1,9 @@
 <template>
   <div class="maxi-container">
+    <div>
+      <img :src="'/assets/img/' + this.$store.state.badges[$route.params.id - 1].img + '.svg'" v-bind:alt="this.$store.state.badges[$route.params.id - 1].img">
+      <p>{{this.$store.state.badges[$route.params.id - 1].name}}</p>
+    </div>
     <h2>Choose who you want to send the badge to</h2>
       <div class="form-container">
         <input class="form-receiver" type="text" placeholder="test">
