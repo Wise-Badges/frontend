@@ -6,11 +6,11 @@
     </div>
     <h2>Choose who you want to send the badge to</h2>
       <div class="form-container">
-        <input class="form-receiver" type="text" placeholder="@TwitterHandler">
-        <div class="navigation-form">
-          <router-link class="router-item" to="/"><button id="sec-btn">Previous</button></router-link>
-          <router-link class="router-item" :to="'/receiver/' + this.$store.state.badges[$route.params.id - 1].id + '/message'"><button id="prim-btn">Next to 'sendwhy'</button></router-link>
-        </div>
+          <input ref="receiver" class="form-receiver" type="text" placeholder="@TwitterHandler" v-model="twitterhandler">
+          <div class="navigation-form">
+            <router-link id="sec-btn" class="router-item" to="/">Previous</router-link>
+            <router-link class="router-item" :to="'/receiver/' + this.$store.state.badges[$route.params.id - 1].id + '/message'"><button id="prim-btn" v-on:click="handleSubmit">Next to 'sendwhy'</button></router-link>
+          </div>
       </div>
   </div>
 </template>
@@ -18,7 +18,22 @@
 
 <script>
 export default {
-  name: 'receiver'
+  name: 'receiver',
+  data() {
+    return {
+      twitterhandler: []
+    }
+
+  },
+  methods: {
+  handleSubmit: function() {
+    this.$store.state.receiver = [];
+    //this.$store.state.receiver.push({receiver: this.$refs.receiver.value})
+    //if (this.$refs.receiver.value =)
+    this.$store.state.receiver.push({receiver: '@' + this.$refs.receiver.value})
+    console.log(this.$store.state.receiver)
+  }
+  }
 }
 </script>
 
@@ -38,30 +53,5 @@ export default {
 
 .form-receiver:focus {
   outline: 0.1rem solid transparent;
-}
-
-.data-selected-container {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-}
-
-.selectedBadge-name {
-  letter-spacing: 0.2em;
-  font-weight: 700;
-  text-transform: uppercase;
-  margin-left: 2rem;
-  max-width: 14rem;
-}
-
-
-.selectedBadge-container {
-  background-image: url('/assets/img/flag.svg');
-  background-repeat: no-repeat;
-  width: 30rem;
-  height: 7rem;
-  background-position-x: 7rem;
-  margin-bottom: 4rem;
 }
 </style>

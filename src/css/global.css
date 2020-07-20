@@ -172,3 +172,36 @@ h2:before {
     text-decoration: none;
     margin-top: 3rem;
   }
+
+
+.data-selected-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.selectedBadge-container {
+    background-image: url('/assets/img/flag.svg');
+    background-repeat: no-repeat;
+    width: 30rem;
+    height: 7rem;
+    background-position-x: 7rem;
+    margin-bottom: 4rem;
+  }
+
+  .selectedBadge-name {
+    letter-spacing: 0.2em;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-left: 2rem;
+    max-width: 14rem;
+  }
+
+  .selectedBadge-receiver {
+    letter-spacing: 0.1rem;
+    font-weight: 400;
+    margin-left: 2rem;
+    max-width: 14rem;
+  }
+  
