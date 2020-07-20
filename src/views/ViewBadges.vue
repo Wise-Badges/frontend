@@ -6,7 +6,8 @@
         <img class="badge__img" :src="'assets/img/' + badge.img + '.svg'" v-bind:alt="badge.img">
         <p class="badge__title">{{badge.name}}</p>
         <p class="badge__amount">2.340</p>
-        
+        <router-link class="router-item" badge="badge" :to="'/receiver/' + badge.id" id="prim-btn">award badge</router-link>
+        <router-link class="router-item" to="/" id="sec-btn">View earners</router-link>
       </li>
     </ul>
   </div>
@@ -50,16 +51,15 @@ export default ({
 
   .badges {
     display: grid;
-    grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+    grid-template: repeat(3, auto) / repeat(3, 1fr);
     grid-gap: 1.875rem;
   }
 
   .badge {
     background-color: $color-purpleDark;
-    padding: 2rem;
+    padding: 2rem 2rem 2.5rem;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
 
     & .badge__img {
