@@ -54,20 +54,4 @@ export default {
     margin-top: 1rem;
     margin-left: auto;
   }
-
-
-  /* .title__wrapper::before {
-    position: absolute;
-    top: 0;
-    content: '';
-    height: 100%;
-    width: 100%;
-    background-image: url('/assets/img/bg-banner.svg');
-    background-repeat: no-repeat;
-    background-size: 30rem;
-    left: calc((100vw - 60rem)/2);
-
-    z-index: 1;
-  } */
-
 </style>
