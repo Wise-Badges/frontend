@@ -2,7 +2,9 @@
 <!-- eslint-disable -->
   <div id="app" :class="{ 'home': $route.path==='/' }">
     <Header />
-    <router-view/>
+    <div class="container">
+      <router-view/>
+    </div>
     <Footer />
   </div>
 </template>
