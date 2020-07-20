@@ -16,7 +16,8 @@ export default new Vuex.Store({
       { id: 7, name: 'You rock(et) science', img: 'you_rocket_science', figure: 'triangle'},
       { id: 8, name: 'Another one', img: 'another_one', figure: 'hexagon'},
     ],
-    receiver: []
+    receiver: [],
+    pressedAtmark: false
   },
   mutations: {
     SET_BADGES(state, badges) {
