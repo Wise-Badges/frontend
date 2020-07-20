@@ -8,7 +8,6 @@
       Celebrate an accomplishment of a female STEM student? Support them by sending a WiseBadge, make them smile and empower them.
       Yes, you can!</p>
     <BadgeSelect msg="Choose a badge to give"/>
-    <button id="prim-btn">next</button>
   </div>
 </template>
 
