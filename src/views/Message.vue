@@ -6,7 +6,7 @@
       <div>
         <p class="selectedBadge-name">{{this.$store.state.badges[$route.params.id - 1].name}}</p>
         <div class="selectedBadge-receiver">
-          <p v-if="this.$store.state.receiver[0]">{{this.$store.state.receiver[0].receiver}}</p>
+          <p v-if="this.$store.state.receiver[0]">To {{this.$store.state.receiver[0].receiver}}</p>
           <p v-if="this.$store.state.receiver[0] == undefined">Refreshing is forbidden my dear</p>
         </div>
       </div>
