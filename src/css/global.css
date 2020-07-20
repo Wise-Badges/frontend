@@ -145,6 +145,7 @@ h2:before {
     justify-content: space-between;
     width: 100%;
     margin-top: 4rem;
+    align-items: center;
 }
 
 .form-container {
@@ -161,4 +162,13 @@ h2:before {
     display: flex;
     flex-direction: column;
     align-items: center;
+  }
+
+.router-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    margin-top: 3rem;
   }
