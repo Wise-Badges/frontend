@@ -135,6 +135,7 @@ a {
 .single-badge:hover {
   font-weight: 400;
   opacity: 1;
+  cursor: pointer;
 }
 
 .imgStnd {
