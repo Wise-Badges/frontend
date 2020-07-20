@@ -44,7 +44,7 @@ h1 {
     font-family: 'Montserrat';
     font-weight: 700;
     background-color: white;
-    padding: 1rem 2rem 1rem 3rem;
+    padding: 1rem 2rem 1rem 4rem;
     letter-spacing: 0.2em;
     border-radius: 2rem;
     border: none;
@@ -132,7 +132,7 @@ h2:before {
 }
 
 .container {
-    max-width: 100%;
+    max-width: 60rem;
     margin: 0 auto;
 }
 
@@ -155,7 +155,7 @@ h2:before {
     align-items: center;
     justify-content: center;
     align-content: center;
-    width: 100%;
+    width: 65%;
     margin: 3rem;
   }
 
