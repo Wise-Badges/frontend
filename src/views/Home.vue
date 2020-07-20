@@ -1,6 +1,6 @@
 <template>
 <!-- eslint-disable max-len -->
-  <div class="container">
+  <div>
     <div class="title__wrapper">
       <div class="title">
         <p class="title__wise">WISE</p>
