@@ -15,7 +15,7 @@
         </label>
       </li>
     </ul>
-    <router-link class="router-item" badge="badge" :to="'/receiver/' + currentBadge"><button id="prim-btn">next {{currentBadge}}</button></router-link>
+    <router-link class="router-item" badge="badge" :to="'/receiver/' + currentBadge" id="prim-btn">next {{currentBadge}}</router-link>
   </div>
 </template>
 
@@ -84,6 +84,12 @@ a {
 
 .badge-select {
   margin-top: 8rem;
+  display: flex;
+  flex-direction: column;
+
+  & #prim-btn {
+    align-self: flex-end;
+  }
 }
 
 .badges-ul {
