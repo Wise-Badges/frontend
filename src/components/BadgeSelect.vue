@@ -12,7 +12,7 @@
 
         <label v-if="currentBadge !== badge.id" class="badge-label" :for="badge.name" :id="badge.name" name="currentBadge">
           <!-- <img v-bind:class="{activeBadgeHexagon: active}" :src="'assets/img/' + badge.img + '.svg'" v-bind:alt="badge.img"> -->
-          <img class="imgStnd" :src="'assets/img/' + badge.img + '.svg'" v-bind:alt="badge.img">
+          <img class="imgStnd" :src="'assets/img/badges/' + badge.img + '.svg'" v-bind:alt="badge.img">
           <p class="badge-name">{{badge.name}}</p>
         </label>
       </li>
@@ -87,16 +87,6 @@ a {
 .badge-select {
   margin-top: 8rem;
 }
-
-.router-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
-  margin-top: 3rem;
-}
-
 
 .badges-ul {
   /* display: flex;

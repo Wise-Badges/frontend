@@ -163,3 +163,12 @@ h2:before {
     flex-direction: column;
     align-items: center;
   }
+
+.router-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    margin-top: 3rem;
+  }

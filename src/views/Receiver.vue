@@ -1,15 +1,15 @@
 <template>
   <div class="maxi-form-container">
     <div class="data-selected-container selectedBadge-container">
-      <img :src="'/assets/img/' + this.$store.state.badges[$route.params.id - 1].img + '.svg'" v-bind:alt="this.$store.state.badges[$route.params.id - 1].img">
+      <img :src="'/assets/img/badges/' + this.$store.state.badges[$route.params.id - 1].img + '.svg'" v-bind:alt="this.$store.state.badges[$route.params.id - 1].img">
       <p class="selectedBadge-name">{{this.$store.state.badges[$route.params.id - 1].name}}</p>
     </div>
     <h2>Choose who you want to send the badge to</h2>
       <div class="form-container">
         <input class="form-receiver" type="text" placeholder="@TwitterHandler">
         <div class="navigation-form">
-          <router-link to="/"><button id="sec-btn">Previous</button></router-link>
-          <router-link :to="'/receiver/' + this.$store.state.badges[$route.params.id - 1].id + '/message'"><button id="prim-btn">Next to 'sendwhy'</button></router-link>
+          <router-link class="router-item" to="/"><button id="sec-btn">Previous</button></router-link>
+          <router-link class="router-item" :to="'/receiver/' + this.$store.state.badges[$route.params.id - 1].id + '/message'"><button id="prim-btn">Next to 'sendwhy'</button></router-link>
         </div>
       </div>
   </div>
