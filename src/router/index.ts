@@ -33,6 +33,11 @@ const routes: Array<RouteConfig> = [
     name: 'Receiver',
     component: () => import(/* webpackChunkName: "about" */ '../views/Receiver.vue'),
   },
+  {
+    path: '/receiver/:id/message',
+    name: 'Message',
+    component: () => import(/* webpackChunkName: "about" */ '../views/Message.vue'),
+  },
 ];
 
 const router = new VueRouter({

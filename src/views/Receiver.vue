@@ -1,11 +1,11 @@
 <template>
   <div class="maxi-container">
-    <h2>Describe why this person earned this badge</h2>
+    <h2>Choose who you want to send the badge to</h2>
       <div class="form-container">
-        <input class="form-receiver" type="text">
+        <input class="form-receiver" type="text" placeholder="test">
         <div class="navigation-form">
           <router-link to="/"><button id="sec-btn">Previous</button></router-link>
-          <router-link to="/receiver/message"><button id="prim-btn">Next to 'sendwhy'</button></router-link>
+          <router-link :to="'/receiver/' + id + '/message'"><button id="prim-btn">Next to 'sendwhy'</button></router-link>
         </div>
       </div>
   </div>
@@ -47,8 +47,12 @@ export default {
   border-radius: 3rem;
   border: 0.1rem solid transparent;
   height: 1rem;
-  width: 100%;
-  padding: 1rem;
+  width: calc(100% - 4rem);
+  padding: 1rem 2rem;
+  color: #7C6DF3;
+  letter-spacing: 0.05rem;
+  font-size: 1rem;
+
 }
 
 .form-receiver:focus {
