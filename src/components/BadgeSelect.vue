@@ -103,7 +103,6 @@ a {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  max-width: 60rem;
 }
 
 .radio-btn {
