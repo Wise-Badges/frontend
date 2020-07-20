@@ -29,7 +29,7 @@ export default ({
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: white;
-  line-height: 1.5;
+  line-height: 1.7;
   background-color: #0B1147;
   min-height: 100vh;
   height: 100%;
