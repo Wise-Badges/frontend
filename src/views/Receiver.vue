@@ -9,7 +9,7 @@
           <input ref="receiver" class="form-receiver" type="text" placeholder="@TwitterHandler" v-model="twitterhandler">
           <div class="navigation-form">
             <router-link id="sec-btn" class="router-item" to="/">Previous</router-link>
-            <router-link class="router-item" :to="'/receiver/' + this.$store.state.badges[$route.params.id - 1].id + '/message'"><button id="prim-btn" v-on:click="handleSubmit">Next to 'sendwhy'</button></router-link>
+            <router-link id="prim-btn" class="router-item" :to="'/receiver/' + this.$store.state.badges[$route.params.id - 1].id + '/message'"><span v-on:click="handleSubmit"> Next to 'sendwhy'</span></router-link>
           </div>
       </div>
   </div>
