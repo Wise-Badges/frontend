@@ -1,5 +1,5 @@
 <template>
-  <div class="maxi-container">
+  <div class="maxi-form-container">
     <div class="data-selected-container selectedBadge-container">
       <img :src="'/assets/img/' + this.$store.state.badges[$route.params.id - 1].img + '.svg'" v-bind:alt="this.$store.state.badges[$route.params.id - 1].img">
       <p class="selectedBadge-name">{{this.$store.state.badges[$route.params.id - 1].name}}</p>
@@ -9,7 +9,7 @@
         <input class="form-receiver" type="text" placeholder="test">
         <div class="navigation-form">
           <router-link to="/"><button id="sec-btn">Previous</button></router-link>
-          <router-link :to="'/receiver/' + id + '/message'"><button id="prim-btn">Next to 'sendwhy'</button></router-link>
+          <router-link :to="'/receiver/' + this.$store.state.badges[$route.params.id - 1].id + '/message'"><button id="prim-btn">Next to 'sendwhy'</button></router-link>
         </div>
       </div>
   </div>
@@ -24,28 +24,7 @@ export default {
 
 <style lang="scss">
 
-.navigation-form {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  margin-top: 4rem;
-}
 
-.maxi-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.form-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  align-content: center;
-  width: 65%;
-  margin: 3rem;
-}
 
 .form-receiver {
   border-radius: 3rem;
