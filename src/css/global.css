@@ -52,6 +52,10 @@ h1 {
     position: relative;
     transition: background-color 0.2s, color 0.2s;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
 }
 
 #prim-btn:before {
@@ -60,7 +64,7 @@ h1 {
     background-color: black;
     width: 2rem;
     height: 0.2rem;
-    top: 1.5rem;
+    top: 50%;
     left: 1rem;
     border-radius: 1rem;
     transition: 0.2s background-color;
@@ -78,7 +82,7 @@ h1 {
     background-color: white;
     width: 2rem;
     height: 0.2rem;
-    top: 1.5rem;
+    top: 50%;
     left: 1rem;
     border-radius: 1rem;
 }
@@ -121,7 +125,7 @@ h2:before {
     background-color: white;
     width: 2rem;
     height: 0.3rem;
-    top: 1rem;
+    top: 50%;
     left: -3rem;
     border-radius: 1rem;
 }
@@ -134,3 +138,27 @@ h2:before {
 .hidden {
     display: none;
 }
+
+
+.navigation-form {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 4rem;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+    width: 65%;
+    margin: 3rem;
+  }
+
+  .maxi-form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
