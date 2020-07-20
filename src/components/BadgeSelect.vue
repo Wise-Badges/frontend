@@ -85,7 +85,7 @@ a {
 }
 
 .badge-select {
-  margin-top: 4rem;
+  margin-top: 8rem;
 }
 
 .router-item {
@@ -99,10 +99,14 @@ a {
 
 
 .badges-ul {
-  display: flex;
+  /* display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: center; */
+  margin: 4rem 0 6rem;
+  display: grid;
+  grid-template: repeat(2, 1fr) / repeat(4, 1fr);
+  grid-gap: 3rem 1.87rem;
 }
 
 .radio-btn {
@@ -122,7 +126,7 @@ a {
 
 .single-badge {
   font-weight: 400;
-  margin: 2rem;
+  /* margin: 2rem; */
   opacity: 0.8;
   transition: 0.2s opacity;
 
