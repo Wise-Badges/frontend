@@ -115,6 +115,8 @@ a {
   font-weight: 400;
   margin: 2rem;
   opacity: 0.8;
+  transition: 0.2s opacity;
+
 }
 
 .single-badge:hover {
@@ -164,6 +166,13 @@ a {
   background-repeat: no-repeat;
   background-position-x: 0.55rem;
   background-position-y: -0.1rem;
+}
+
+.badge-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 /*
