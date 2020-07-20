@@ -65,6 +65,14 @@ export default ({
     & .badge__img {
       margin-bottom: 2rem;
     }
+
+    & #prim-btn {
+      margin-top: 2.5rem;
+    }
+
+    & #sec-btn {
+      margin-top: .5rem;
+    }
   }
 
   .badge__title {
