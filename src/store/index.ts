@@ -7,18 +7,21 @@ Vue.use(Vuex);
 export default new Vuex.Store({
   state: {
     badges: [
-      { id: 1, name: 'Did not Explode', img: 'didnt_explode', figure: 'circle'},
-      { id: 2, name: 'Eureka', img: 'eureka', figure: 'circle'},
-      { id: 3, name: 'Leading Lady', img: 'leading_lady', figure: 'hexagon'},
-      { id: 4, name: 'Mathematics Wizard', img: 'mathematics_wizard', figure: 'square'},
-      { id: 5, name: 'Next gen Einstein', img: 'next_gen_einstein', figure: 'square'},
-      { id: 6, name: 'The Bigbang Badge', img: 'the_bigbang_badge', figure: 'hexagon'},
-      { id: 7, name: 'You rock(et) science', img: 'you_rocket_science', figure: 'triangle'},
-      { id: 8, name: 'Another one', img: 'another_one', figure: 'hexagon'},
+      { id: 1, name: 'Did not Explode', img: 'didnt_explode', figure: 'circle', hashtag: '%23didntexplode'},
+      { id: 2, name: 'Eureka', img: 'eureka', figure: 'circle', hashtag: '%23eureka'},
+      { id: 3, name: 'Leading Lady', img: 'leading_lady', figure: 'hexagon', hashtag: '%23leadinglady'},
+      { id: 4, name: 'Mathematics Wizard', img: 'mathematics_wizard', figure: 'square', hashtag: '%23mathematicswizard'},
+      { id: 5, name: 'Next gen Einstein', img: 'next_gen_einstein', figure: 'square', hashtag: '%23nextgeneinstein'},
+      { id: 6, name: 'The Bigbang Badge', img: 'the_bigbang_badge', figure: 'hexagon', hashtag: '%23thebigbangbadge'},
+      { id: 7, name: 'You rock(et) science', img: 'you_rocket_science', figure: 'triangle', hashtag: '%23yourockscience'},
+      { id: 8, name: 'Another one', img: 'another_one', figure: 'hexagon', hashtag: '%23anotherone'},
     ],
-    receiver: [],
+    receiver: [{ receiver: '' }],
+    message: [{message: ''}],
     pressedAtmark: false,
     validField: false,
+    twitterString: 'https://twitter.com/intent/tweet?text=Hey'
+    // twitterString: 'https://twitter.com/intent/tweet?text=This%20is%20an%20example%20of%20a%20pre-written%20tweet-%20don%27t%20forget%20that%20it%20needs%20to%20be%20less%20than%20280%20characters'
   },
   mutations: {
     SET_BADGES(state, badges) {

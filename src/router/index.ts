@@ -34,9 +34,14 @@ const routes: Array<RouteConfig> = [
     component: () => import(/* webpackChunkName: "about" */ '../views/Receiver.vue'),
   },
   {
-    path: '/receiver/:id/message',
+    path: '/receiver/:id/message/:receiver',
     name: 'Message',
     component: () => import(/* webpackChunkName: "about" */ '../views/Message.vue'),
+  },
+  {
+    path: '/receiver/:id/message/:receiver/done/:message',
+    name: 'Done',
+    component: () => import(/* webpackChunkName: "about" */ '../views/Done.vue'),
   },
 ];
 
