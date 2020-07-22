@@ -15,11 +15,14 @@
       <div class="form-container">
         <textarea class="textarea-message" ref="message" name="personalmessage" id="1" cols="30" rows="10" placeholder="Type your personal message"></textarea>
         <div class="navigation-form">
-          <router-link class="router-item" :to="'/receiver/' + this.$store.state.badges[$route.params.id - 1].id"><button id="sec-btn">Previous</button></router-link>
+          <router-link class="router-item" :to="'/receiver/' + this.$store.state.badges[$route.params.id - 1].id"><span id="sec-btn">Previous</span></router-link>
+
+
+          <!-- <a target="_black" :href="this.$store.state.twitterString + '%20@WiseBadges' + ',%20issue%20a%20'  + this.$store.state.badges[$route.params.id - 1].hashtag + '%20to%20' + $route.params.receiver + '%20with%20this%20message:%20' + $route.params.message" >ISSUE BADGE</a> -->
+
           <router-link class="router-item" :to="this.$store.state.validField ? '/receiver/' + this.$store.state.badges[$route.params.id - 1].id + '/message/' + this.$store.state.receiver[0].receiver + '/done/' + this.$store.state.message[0].message : '/receiver/' + this.$store.state.badges[$route.params.id - 1].id + '/message/' + this.$store.state.receiver[0].receiver">
             <span v-on:click="handleSubmitMessage" id="prim-btn">Issue badge<img class="img-twitter" src="/assets/img/icons/twitterWhite.svg" alt="twitter"></span>
           </router-link>
-          <!-- <router-link class="router-item" :to=" this.$store.state.validField ? '/receiver/' + this.$store.state.badges[$route.params.id - 1].id + '/message/' + this.$store.state.receiver[0].receiver + '/done' : '/receiver/' + this.$store.state.badges[$route.params.id - 1].id"><button v-on:click="handleSubmitMessage" id="prim-btn">Issue badge<img class="img-twitter" src="/assets/img/icons/twitterWhite.svg" alt="twitter"></button></router-link> -->
         </div>
         <p class="issueBadge-info">Issue the Open Badge by sending a Tweet on Twitter.</p>
       </div>
@@ -44,6 +47,12 @@
         this.$store.state.message.push({message: this.$refs.message.value})
 
         console.log(this.$store.state.message)
+
+        //let routeData = this.$router.resolve({name: 'https://www.google.be', query: {data: "www.google.be"}});
+
+        //let personalRoute = this.$store.state.twitterString + '%20@WiseBadges' + ',%20issue%20a%20'  + this.$store.state.badges[$route.params.id - 1].hashtag + '%20to%20' + $route.params.receiver + '%20with%20this%20message:%20' + $route.params.message
+        //console.log(personalRoute);
+        //window.open('www.google.be');
       }
     }
   }
