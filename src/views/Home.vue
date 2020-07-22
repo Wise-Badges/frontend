@@ -1,8 +1,7 @@
 <template>
 <!-- eslint-disable max-len -->
   <div>
-    <div class="title__wrapper">
-      <div class="title">
+      <div class="title__wrapper">
         <p class="title__wise">WISE</p>
         <p class="title__info">Women <br>
           In <br>
@@ -12,7 +11,6 @@
       </div>
       <p class="intro">Do you know a powerful woman who has incredible self-taught skills? Do you want to praise a colleague, freelancer, …?
       Celebrate an accomplishment of a female STEM student? Support them by sending a WiseBadge, make them smile and empower them. Yes, you can!</p>
-    </div>
     <BadgeSelect msg="Choose a badge to give"/>
   </div>
 </template>
@@ -30,7 +28,7 @@ export default {
 </script>
 
 <style lang="scss">
-.title {
+.title__wrapper {
     display: flex;
     justify-content: center;
     align-items: center;
