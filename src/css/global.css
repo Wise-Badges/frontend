@@ -170,11 +170,6 @@ h2:before {
     align-items: center;
     justify-content: center;
     text-decoration: none;
-<<<<<<< HEAD
-    margin-top: 3rem;
-    opacity: 1;
-=======
->>>>>>> f02f961b3ecff91f4a8522a7d2a96df144901dd4
   }
 
   .router-item-invalid {
