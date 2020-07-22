@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div>
     <h1>View badges</h1>
     <ul class="badges">
       <li class="badge"v-for="badge in badges" :key="badge.name">
@@ -14,7 +14,6 @@
 </template>
 
 <script>
-
 export default ({
   data() {
     return {
