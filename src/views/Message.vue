@@ -13,15 +13,18 @@
     </div>
     <h2 class="subtitle">Describe why this person earned this badge</h2>
       <div class="form-container">
-        <textarea class="textarea-message" ref="message" name="personalmessage" id="1" cols="30" rows="10" placeholder="Type your personal message"></textarea>
+        <textarea class="textarea-message" ref="message" name="message" id="1" cols="30" rows="10" placeholder="Type your personal message"></textarea>
         <div class="navigation-form">
           <router-link class="router-item" :to="'/receiver/' + this.$store.state.badges[$route.params.id - 1].id"><span id="sec-btn">Previous</span></router-link>
-
-
           <!-- <a target="_black" :href="this.$store.state.twitterString + '%20@WiseBadges' + ',%20issue%20a%20'  + this.$store.state.badges[$route.params.id - 1].hashtag + '%20to%20' + $route.params.receiver + '%20with%20this%20message:%20' + $route.params.message" >ISSUE BADGE</a> -->
-
-          <router-link class="router-item" :to="this.$store.state.validField ? '/receiver/' + this.$store.state.badges[$route.params.id - 1].id + '/message/' + this.$store.state.receiver[0].receiver + '/done/' + this.$store.state.message[0].message : '/receiver/' + this.$store.state.badges[$route.params.id - 1].id + '/message/' + this.$store.state.receiver[0].receiver">
-            <span v-on:click="handleSubmitMessage" id="prim-btn">Issue badge<img class="img-twitter" src="/assets/img/icons/twitterWhite.svg" alt="twitter"></span>
+            <div class="bol-container">
+              <div class="bol"></div>
+              <div class="bol"></div>
+              <div class="bol bol-active"></div>
+              <div class="bol"></div>
+            </div>
+          <router-link :class="this.$store.state.validField ? 'router-item' : 'router-item-invalid'" :to="this.$store.state.validMessage ? '/receiver/' + this.$store.state.badges[$route.params.id - 1].id + '/message/' + this.$store.state.receiver[0].receiver + '/done/' + this.$store.state.message[0].message : '/receiver/' + this.$store.state.badges[$route.params.id - 1].id + '/message/' + this.$store.state.receiver[0].receiver">
+            <span :id="this.$store.state.validMessage ? 'prim-btn' : 'prim-btn-disabled'" class="twitter-btn" v-on:click="handleSubmitMessage">Issue badge</span>
           </router-link>
         </div>
         <p class="issueBadge-info">Issue the Open Badge by sending a Tweet on Twitter.</p>
@@ -33,15 +36,19 @@
 <script>
   export default {
     name: 'message',
+    created() {
+      console.log(this.$store.state.validMessage)
+    },
     methods: {
       handleSubmitMessage: function(e) {
         this.$store.state.message = [];
 
         if (this.$refs.message.value === '') {
           console.log('ai empty');
-          this.$store.state.validField = false;
+          this.$store.state.validMessage = false;
         } else {
-          this.$store.state.validField = true;
+          console.log('not empty');
+          this.$store.state.validMessage = true;
         }
 
         this.$store.state.message.push({message: this.$refs.message.value})
@@ -82,6 +89,21 @@
 
 .img-twitter {
   margin-left: 1rem;
+}
+
+.twitter-btn {
+  background-image: url('/assets/img/icons/twitterPurple.svg');
+  background-repeat: no-repeat;
+  background-position-x: right;
+  background-position-y: center;
+  transition: background-image 0.2s;
+}
+
+.twitter-btn:hover {
+  background-image: url('/assets/img/icons/twitterWhite.svg');
+  background-repeat: no-repeat;
+  background-position-x: right;
+  background-position-y: center;
 }
 
 </style>

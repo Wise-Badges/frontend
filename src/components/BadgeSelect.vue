@@ -15,7 +15,7 @@
         </label>
       </li>
     </ul>
-    <router-link class="router-item" badge="badge" :to="'/receiver/' + currentBadge" id="prim-btn">next {{currentBadge}}</router-link>
+    <router-link class="router-item" badge="badge" :to="'/receiver/' + currentBadge" id="prim-btn">next</router-link>
   </div>
 </template>
 
@@ -77,9 +77,6 @@ ul {
 li {
   display: inline-block;
   margin: 0 10px;
-}
-a {
-  color: #42b983;
 }
 
 .badge-select {
