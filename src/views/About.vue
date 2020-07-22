@@ -1,6 +1,6 @@
 <template>
   <article>
-    <h1>About</h1>
+    <h1 class="title">About</h1>
 
     <div class="about">
       <section class="about__info">
