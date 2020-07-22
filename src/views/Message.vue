@@ -17,6 +17,12 @@
         <div class="navigation-form">
           <router-link class="router-item" :to="'/receiver/' + this.$store.state.badges[$route.params.id - 1].id"><span id="sec-btn">Previous</span></router-link>
           <!-- <a target="_black" :href="this.$store.state.twitterString + '%20@WiseBadges' + ',%20issue%20a%20'  + this.$store.state.badges[$route.params.id - 1].hashtag + '%20to%20' + $route.params.receiver + '%20with%20this%20message:%20' + $route.params.message" >ISSUE BADGE</a> -->
+            <div class="bol-container">
+              <div class="bol"></div>
+              <div class="bol"></div>
+              <div class="bol bol-active"></div>
+              <div class="bol"></div>
+            </div>
           <router-link :class="this.$store.state.validField ? 'router-item' : 'router-item-invalid'" :to="this.$store.state.validMessage ? '/receiver/' + this.$store.state.badges[$route.params.id - 1].id + '/message/' + this.$store.state.receiver[0].receiver + '/done/' + this.$store.state.message[0].message : '/receiver/' + this.$store.state.badges[$route.params.id - 1].id + '/message/' + this.$store.state.receiver[0].receiver">
             <span :id="this.$store.state.validMessage ? 'prim-btn' : 'prim-btn-disabled'" class="twitter-btn" v-on:click="handleSubmitMessage">Issue badge</span>
           </router-link>

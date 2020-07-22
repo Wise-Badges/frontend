@@ -9,6 +9,12 @@
 
   <router-link id="prim-btn" to="/community">SEE OTHERS WHO RECEIVED THIS BADGE</router-link>
   <router-link class="router-item" id="sec-btn" :to="'/receiver/' + this.$store.state.badges[$route.params.id - 1].id + '/message/' + this.$store.state.receiver[0].receiver">Go back</router-link>
+  <div class="bol-container">
+    <div class="bol"></div>
+    <div class="bol"></div>
+    <div class="bol"></div>
+    <div class="bol bol-active"></div>
+  </div>
 </div>
 </template>
 
