@@ -1,5 +1,5 @@
 <template>
-  <article>
+  <div>
     <h1 class="title">View badges</h1>
     <ul class="badges">
       <li class="badge"v-for="badge in badges" :key="badge.name">
@@ -12,7 +12,7 @@
         </section>
       </li>
     </ul>
-  </article>
+  </div>
 </template>
 
 <script>

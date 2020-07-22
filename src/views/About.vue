@@ -1,5 +1,5 @@
 <template>
-  <article>
+  <div>
     <h1 class="title">About</h1>
 
     <div class="about">
@@ -38,7 +38,7 @@
       </ul>
     </div>
 
-  </article>
+  </div>
 </template>
 
 <script>
