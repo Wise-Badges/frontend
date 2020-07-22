@@ -25,7 +25,7 @@
 
     <div class="partners">
       <div>
-        <h2>Partners</h2>
+        <h2 class="subtitle">Partners</h2>
         <p>The participants are a consortium of non-formal and formal science and technologies education providers:</p>
         <ol>
           <li v-for="partner in partners" :key="partner.name">{{ partner.name }}</li>
