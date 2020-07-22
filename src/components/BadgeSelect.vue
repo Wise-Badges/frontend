@@ -1,6 +1,6 @@
 <template>
   <div class="badge-select">
-    <h2>{{ msg }}</h2>
+    <h2 class="subtitle">{{ msg }}</h2>
     <ul class="badges-ul">
       <li class="single-badge" id="badgelist" v-for="badge in badges" :key="badge.name">
         <input class="radio-btn" type="radio" :checked="checked" v-on:change="$emit('change', $event.target.checked)" v-model="currentBadge" :id="badge.name" :value="badge.id" name="currentBadge">

@@ -11,7 +11,7 @@
         </div>
       </div>
     </div>
-    <h2>Describe why this person earned this badge</h2>
+    <h2 class="subtitle">Describe why this person earned this badge</h2>
       <div class="form-container">
         <textarea class="textarea-message" ref="message" name="message" id="1" cols="30" rows="10" placeholder="Type your personal message"></textarea>
         <div class="navigation-form">

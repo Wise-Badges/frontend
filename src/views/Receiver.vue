@@ -4,7 +4,7 @@
       <img :src="'/assets/img/badges/' + this.$store.state.badges[$route.params.id - 1].img + '.svg'" v-bind:alt="this.$store.state.badges[$route.params.id - 1].img">
       <p class="selectedBadge-name">{{this.$store.state.badges[$route.params.id - 1].name}}</p>
     </div>
-    <h2>Choose who you want to send the badge to</h2>
+    <h2 class="subtitle">Choose who you want to send the badge to</h2>
       <div class="form-container">
           <input v-on:keyup="checkCharacter" ref="receiver" class="form-receiver" type="text" placeholder="@TwitterHandler" v-model="twitterhandler">
           <div class="navigation-form">

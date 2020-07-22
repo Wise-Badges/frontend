@@ -1,13 +1,15 @@
 <template>
   <div>
-    <h1>View badges</h1>
+    <h1 class="title">View badges</h1>
     <ul class="badges">
       <li class="badge"v-for="badge in badges" :key="badge.name">
-         <img class="badge__img" :src="'assets/img/badges/' + badge.img + '.svg'" v-bind:alt="badge.img">
-        <p class="badge__title">{{badge.name}}</p>
-        <p class="badge__amount">2.340</p>
-        <router-link class="router-item" badge="badge" :to="'/receiver/' + badge.id" id="prim-btn">award badge</router-link>
-        <router-link class="router-item" to="/" id="sec-btn">View earners</router-link>
+        <section>
+          <img class="badge__img" :src="'assets/img/badges/' + badge.img + '.svg'" v-bind:alt="badge.img">
+          <h2 class="badge__title">{{badge.name}}</h2>
+          <p class="badge__amount">2.340</p>
+          <router-link class="router-item" badge="badge" :to="'/receiver/' + badge.id" id="prim-btn">award badge</router-link>
+          <router-link class="router-item" to="/" id="sec-btn">View earners</router-link>
+        </section>
       </li>
     </ul>
   </div>
@@ -54,7 +56,7 @@ export default ({
     grid-gap: 1.875rem;
   }
 
-  .badge {
+  .badge section {
     background-color: $color-purpleDark;
     padding: 2rem 1.2rem 2.5rem;
     display: flex;

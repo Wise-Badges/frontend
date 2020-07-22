@@ -32,7 +32,7 @@
 }
 
 
-h1 {
+.title {
     font-size: 4rem;
     font-family: 'Montserrat';
     font-weight: 700;
@@ -112,7 +112,7 @@ h1 {
     font-weight: 700;
 }
 
-h2 {
+.subtitle {
     font-size: 2rem;
     font-family: 'Montserrat';
     font-weight: 700;
@@ -120,7 +120,7 @@ h2 {
     margin-bottom: 2rem;
 }
 
-h2:before {
+.subtitle:before {
     content: "";
     position: absolute;
     background-color: white;

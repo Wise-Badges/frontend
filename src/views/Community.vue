@@ -1,6 +1,6 @@
 <template>
   <div class="view-badges">
-    <h1>Community</h1>
+    <h1 class="title">Community</h1>
     <ul class="acceptedBadges">
       <li class="acceptedBadge"v-for="badge in badges" :key="badge.id">
         <p class="badge__receiver">{{ badge.receiver }}</p>
