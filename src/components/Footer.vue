@@ -19,9 +19,11 @@
 
     <div class="footer__copyright">
       <div class="container">
-        <p>Copyright if needed</p>
-        <p>Logo's</p>
-
+        <p>Made with love at <a href="http://osoc.be/editions/2020" target="_blank" id="sec-btnx">OSOC20</a></p>
+        <div class="footer__logos">
+          <img class="footer__logo--erasmus" alt="Erasmus" src="/assets/img/footer/logo-erasmus.png" />
+          <img class="footer__logo--osoc" alt="OSOC" src="/assets/img/footer/logo-osoc.svg" />
+        </div>
       </div>
     </div>
   </footer>
@@ -100,11 +102,52 @@ export default ({
 
   .footer__copyright {
     background-color: white;
-    padding: 2rem 0;
     color: $color-purpleDark;
     & .container {
       display: flex;
       justify-content: space-between;
+    }
+
+    & p {
+      padding: 2rem 0;
+    }
+
+    & #sec-btnx {
+      text-decoration: none;
+      padding: 0.1rem 0rem;
+      color: $color-purpleDark;
+      border-bottom: .06rem dotted $color-purpleDark;
+      font-size: .875rem;
+      margin: 0 .2rem;
+
+      &:hover {
+        color: $color-purpleLight;
+        border-bottom: .06rem dotted $color-purpleLight;
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        height: 1rem;
+        width: 1rem;
+        background-image: url('/assets/img/footer/link.svg');
+        background-repeat: no-repeat;
+        transform: translate(.4rem, .6rem)
+      }
+    }
+  }
+
+  .footer__logos {
+    display: flex;
+    align-items: center;
+
+    & .footer__logo--erasmus {
+      height: 1.8rem;
+    }
+
+    & .footer__logo--osoc {
+      height: 2.7rem;
+      margin-left: 1.5rem;
     }
   }
 </style>
