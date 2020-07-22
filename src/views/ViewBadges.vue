@@ -3,7 +3,7 @@
     <h1>View badges</h1>
     <ul class="badges">
       <li class="badge"v-for="badge in badges" :key="badge.name">
-        <img class="badge__img" :src="'assets/img/' + badge.img + '.svg'" v-bind:alt="badge.img">
+         <img class="badge__img" :src="'assets/img/badges/' + badge.img + '.svg'" v-bind:alt="badge.img">
         <p class="badge__title">{{badge.name}}</p>
         <p class="badge__amount">2.340</p>
         <router-link class="router-item" badge="badge" :to="'/receiver/' + badge.id" id="prim-btn">award badge</router-link>
