@@ -1,12 +1,12 @@
 <template>
   <div id="nav">
-    <!-- <p class="nav__logo">Logo</p>
+    <p class="nav__logo">Logo</p>
     <div class="nav__links">
       <router-link to="/">Home</router-link>
       <router-link to="/about">About</router-link>
       <router-link to="/viewbadges">View badges</router-link>
       <router-link to="/community">Community</router-link>
-    </div> -->
+    </div>
   </div>
 </template>
 
