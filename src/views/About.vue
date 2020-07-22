@@ -10,14 +10,16 @@
         <p>WiseBadges makes the process of giving and receiving recognition easy, fun and inspiring. Awarding people who deserve it, making them feel recognized and especially helping them build their presence within the STEM community. WiseBadges shines a light on the importance of empowering and validating females, aiming to develop a community of like-minded people.</p>
       </section>
       <aside class="about__sidebar">
-        <h2 class="hidden">Project and license</h2>
-        <p>WISEBAdges is an ongoing open source project funded by Erasmus+</p>
-        <p>The content on this website, is licensed under a Creative Commons Attribution 4.0 International License.</p>
-        <span>Support us on</span>
-        <ul>
-          <li>Open Collective</li>
-          <li>Github</li>
-        </ul>
+        <div>
+          <h2 class="hidden">Project and license</h2>
+          <p>WISEBAdges is an ongoing open source project funded by Erasmus+</p>
+          <p>The content on this website, is licensed under a Creative Commons Attribution 4.0 International License.</p>
+          <span>Support us on</span>
+          <ul>
+            <li>Open Collective</li>
+            <li>Github</li>
+          </ul>
+        </div>
       </aside>
     </div>
 
@@ -26,21 +28,35 @@
         <h2>Partners</h2>
         <p>The participants are a consortium of non-formal and formal science and technologies education providers:</p>
         <ol>
-          <li>Espace Mendès France, France</li>
-          <li>University of Cyprus</li>
-          <li>Open Knowledge Belgium</li>
-          <li>Scientifica, Romania</li>
-          <li>Vrije Universiteit, Netherlands</li>
-          <li>Reconnaître-Open Recognition Alliance</li>
+          <li v-for="partner in partners" :key="partner.name">{{ partner.name }}</li>
         </ol>
       </div>
-      <div>
-        logo's
-      </div>
+      <ul class="partner__images">
+        <li v-for="partner in partners" :key="partner.name">
+          <img :src="'assets/img/partners/' + partner.img + '.png'" v-bind:alt="partner.name">
+        </li>
+      </ul>
     </div>
 
   </article>
 </template>
+
+<script>
+  export default ({
+    data() {
+      return {
+        partners: [
+          { id: 1, name: 'Espace Mendès France, France', img: 'espace-mendes'},
+          { id: 2, name: 'University of Cyprus', img: 'university-of-cyprus'},
+          { id: 3, name: 'Open Knowledge Belgium', img: 'open-knowledge-belgium'},
+          { id: 4, name: 'Scientifica, Romania', img: 'scientifica'},
+          { id: 5, name: 'Vrije Universiteit, Netherlands', img: 'vrije-universiteit'},
+          { id: 6, name: 'Reconnaître-Open Recognition Alliance', img: 'reconnaitre'}
+        ],
+      };
+    },
+  });
+</script>
 
 <style lang="scss">
   $color-dark: #0B1147;
@@ -69,7 +85,7 @@
       }
     }
 
-    .about__sidebar {
+    .about__sidebar div {
       background-color: $color-purpleDark;
       padding: 2rem;
     }
@@ -77,11 +93,33 @@
 
   .partners {
     display: grid;
-    grid-template: auto / 2fr 1fr;
+    grid-template: auto / 2fr 1.3fr;
     grid-gap: 1.875rem;
+    margin-top: 8rem;
+
+    &::before {
+      content: '';
+      position: absolute;
+      height: .15rem;
+      width: calc(100vw - (100vw - 60rem));
+      background: $color-purpleDark;
+      transform: translateY(-4rem);
+    }
 
     & p {
       margin-bottom: 1.5rem;
+    }
+
+    & .partner__images {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      margin-top: 4.5rem;
+
+      & img {
+         height: 5.4rem;
+         margin-left: 3.5rem;
+      }
     }
   }
 </style>
