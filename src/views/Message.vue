@@ -97,19 +97,19 @@
 
   padding-right: 3rem;
   font-family: 'Montserrat';
-    font-weight: 700;
-    background-color: white;
-    padding: 1rem 3.4rem 1rem 4rem;
-    letter-spacing: 0.2em;
-    border-radius: 2rem;
-    border: none;
-    text-transform: uppercase;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-    font-size: .875rem;
+  font-weight: 700;
+  background-color: white;
+  padding: 1rem 3.4rem 1rem 4rem;
+  letter-spacing: 0.2em;
+  border-radius: 2rem;
+  border: none;
+  text-transform: uppercase;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  font-size: .875rem;
 }
 
 .twitter-btn:hover {

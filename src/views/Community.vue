@@ -46,6 +46,11 @@
     display: grid;
     grid-template: repeat(3, auto) / repeat(2, 1fr);
     grid-gap: 1.875rem;
+
+    @media only screen and (max-width: 768px) {
+      grid-template: auto / repeat(1, 1fr);
+      grid-gap: 1.25rem;
+    }
   }
 
   .acceptedBadge {

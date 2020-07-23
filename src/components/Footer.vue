@@ -51,6 +51,10 @@ export default ({
     bottom: 0;
     width: 100%; */
     margin-top: 11.2rem;
+
+    @media only screen and (max-width: 1024px) {
+       margin-top: 5rem;
+    }
   }
 
   .footer__main {
