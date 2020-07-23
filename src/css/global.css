@@ -119,6 +119,31 @@
     font-weight: 700;
 }
 
+.sec-btn-inline {
+    text-decoration: none;
+    padding: 0.1rem 0rem;
+    color: $color-purpleDark;
+    border-bottom: .06rem dotted white;
+    font-size: .875rem;
+    margin: 0 .2rem;
+    color: white;
+}
+
+.sec-btn-inline:hover {
+  color: #7C6DF1;
+  border-bottom: .06rem dotted #7C6DF1;
+}
+
+.sec-btn-inline::after {
+  content: '';
+  position: absolute;
+  height: .7rem;
+  width: .7rem;
+  background-image: url('/assets/img/icons/link.svg');
+  background-repeat: no-repeat;
+  transform: translate(.4rem, .6rem)
+}
+
 .subtitle {
     font-size: 2rem;
     font-family: 'Montserrat';
