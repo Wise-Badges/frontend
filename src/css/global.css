@@ -58,7 +58,7 @@
     font-size: .875rem;
 }
 
-#prim-btn:before, #prim-btn-disabled:before {
+#prim-btn:before, #prim-btn-disabled:before, #prim-btn-twitter:before {
     content: "";
     position: absolute;
     background-color: black;
@@ -71,13 +71,17 @@
     color: black;
 }
 
+#prim-btn-twitter:before {
+    transition: 0s background-color;
+}
 
-#prim-btn:hover {
+
+#prim-btn:hover, #prim-btn-twitter:hover {
     background-color: #7C6DF1;
     color: white;
 }
 
-#prim-btn:hover:before {
+#prim-btn:hover:before, #prim-btn-twitter:hover:before {
     content: "";
     position: absolute;
     background-color: white;
@@ -87,6 +91,9 @@
     left: 1.5rem;
     border-radius: 1rem;
 }
+
+
+
 
 #prim-btn:focus {
     outline: 0.1rem solid transparent;
@@ -145,7 +152,7 @@
     flex-direction: row;
     justify-content: space-between;
     width: 100%;
-    margin-top: 4rem;
+    margin-top: 2rem;
     align-items: center;
 }
 
@@ -156,7 +163,7 @@
     justify-content: center;
     align-content: center;
     width: 100%;
-    margin: 3rem 0 0;
+    margin: 1rem 0 0;
   }
 
   .maxi-form-container {

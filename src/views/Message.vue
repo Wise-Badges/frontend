@@ -13,10 +13,9 @@
     </div>
     <h2 class="subtitle">Describe why this person earned this badge</h2>
       <div class="form-container">
-        <textarea class="textarea-message" ref="message" name="message" id="1" cols="30" rows="10" placeholder="Type your personal message"></textarea>
+        <textarea class="textarea-message" ref="message" name="message" id="1" cols="20" rows="10" placeholder="Type your personal message"></textarea>
         <div class="navigation-form">
           <router-link class="router-item" :to="'/receiver/' + this.$store.state.badges[$route.params.id - 1].id"><span id="sec-btn">Previous</span></router-link>
-          <!-- <a target="_black" :href="this.$store.state.twitterString + '%20@WiseBadges' + ',%20issue%20a%20'  + this.$store.state.badges[$route.params.id - 1].hashtag + '%20to%20' + $route.params.receiver + '%20with%20this%20message:%20' + $route.params.message" >ISSUE BADGE</a> -->
             <div class="bol-container">
               <router-link to="/" class="bol"></router-link>
               <router-link :to="'/receiver/' + this.$store.state.badges[$route.params.id - 1].id" class="bol"></router-link>
@@ -24,7 +23,7 @@
               <router-link to="" class="bol bol-inactive"></router-link>
             </div>
           <router-link class="router-item" :to="'/receiver/' + this.$store.state.badges[$route.params.id - 1].id + '/' + $route.params.receiver + '/' + this.$store.state.message[0].message">
-            <span id="prim-btn" class="twitter-btn" v-on:click="handleSubmitMessage">Issue badge</span>
+            <span id="prim-btn-twitter" class="twitter-btn" v-on:click="handleSubmitMessage">Issue badge</span>
           </router-link>
         </div>
         <p class="issueBadge-info">Issue the Open Badge by sending a Tweet on Twitter.</p>
@@ -66,11 +65,12 @@
 
 <style lang="scss">
 .textarea-message {
-  width: 100%;
+  width: calc(100% - 2rem);
   font-family: 'Montserrat';
   padding: 1rem;
   border: transparent;
   font-size: 1rem;
+  height: 5rem;
 }
 
 .textarea-message:focus {
@@ -92,16 +92,30 @@
 .twitter-btn {
   background-image: url('/assets/img/icons/twitterPurple.svg');
   background-repeat: no-repeat;
-  background-position-x: right;
+  background-position-x: 92%;
   background-position-y: center;
-  transition: background-image 0.2s;
+
+  padding-right: 3rem;
+  font-family: 'Montserrat';
+    font-weight: 700;
+    background-color: white;
+    padding: 1rem 3.4rem 1rem 4rem;
+    letter-spacing: 0.2em;
+    border-radius: 2rem;
+    border: none;
+    text-transform: uppercase;
+    position: relative;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-size: .875rem;
 }
 
 .twitter-btn:hover {
   background-image: url('/assets/img/icons/twitterWhite.svg');
   background-repeat: no-repeat;
-  background-position-x: right;
-  background-position-y: center;
 }
 
 </style>
