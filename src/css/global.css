@@ -229,6 +229,10 @@
         width: 0;
     }
 
+    .bol-container {
+        display:none;
+    }
+
     /* .selectedBadge-container {
         background-image: url('/assets/img/flagMobile.svg');
         background-repeat: no-repeat;
@@ -236,12 +240,15 @@
       } */
   }
 
-    @media only screen and (max-width: 768px) {
-        .container {
-            margin: 0 1.56rem;
-        }
-
+  @media only screen and (min-width: 1024px) {
+    .bol-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 3rem;
     }
+  }
+
 
 .router-item {
     display: flex;
@@ -321,10 +328,15 @@
       cursor: default;
   }
 
-  .bol-container {
+
+  .header-item-hamburger {
+      color: white;
+  }
+
+  /* .bol-container {
       display: flex;
       align-items: center;
       justify-content: center;
       margin-top: 3rem;
-  }
+  } */
   
