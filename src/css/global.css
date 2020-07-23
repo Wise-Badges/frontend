@@ -130,8 +130,8 @@
 }
 
 .sec-btn-inline:hover {
-  color: white;
-  border-bottom: .06rem dotted white;
+  color: #7C6DF1;
+  border-bottom: .06rem dotted #7C6DF1;
 }
 
 .sec-btn-inline::after {

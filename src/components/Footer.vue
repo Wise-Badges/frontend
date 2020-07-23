@@ -116,11 +116,6 @@ export default ({
        border-bottom: .06rem dotted $color-purpleDark;
        color: $color-purpleDark;
 
-       &:hover {
-         color: $color-purpleLight;
-         border-bottom: .06rem dotted $color-purpleLight;
-       }
-
        &::after {
          background-image: url('/assets/img/footer/link.svg');
        }
