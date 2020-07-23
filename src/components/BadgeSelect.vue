@@ -58,18 +58,7 @@ export default ({
   getImgUrl(badge) {
     //var badgeImages = require.context('./assets/img/badges/', false, /\.svg$/)
     return badgeImages('./' + badge + ".svg")
-  },
-  setActive() {
-    if (currentBadge) {
-      console.log('test');
-    }
   }
-  // addClass() {
-  //   if (currentBadge = badges.id[3]) {
-  //     console.log('test')
-  //   }
-  //   return 'img-stnd active-badge-hexagon'
-  // }
 });
 </script>
 

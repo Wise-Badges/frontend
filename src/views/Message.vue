@@ -23,8 +23,8 @@
               <router-link to="" class="bol bol-active"></router-link>
               <router-link to="" class="bol bol-inactive"></router-link>
             </div>
-          <router-link :class="this.$store.state.validField ? 'router-item' : 'router-item-invalid'" :to="this.$store.state.validMessage ? '/receiver/' + this.$store.state.badges[$route.params.id - 1].id + '/message/' + this.$store.state.receiver[0].receiver + '/done/' + this.$store.state.message[0].message : '/receiver/' + this.$store.state.badges[$route.params.id - 1].id + '/message/' + this.$store.state.receiver[0].receiver">
-            <span :id="this.$store.state.validMessage ? 'prim-btn' : 'prim-btn-disabled'" class="twitter-btn" v-on:click="handleSubmitMessage">Issue badge</span>
+          <router-link class="router-item" :to="'/receiver/' + this.$store.state.badges[$route.params.id - 1].id + '/' + $route.params.receiver + '/' + this.$store.state.message[0].message">
+            <span id="prim-btn" class="twitter-btn" v-on:click="handleSubmitMessage">Issue badge</span>
           </router-link>
         </div>
         <p class="issueBadge-info">Issue the Open Badge by sending a Tweet on Twitter.</p>
@@ -42,14 +42,6 @@
     methods: {
       handleSubmitMessage: function(e) {
         this.$store.state.message = [];
-
-        if (this.$refs.message.value === '') {
-          console.log('ai empty');
-          this.$store.state.validMessage = false;
-        } else {
-          console.log('not empty');
-          this.$store.state.validMessage = true;
-        }
 
         this.$store.state.message.push({message: this.$refs.message.value})
 

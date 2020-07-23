@@ -15,7 +15,7 @@
               <router-link to="" class="bol bol-inactive"></router-link>
               <router-link to="" class="bol bol-inactive"></router-link>
             </div>
-            <router-link  :class="this.$store.state.validField ? 'router-item' : 'router-item-invalid'" :to=" this.$store.state.validField ? '/receiver/' + this.$store.state.badges[$route.params.id - 1].id + '/message/' + this.$store.state.receiver[0].receiver : '/receiver/' + this.$store.state.badges[$route.params.id - 1].id">
+            <router-link  :class="this.$store.state.validField ? 'router-item' : 'router-item-invalid'" :to=" this.$store.state.validField ? '/receiver/' + this.$store.state.badges[$route.params.id - 1].id + '/' + this.$store.state.receiver[0].receiver : '/receiver/' + this.$store.state.badges[$route.params.id - 1].id">
               <span :id="this.$store.state.validField ? 'prim-btn' : 'prim-btn-disabled'" v-on:click="handleSubmit">Next</span>
             </router-link>
           </div>
@@ -45,21 +45,16 @@ export default {
     this.$store.state.receiver = [];
 
     if (this.$refs.receiver.value === '') {
-      console.log('ai empty');
       this.$store.state.validField = false;
     } else {
       this.$store.state.validField = true;
     }
-
-    console.log(this.$store.state.twitterString);
 
       if(this.$store.state.pressedAtmark) {
         this.$store.state.receiver.push({receiver: this.$refs.receiver.value})
       } else {
         this.$store.state.receiver.push({receiver: '@' + this.$refs.receiver.value})
       }
-
-    console.log(this.$store.state.receiver)
   }
   }
 }

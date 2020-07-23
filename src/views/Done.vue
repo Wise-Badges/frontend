@@ -8,11 +8,11 @@
   <a :href="this.$store.state.twitterString + '%20@WiseBadges' + ',%20issue%20a%20'  + this.$store.state.badges[$route.params.id - 1].hashtag + '%20to%20' + $route.params.receiver + '%20with%20this%20message:%20' + $route.params.message" target=_black>Twitterbot link</a>
 
   <router-link id="prim-btn" to="/community">SEE OTHERS WHO RECEIVED THIS BADGE</router-link>
-  <router-link class="router-item" id="sec-btn" :to="'/receiver/' + this.$store.state.badges[$route.params.id - 1].id + '/message/' + this.$store.state.receiver[0].receiver">Go back</router-link>
+  <router-link class="router-item" id="sec-btn" :to="'/receiver/' + this.$store.state.badges[$route.params.id - 1].id + '/' + this.$store.state.receiver[0].receiver">Go back</router-link>
   <div class="bol-container">
     <router-link to="/" class="bol"></router-link>
     <router-link :to="'/receiver/' + this.$store.state.badges[$route.params.id - 1].id" class="bol"></router-link>
-    <router-link :to="'/receiver/' + this.$store.state.badges[$route.params.id - 1].id+ '/message/' + this.$store.state.receiver[0].receiver" class="bol"></router-link>
+    <router-link :to="'/receiver/' + this.$store.state.badges[$route.params.id - 1].id+ '/' + this.$store.state.receiver[0].receiver" class="bol"></router-link>
     <router-link to="" class="bol bol-active"></router-link>
   </div>
 </div>
