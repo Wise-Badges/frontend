@@ -6,7 +6,13 @@
     </div>
     <h2 class="subtitle">Choose who you want to send the badge to</h2>
       <div class="form-container">
-          <input v-on:keyup="checkCharacter" ref="receiver" class="form-receiver" type="text" placeholder="@TwitterHandler" v-model="twitterhandler">
+          <div class="platform-receiver-container">
+            <select class="select-platforms" name="platforms" id="platforms">
+              <option value="twitter">twitter</option>
+              <option value="facebook">facebook</option>
+            </select>
+            <input v-on:keyup="checkCharacter" ref="receiver" class="form-receiver" type="text" placeholder="@TwitterHandler" v-model="twitterhandler">
+          </div>
           <div class="navigation-form">
             <router-link id="sec-btn" class="router-item" to="/">Previous</router-link>
             <div class="bol-container">
@@ -63,11 +69,12 @@ export default {
 <style lang="scss">
 
 .form-receiver {
-  border-radius: 3rem;
+  border-top-right-radius: 3rem;
+  border-bottom-right-radius: 3rem;
   border: 0.1rem solid transparent;
   height: 1rem;
   width: calc(100% - 4rem);
-  padding: 1rem 2rem;
+  padding: 1rem 2rem 1rem 1rem;
   color: #7C6DF3;
   letter-spacing: 0.05rem;
   font-size: 1rem;
@@ -82,5 +89,27 @@ export default {
   margin-left: -5rem;
 }
 
+.platform-receiver-container {
+  display: flex;
+  width: 100%;
+}
+
+.select-platforms {
+  border-top-left-radius: 2rem;
+  border-bottom-left-radius: 2rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  background-color: #7C6DF1;
+  color: white;
+  letter-spacing: 0.2em;
+  text-align: center;
+  text-transform: uppercase;
+  border: none;
+  margin-right: 1rem;
+}
+
+.select-platforms:focus {
+  outline: transparent;
+}
 
 </style>

@@ -105,7 +105,7 @@ li {
 }
 
 .badge-name {
-  max-width: 9rem;
+  max-width: 8.8rem;
   justify-content: center;
   text-align: center;
   margin-top: 1rem;
@@ -165,7 +165,9 @@ li {
   padding: 0.5rem;
   //border: 0.1rem solid transparent;
   background-image: url('/assets/img/shapes/triangle.svg');
-  background-size: 100%;
+  background-size: 102%;
+  background-position-x: -0.1rem;
+  background-position-y: -0.1rem;
   background-repeat: no-repeat;
 }
 
