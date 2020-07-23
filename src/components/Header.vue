@@ -1,11 +1,11 @@
 <template>
   <div id="nav">
-    <p class="nav__logo">Logo</p>
+    <router-link to="/"><p class="nav__logo">Logo</p></router-link>
     <div class="nav__links">
-      <router-link to="/">Home</router-link>
-      <router-link to="/about">About</router-link>
-      <router-link to="/viewbadges">View badges</router-link>
-      <router-link to="/community">Community</router-link>
+      <router-link class="header-item" to="/">Home</router-link>
+      <router-link class="header-item" to="/about">About</router-link>
+      <router-link class="header-item" to="/viewbadges">View badges</router-link>
+      <router-link class="header-item" to="/community">Community</router-link>
     </div>
   </div>
 </template>
@@ -29,7 +29,7 @@ export default ({
     justify-content: space-between;
     margin-bottom: 12rem;
 
-    a {
+    .header-item {
       color: white;
       margin: 0 2rem;
       text-decoration: none;

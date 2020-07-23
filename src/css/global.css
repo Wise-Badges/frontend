@@ -258,8 +258,8 @@
 
   .bol {
       background-color: #A37FFA;
-      width: 1rem;
-      height: 1rem;
+      width: .8rem;
+      height: .8rem;
       margin: 0.5rem;
       border-radius: 2rem;
       opacity: 0.4;
@@ -273,5 +273,6 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      margin-top: 3rem;
   }
   

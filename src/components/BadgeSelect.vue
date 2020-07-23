@@ -6,7 +6,7 @@
         <input class="radio-btn" type="radio" :checked="checked" v-on:change="$emit('change', $event.target.checked)" v-model="currentBadge" :id="badge.name" :value="badge.id" name="currentBadge">
         <label v-if="currentBadge === badge.id" class="badge-label" :for="badge.name" :id="badge.name" name="currentBadge">
           <img :class="'imgStnd active-badge-' + badge.figure" :src="'assets/img/badges/' + badge.img + '.svg'" v-bind:alt="badge.img">
-          <p class="badge-name">{{badge.name}}</p>
+          <p class="badge-name-bold">{{badge.name}}</p>
         </label>
 
         <label v-if="currentBadge !== badge.id" class="badge-label" :for="badge.name" :id="badge.name" name="currentBadge">
@@ -108,6 +108,15 @@ li {
 }
 
 .badge-name {
+  max-width: 9rem;
+  justify-content: center;
+  text-align: center;
+  margin-top: 1rem;
+  line-height: 24px;
+}
+
+.badge-name-bold {
+  font-weight: 700;
   max-width: 9rem;
   justify-content: center;
   text-align: center;
