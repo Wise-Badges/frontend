@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-// import axios from "axios";
+import axios from "axios";
 
 Vue.use(Vuex);
 
@@ -31,14 +31,14 @@ export default new Vuex.Store({
   },
   actions: {
     loadBadges({ commit }) {
-      // axios
-      // .get('https://mirrorcontrol.herokuapp.com/api/badges')
-      // .then(data => {
-      //   let badges = data.data
-      //   commit('SET_BADGES', badges)
-      // })
-      // .catch(error => {
-      // })
+      axios
+        .get("http://localhost:5000/badgeclasses")
+        .then(r => {
+          let badgesTest = r.data;
+          commit("SET_BADGES", badgesTest);
+          console.log(badgesTest);
+        })
+        .catch(error => {});
     }
   },
   modules: {
