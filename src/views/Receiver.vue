@@ -10,16 +10,14 @@
           <div class="navigation-form">
             <router-link id="sec-btn" class="router-item" to="/">Previous</router-link>
             <div class="bol-container">
-              <div class="bol"></div>
-              <div class="bol bol-active"></div>
-              <div class="bol"></div>
-              <div class="bol"></div>
+              <router-link to="/" class="bol"></router-link>
+              <router-link to="" class="bol bol-active"></router-link>
+              <router-link to="" class="bol bol-inactive"></router-link>
+              <router-link to="" class="bol bol-inactive"></router-link>
             </div>
-            <!-- <router-link  :class="this.$store.state.validField ? 'router-item' : 'router-item-invalid'" :to=" this.$store.state.validField ? '/receiver/' + this.$store.state.badges[$route.params.id - 1].id + '/message/' + 'brol' : '/receiver/' + this.$store.state.badges[$route.params.id - 1].id"><span id="prim-btn" v-on:click="handleSubmit"> Next to 'sendwhy'</span></router-link> -->
             <router-link  :class="this.$store.state.validField ? 'router-item' : 'router-item-invalid'" :to=" this.$store.state.validField ? '/receiver/' + this.$store.state.badges[$route.params.id - 1].id + '/message/' + this.$store.state.receiver[0].receiver : '/receiver/' + this.$store.state.badges[$route.params.id - 1].id">
               <span :id="this.$store.state.validField ? 'prim-btn' : 'prim-btn-disabled'" v-on:click="handleSubmit">Next</span>
             </router-link>
-            <!-- <router-link  class="router-item" :to=" this.$store.state.validField ? '/receiver/' + this.$store.state.badges[$route.params.id - 1].id + '/message' : '/receiver/' + this.$store.state.badges[$route.params.id - 1].id"><span id="prim-btn" v-on:click="handleSubmit"> Next to 'sendwhy'</span></router-link> -->
           </div>
       </div>
   </div>

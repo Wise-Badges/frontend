@@ -269,6 +269,10 @@
     opacity: 1;
   }
 
+  .bol-inactive {
+      cursor: default;
+  }
+
   .bol-container {
       display: flex;
       align-items: center;

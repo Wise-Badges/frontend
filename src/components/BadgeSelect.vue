@@ -15,8 +15,16 @@
         </label>
       </li>
     </ul>
-    <router-link class="router-item" badge="badge" :to="'/receiver/' + currentBadge" id="prim-btn">next</router-link>
-  </div>
+    <!-- <div class="step-container"> -->
+      <div class="bol-container">
+        <router-link to="" class="bol bol-active"></router-link>
+        <router-link to="/" class="bol bol-inactive"></router-link>
+        <router-link to="/" class="bol bol-inactive"></router-link>
+        <router-link to="/" class="bol bol-inactive"></router-link>
+      </div>
+        <router-link class="router-item next-selectbadge" badge="badge" :to="'/receiver/' + currentBadge" id="prim-btn">next</router-link>
+    </div>
+  <!-- </div> -->
 </template>
 
 <script>
@@ -189,6 +197,9 @@ li {
   justify-content: center;
 }
 
+.next-selectbadge {
+  margin-top: -2.5rem;
+}
 /*
 .badges-ul [type="radio"]:checked + .single-badge {
   background-color: red;
