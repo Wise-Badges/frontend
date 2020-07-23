@@ -21,7 +21,7 @@
         <div>
           <img class="badge__img" src="assets/img/badges/eureka.svg" alt="eureka">
           <p class="badge__title">Next Gen Albert Einstein</p>
-          <router-link to="/" id="prim-btn">Download</router-link>
+          <a href="/" id="prim-btn">Download</a>
           <p class="badge__status">Badge has not been accepted.</p>
         </div>
       </div>
@@ -29,7 +29,7 @@
     </div>
     <div class="delete">
       <p>Not happy with your badge? With a simple Tweet command, our bot will delete your badge Open Badge permanently. Only a tweet by @receiver_here will be accepted.</p>
-      <router-link to="/" id="prim-btn">Tweet to delete</router-link>
+      <router-link to="/" target="_blank" id="prim-btn">Tweet to delete</router-link>
     </div>
 
   </div>
@@ -124,6 +124,7 @@
   grid-gap: 1.875rem;
   padding-right: 2rem;
   place-items: center center;
+  margin-top: 8rem;
 
   & p {
     color: $color-purpleLight;
@@ -132,6 +133,15 @@
 
   & #prim-btn {
     height: auto;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    height: .15rem;
+    width: calc(100vw - (100vw - 60rem));
+    background: $color-purpleDark;
+    transform: translateY(-4rem);
   }
 }
 </style>
