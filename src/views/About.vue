@@ -73,6 +73,14 @@
     grid-template: auto / 2fr 1fr;
     grid-gap: 1.875rem;
 
+    // @media only screen and (max-width: 900px) {
+    //   grid-template: auto / 1fr 1fr;
+    // }
+
+    @media only screen and (max-width: 900px) {
+      grid-template: auto / 1fr;
+    }
+
     & p {
       margin-bottom: 1.5rem;
     }
@@ -98,6 +106,15 @@
     grid-gap: 1.875rem;
     margin-top: 8rem;
 
+    @media only screen and (max-width: 900px) {
+      margin-top: 4rem;
+    }
+
+    @media only screen and (max-width: 768px) {
+      grid-template: auto / 1fr;
+      grid-gap: 1.25rem;
+    }
+
     &::before {
       content: '';
       position: absolute;
@@ -105,6 +122,10 @@
       width: calc(100vw - (100vw - 60rem));
       background: $color-purpleDark;
       transform: translateY(-4rem);
+
+      @media only screen and (max-width: 900px) {
+        width: 0;
+      }
     }
 
     & p {
