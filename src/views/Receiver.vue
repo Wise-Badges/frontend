@@ -1,7 +1,7 @@
 <template>
   <div class="maxi-form-container">
-    <div class="data-selected-container selectedBadge-container">
-      <img :src="'/assets/img/badges/' + this.$store.state.badges[$route.params.id - 1].img + '.svg'" v-bind:alt="this.$store.state.badges[$route.params.id - 1].img">
+    <div class="selectedBadge-container">
+      <img :class="'img-badge-form img-badge-' + this.$store.state.badges[$route.params.id - 1].figure" :src="'/assets/img/badges/' + this.$store.state.badges[$route.params.id - 1].img + '.svg'" v-bind:alt="this.$store.state.badges[$route.params.id - 1].img">
       <p class="selectedBadge-name">{{this.$store.state.badges[$route.params.id - 1].name}}</p>
     </div>
     <h2 class="subtitle">Choose who you want to send the badge to</h2>
@@ -76,6 +76,10 @@ export default {
 
 .form-receiver:focus {
   outline: 0.1rem solid transparent;
+}
+
+.img-badge-triangle {
+  margin-left: -5rem;
 }
 
 
