@@ -12,14 +12,18 @@
       </section>
       <aside class="about__sidebar">
         <div>
-          <h2 class="hidden">Project and license</h2>
-          <p>WiseBadges as part of Bridges is an ongoing open source project funded by Erasmus+</p>
-          <p>The content on this website, is licensed under a Creative Commons Attribution 4.0 International License.</p>
-          <span>Support us on</span>
-          <ul>
-            <li>Open Collective</li>
-            <li>Github</li>
-          </ul>
+          <div>
+            <h2 class="hidden">Project and license</h2>
+            <p>WiseBadges as part of Bridges is an ongoing open source project funded by Erasmus+</p>
+            <p>The content on this website, is licensed under a Creative Commons Attribution 4.0 International License.</p>
+          </div>
+          <div class="support">
+            <span>Support us on</span>
+            <ul>
+              <li>Open Collective</li>
+              <li>Github</li>
+            </ul>
+          </div>
         </div>
       </aside>
     </div>
@@ -73,11 +77,7 @@
     grid-template: auto / 2fr 1fr;
     grid-gap: 1.875rem;
 
-    // @media only screen and (max-width: 900px) {
-    //   grid-template: auto / 1fr 1fr;
-    // }
-
-    @media only screen and (max-width: 900px) {
+    @media only screen and (max-width: 1024px) {
       grid-template: auto / 1fr;
     }
 
@@ -94,9 +94,40 @@
       }
     }
 
-    .about__sidebar div {
+    .about__sidebar > div {
       background-color: $color-purpleDark;
       padding: 2rem;
+
+      @media only screen and (max-width: 1024px) {
+        display: grid;
+        grid-template: auto / 2fr 1fr;
+        grid-gap: 6rem;
+      }
+
+      @media only screen and (max-width: 630px) {
+        grid-gap: 0;
+        grid-template: auto / 1fr;
+      }
+
+      & div {
+        position:relative;
+      }
+
+      & .support::before {
+        @media only screen and (max-width: 1024px) {
+          content: '';
+          top:0;
+          bottom:0;
+          left:0;
+          position: absolute;
+          width: 2px;
+          background: $color-purpleLight;
+          transform: translateX(-3rem)
+        }
+        @media only screen and (max-width: 630px) {
+          width: 0;
+        }
+      }
     }
   }
 
@@ -106,11 +137,8 @@
     grid-gap: 1.875rem;
     margin-top: 8rem;
 
-    @media only screen and (max-width: 900px) {
+    @media only screen and (max-width: 1024px) {
       margin-top: 4rem;
-    }
-
-    @media only screen and (max-width: 768px) {
       grid-template: auto / 1fr;
       grid-gap: 1.25rem;
     }
@@ -123,7 +151,7 @@
       background: $color-purpleDark;
       transform: translateY(-4rem);
 
-      @media only screen and (max-width: 900px) {
+      @media only screen and (max-width: 1024px) {
         width: 0;
       }
     }
@@ -141,7 +169,16 @@
       & img {
          height: 5.4rem;
          margin-left: 3.5rem;
+
+         @media only screen and (max-width: 1024px) {
+          height: 6rem;
+          margin: 1rem 2rem;
+        }
       }
+
+        @media only screen and (max-width: 1024px) {
+          justify-content: center;
+        }
     }
   }
 </style>
