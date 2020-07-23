@@ -52,8 +52,16 @@ export default ({
 
   .badges {
     display: grid;
-    grid-template: repeat(3, auto) / repeat(3, 1fr);
+    grid-template: auto / repeat(3, 1fr);
     grid-gap: 1.875rem;
+
+    @media only screen and (max-width: 1024px) {
+      grid-template: auto / repeat(2, 1fr);
+    }
+
+    @media only screen and (max-width: 768px) {
+      grid-template: auto / repeat(1, 1fr);
+    }
   }
 
   .badge section {
