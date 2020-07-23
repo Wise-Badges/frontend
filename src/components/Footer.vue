@@ -8,7 +8,7 @@
           <li><img alt="Facebook" src="/assets/img/footer/facebook.svg"/><span class="hidden">Facebook</span></li>
         </ul>
         <div class="info">
-          <p class="info__site">WISEBadges is a project funded by the Erasmus+ project to improve gender equity in the access to STEM</p>
+          <p class="info__site">WiseBadges is a part of Bridges a project funded by the Erasmus+ project to improve gender equity in the access to STEM</p>
           <div class="info__links">
             <p>Lorem ipsum</p>
             <p>Contact</p>
@@ -19,7 +19,7 @@
 
     <div class="footer__copyright">
       <div class="container">
-        <p>Made with love at <a href="http://osoc.be/editions/2020" target="_blank" id="sec-btnx">OSOC20</a></p>
+        <p>Made with love at <a href="http://osoc.be/editions/2020" target="_blank" class="sec-btn-inline">OSOC20</a></p>
         <div class="footer__logos">
           <img class="footer__logo--erasmus" alt="Erasmus" src="/assets/img/footer/logo-erasmus.png" />
           <img class="footer__logo--osoc" alt="OSOC" src="/assets/img/footer/logo-osoc.svg" />
@@ -112,7 +112,7 @@ export default ({
       padding: 2rem 0;
     }
 
-    & #sec-btnx {
+    & .sec-btn-inline {
       text-decoration: none;
       padding: 0.1rem 0rem;
       color: $color-purpleDark;
