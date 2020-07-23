@@ -197,10 +197,18 @@
     align-items: center;
   }
 
+
+
+
   @media only screen and (max-width: 1024px) {
-    .maxi-form-container {
-        margin: 0 1rem;
+    .container {
+        max-width: 60rem;
+        margin: 3rem;
     }
+
+    /* .maxi-form-container {
+        margin: 0 1rem;
+    } */
 
     .navigation-form {
         display: flex;
@@ -227,6 +235,13 @@
         width: 30rem; 
       } */
   }
+
+    @media only screen and (max-width: 768px) {
+        .container {
+                    margin: 0 1.56rem;
+        }
+
+    }
 
 .router-item {
     display: flex;
