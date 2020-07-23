@@ -61,6 +61,7 @@ export default ({
 
     @media only screen and (max-width: 768px) {
       grid-template: auto / repeat(1, 1fr);
+      grid-gap: 1.25rem;
     }
   }
 
