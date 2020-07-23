@@ -2,7 +2,7 @@ import Vue from 'vue';
 import Vuex from 'vuex';
 import axios from "axios";
 
-Vue.use(Vuex);
+Vue.use(Vuex, axios);
 
 export default new Vuex.Store({
   state: {
@@ -16,6 +16,7 @@ export default new Vuex.Store({
       { id: 7, name: 'You rock(et) science', img: 'you_rocket_science', figure: 'triangle', hashtag: '%23yourockscience'},
       { id: 8, name: 'Another one', img: 'another_one', figure: 'hexagon', hashtag: '%23anotherone'},
     ],
+    badgesApi: [],
     receiver: [{ receiver: '' }],
     message: [{message: ''}],
     pressedAtmark: false,
@@ -25,8 +26,8 @@ export default new Vuex.Store({
     // twitterString: 'https://twitter.com/intent/tweet?text=This%20is%20an%20example%20of%20a%20pre-written%20tweet-%20don%27t%20forget%20that%20it%20needs%20to%20be%20less%20than%20280%20characters'
   },
   mutations: {
-    SET_BADGES(state, badges) {
-      state.badges = badges;
+    SET_BADGES(state, badgesApi) {
+      state.badgesApi = badgesApi;
     }
   },
   actions: {
@@ -34,11 +35,14 @@ export default new Vuex.Store({
       axios
         .get("http://localhost:5000/badgeclasses")
         .then(r => {
-          let badgesTest = r.data;
-          commit("SET_BADGES", badgesTest);
-          console.log(badgesTest);
+          let badgesApi = r.data;
+          commit("SET_BADGES", badgesApi);
+          console.log(badgesApi);
+          console.log('tessst');
         })
-        .catch(error => {});
+        .catch(error => {
+          console.log('not loaded')
+        });
     }
   },
   modules: {

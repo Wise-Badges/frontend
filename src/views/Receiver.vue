@@ -49,9 +49,12 @@ export default {
     if (this.$refs.receiver.value !== '') {
       this.$store.state.validField = true;
     }
+
+    console.log(this.$store.state.badgesApi);
   },
   handleSubmit: function(e) {
     this.$store.state.receiver = [];
+
 
     if (this.$refs.receiver.value === '') {
       this.$store.state.validField = false;
