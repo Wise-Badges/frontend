@@ -7,10 +7,13 @@
     <h2 class="subtitle">Choose who you want to send the badge to</h2>
       <div class="form-container">
           <div class="platform-receiver-container">
-            <select class="select-platforms" name="platforms" id="platforms">
+            <div class="select-platforms" name="platforms" id="platforms">
+              <p value="twitter">twitter</p>
+            </div>
+            <!-- <select class="select-platforms" name="platforms" id="platforms">
               <option value="twitter">twitter</option>
               <option value="facebook">facebook</option>
-            </select>
+            </select> -->
             <input v-on:keyup="checkCharacter" ref="receiver" class="form-receiver" type="text" placeholder="@TwitterHandler" v-model="twitterhandler">
           </div>
           <div class="navigation-form">
@@ -97,15 +100,15 @@ export default {
 .select-platforms {
   border-top-left-radius: 2rem;
   border-bottom-left-radius: 2rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
+  padding-left: 2rem;
+  padding-right: 1.5rem;
   background-color: #7C6DF1;
   color: white;
   letter-spacing: 0.2em;
   text-align: center;
   text-transform: uppercase;
   border: none;
-  margin-right: 1rem;
+  padding-top: 0.7rem;
 }
 
 .select-platforms:focus {
