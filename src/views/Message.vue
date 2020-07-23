@@ -43,7 +43,13 @@
       handleSubmitMessage: function(e) {
         this.$store.state.message = [];
 
-        this.$store.state.message.push({message: this.$refs.message.value})
+        if (this.$store.state.message !== []) {
+            this.$store.state.message.push({message: this.$refs.message.value})
+        } else {
+          console.log('empty')
+        }
+
+
 
         console.log(this.$store.state.message)
 
