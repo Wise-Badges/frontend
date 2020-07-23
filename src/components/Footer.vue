@@ -113,28 +113,18 @@ export default ({
     }
 
     & .sec-btn-inline {
-      text-decoration: none;
-      padding: 0.1rem 0rem;
-      color: $color-purpleDark;
-      border-bottom: .06rem dotted $color-purpleDark;
-      font-size: .875rem;
-      margin: 0 .2rem;
+       border-bottom: .06rem dotted $color-purpleDark;
+       color: $color-purpleDark;
 
-      &:hover {
-        color: $color-purpleLight;
-        border-bottom: .06rem dotted $color-purpleLight;
-      }
+       &:hover {
+         color: $color-purpleLight;
+         border-bottom: .06rem dotted $color-purpleLight;
+       }
 
-      &::after {
-        content: '';
-        position: absolute;
-        height: 1rem;
-        width: 1rem;
-        background-image: url('/assets/img/footer/link.svg');
-        background-repeat: no-repeat;
-        transform: translate(.4rem, .6rem)
-      }
-    }
+       &::after {
+         background-image: url('/assets/img/footer/link.svg');
+       }
+     }
   }
 
   .footer__logos {
