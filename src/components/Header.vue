@@ -28,7 +28,7 @@ export default ({
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 5rem;
+    margin-bottom: 8rem;
 
     .header-item {
       color: white;
