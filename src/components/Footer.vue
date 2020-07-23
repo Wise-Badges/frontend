@@ -56,6 +56,9 @@ export default ({
   .footer__main {
     background-color: $color-purpleDark;
     color: $color-purpleLight;
+    background-image: url('/assets/img/footer/background.svg');
+    background-repeat: no-repeat;
+    background-position: bottom right;
 
     & .social {
       display: flex;
