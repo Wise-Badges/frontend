@@ -6,13 +6,13 @@
         <router-link class="header-item" to="/about">About</router-link>
         <router-link class="header-item" to="/viewbadges">View badges</router-link>
         <router-link class="header-item" to="/community">Community</router-link>
-    </div>
-    <Push>
+      </div>
+      <Push>
         <router-link class="header-item" to="/">Home</router-link>
         <router-link class="header-item" to="/about">About</router-link>
         <router-link class="header-item" to="/viewbadges">View badges</router-link>
         <router-link class="header-item" to="/community">Community</router-link>
-    </Push>
+      </Push>
   </div>
 </template>
 
@@ -38,10 +38,12 @@ export default ({
     font-size: .875rem;
     margin-bottom: 8rem;
 
-    & .nav__full {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+
+    & .nav__links {
+      order: 3;
     }
 
     .header-item {
@@ -73,14 +75,22 @@ export default ({
 
 
 
+
+
   @media only screen and (max-width: 1024px) {
     .bm-burger-button, .bm-burger-bars {
       display: inline;
     }
 
     #nav {
+      margin-bottom: 1rem;
+
       .header-item {
         margin: 0;
+      }
+
+      & .nav__links, .nav__logo {
+      display: none;
       }
     }
 
@@ -88,7 +98,7 @@ export default ({
       position: fixed;
       width: 25px;
       height: 20px;
-      left: 36px;
+      left: 1.56rem;
       top: 36px;
       cursor: pointer;
     }
@@ -103,7 +113,7 @@ export default ({
       left: 0;
       right: 0;
     }
-    
+
     .cross-style {
       position: absolute;
       top: 30px;
