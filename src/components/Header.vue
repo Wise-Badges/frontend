@@ -9,11 +9,11 @@
         <router-link class="header-item" to="/community">Community</router-link>
       </div>
     </div>
-    <Push class="push-container">
-        <router-link class="header-item-hamburger" to="/">Home</router-link>
-        <router-link class="header-item-hamburger" to="/about">About</router-link>
-        <router-link class="header-item-hamburger" to="/viewbadges">View badges</router-link>
-        <router-link class="header-item-hamburger" to="/community">Community</router-link>
+    <Push>
+        <router-link class="header-item" to="/">Home</router-link>
+        <router-link class="header-item" to="/about">About</router-link>
+        <router-link class="header-item" to="/viewbadges">View badges</router-link>
+        <router-link class="header-item" to="/community">Community</router-link>
     </Push>
   </div>
 </template>
@@ -68,6 +68,17 @@ export default ({
     display: flex;
     justify-content: flex-end;
   }
+
+  @media only screen and (min-width: 1025px) {
+     .bm-burger-button {
+       display: none;
+     }
+     .bm-burger-bars {
+       display: none;
+     }
+  }
+
+  @media only screen and (max-width: 1024px) {
 
  .bm-burger-button {
       position: fixed;
@@ -132,6 +143,8 @@ export default ({
       font-weight: 700;
       color: white;
     }
+
+  }
 
 
 
