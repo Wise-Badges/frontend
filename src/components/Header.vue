@@ -35,7 +35,7 @@ export default ({
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.2em;
-    font-size: 14px;
+    font-size: .875rem;
     margin-bottom: 8rem;
 
     & .nav__full {
@@ -67,30 +67,24 @@ export default ({
     justify-content: flex-end;
   }
 
-
-
-
-
-  @media only screen and (min-width: 1025px) {
-     .bm-burger-button {
-       display: none;
-     }
-     .bm-burger-bars {
-       display: none;
-     }
+  .bm-burger-button, .bm-burger-bars {
+    display: none;
   }
 
 
 
-
   @media only screen and (max-width: 1024px) {
+    .bm-burger-button, .bm-burger-bars {
+      display: inline;
+    }
+
     #nav {
       .header-item {
         margin: 0;
       }
     }
 
- .bm-burger-button {
+  .bm-burger-button {
       position: fixed;
       width: 25px;
       height: 20px;
@@ -109,19 +103,23 @@ export default ({
       left: 0;
       right: 0;
     }
+    
     .cross-style {
       position: absolute;
-      top: 12px;
-      right: 2px;
+      top: 30px;
+      right: 20px;
       cursor: pointer;
     }
+
     .bm-cross {
       background: #bdc3c7;
     }
+
     .bm-cross-button {
       height: 20px;
       width: 20px;
     }
+
     .bm-menu {
       height: 100%; /* 100% Full-height */
       width: 0; /* 0 width - change this with JavaScript */
@@ -138,17 +136,20 @@ export default ({
     .bm-overlay {
       background: #331F9F
     }
+
     .bm-item-list {
       color: #b8b7ad;
       font-size: 20px;
     }
+
     .bm-item-list > * {
       display: flex;
       text-decoration: none;
       padding: 0.7em;
     }
+
     .bm-item-list > * > span {
-      margin-left: 10px;
+      margin-left: .6rem;
       font-weight: 700;
       color: white;
     }
