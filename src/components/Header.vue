@@ -1,11 +1,13 @@
 <template>
   <div id="nav">
-    <router-link to="/"><img class="nav__logo" src="assets/logo.svg" alt="logo"></router-link>
-    <div class="nav__links">
-      <router-link class="header-item" to="/">Home</router-link>
-      <router-link class="header-item" to="/about">About</router-link>
-      <router-link class="header-item" to="/viewbadges">View badges</router-link>
-      <router-link class="header-item" to="/community">Community</router-link>
+    <div class="nav__full">
+      <router-link to="/"><img class="nav__logo" src="assets/logo.svg" alt="logo"></router-link>
+      <div class="nav__links">
+        <router-link class="header-item" to="/">Home</router-link>
+        <router-link class="header-item" to="/about">About</router-link>
+        <router-link class="header-item" to="/viewbadges">View badges</router-link>
+        <router-link class="header-item" to="/community">Community</router-link>
+      </div>
     </div>
     <Push class="push-container">
         <router-link class="header-item-hamburger" to="/">Home</router-link>
@@ -36,10 +38,13 @@ export default ({
     text-transform: uppercase;
     letter-spacing: 0.2em;
     font-size: 14px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     margin-bottom: 8rem;
+
+    & .nav__full {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
     .header-item {
       color: white;
