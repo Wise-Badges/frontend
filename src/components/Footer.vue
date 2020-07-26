@@ -80,6 +80,10 @@ export default ({
       display: flex;
       justify-content: space-between;
 
+      @media only screen and (max-width: 630px) {
+        flex-direction: column;
+      }
+
       & .info__site {
         max-width: 22rem;
         line-height: 1.5rem;
@@ -89,6 +93,18 @@ export default ({
         line-height: 1.5rem;
         text-align: right;
         transform: translateX(-3rem);
+
+        & p {
+          @media only screen and (max-width: 630px) {
+            margin-top: .5rem;
+          }
+        }
+
+        @media only screen and (max-width: 630px) {
+          margin-top: 1rem;
+          text-align: left;
+          transform: translateX(0rem);
+        }
 
         & p::after {
             content: '';
@@ -110,9 +126,15 @@ export default ({
   .footer__copyright {
     background-color: white;
     color: $color-purpleDark;
+
     & .container {
       display: flex;
       justify-content: space-between;
+
+      @media only screen and (max-width: 1024px) {
+        flex-direction: column;
+        text-align: center;
+      }
     }
 
     & p {
@@ -132,6 +154,10 @@ export default ({
   .footer__logos {
     display: flex;
     align-items: center;
+
+    @media only screen and (max-width: 1024px) {
+      margin: 0 auto 2rem;
+    }
 
     & .footer__logo--erasmus {
       height: 1.8rem;
