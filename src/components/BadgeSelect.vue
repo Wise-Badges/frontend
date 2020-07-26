@@ -81,20 +81,34 @@ li {
   display: flex;
   flex-direction: column;
 
+  @media only screen and (max-width: 1024px) {
+    margin-top: 3.5rem;
+  }
+
   & #prim-btn {
     align-self: flex-end;
   }
 }
 
 .badges-ul {
-  /* display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center; */
   margin: 4rem 0 6rem;
   display: grid;
   grid-template: repeat(2, 1fr) / repeat(4, 1fr);
   grid-gap: 3rem 1.87rem;
+
+   @media only screen and (max-width: 1024px) {
+      grid-template: repeat(2, 1fr) / repeat(3, 1fr);
+   }
+
+    @media only screen and (max-width: 630px) {
+      grid-template: repeat(2, 1fr) / repeat(2, 1fr);
+      margin: 0 0 6rem;
+      grid-gap: 1.25rem;
+   }
+
+  @media only screen and (max-width: 350px) {
+     grid-template: repeat(2, 1fr) / repeat(1, 1fr);
+  }
 }
 
 .radio-btn {
@@ -127,6 +141,13 @@ li {
   opacity: 0.8;
   transition: 0.2s opacity;
 
+
+    @media only screen and (max-width: 630px) {
+      background-color: #331F9F;
+      margin: 0;
+      padding: 1rem;
+   }
+
 }
 
 .single-badge:hover {
@@ -138,6 +159,10 @@ li {
 .imgStnd {
   padding: 0.5rem;
   border: 0.1rem solid transparent;
+
+  @media only screen and (max-width: 630px) {
+    height: 5rem;
+  }
 }
 
 .active-badge-square {

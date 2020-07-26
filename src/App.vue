@@ -49,4 +49,13 @@ export default ({
   background-image: url('/assets/img/bg-shapes.svg'), url('/assets/img/bg-banner.svg') !important;
   background-position-x: calc((100vw - 60rem)/2 - 10rem), calc((100vw - 60rem)/2) !important;
 }
+
+ @media only screen and (max-width: 630px) {
+  .home {
+    background-image: url('/assets/img/bg-shapes-mobile.svg'), url('/assets/img/bg-banner-mobile.svg') !important;
+    background-size: 16rem, 100% !important;
+    background-position-x: 0, 0 !important;
+    background-position-y: 5rem, 0;
+  }
+ }
 </style>

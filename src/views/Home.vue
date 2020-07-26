@@ -35,15 +35,51 @@ export default {
     font-weight: 700;
     line-height: 1.2;
 
+    @media only screen and (max-width: 670px) {
+      margin-top: 12rem;
+      flex-direction: column;
+      align-items: flex-start;
+      margin-bottom: 4rem;
+    }
+
+    @media only screen and (max-width: 500px) {
+      margin-top: 12rem;
+      flex-direction: column;
+      align-items: flex-start;
+      margin-bottom: 10rem;
+    }
+
     & .title__wise {
       font-size: 13rem;
       font-weight: 700;
+
+      @media only screen and (max-width: 1024px) {
+        font-size: 10rem;
+      }
+
+      @media only screen and (max-width: 670px) {
+        font-size: 9rem;
+      }
+
+      @media only screen and (max-width: 500px) {
+        font-size: 6.25rem;
+      }
     }
 
     & .title__info {
       font-size: 2.1rem;
       padding-left: 1rem;
       transform: translateY(.6rem);
+
+      @media only screen and (max-width: 1024px) {
+        font-size: 1.65rem;
+      }
+
+
+      @media only screen and (max-width: 670px) {
+        font-size: 2.1rem;
+        padding-left: 0;
+      }
     }
   }
 
@@ -51,5 +87,9 @@ export default {
     max-width: 28rem;
     margin-top: 1rem;
     margin-left: auto;
+
+    @media only screen and (max-width: 670px) {
+      margin-left: 0;
+    }
   }
 </style>
