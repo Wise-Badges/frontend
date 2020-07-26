@@ -203,7 +203,7 @@
   @media only screen and (max-width: 1024px) {
     .container {
         max-width: 60rem;
-        margin: 0 3rem;
+        margin: 0 1.56rem;
     }
 
     /* .maxi-form-container {

@@ -1,13 +1,11 @@
 <template>
   <div id="nav">
-    <div class="nav__full">
       <router-link to="/"><img class="nav__logo" src="assets/logo.svg" alt="logo"></router-link>
       <div class="nav__links">
         <router-link class="header-item" to="/">Home</router-link>
         <router-link class="header-item" to="/about">About</router-link>
         <router-link class="header-item" to="/viewbadges">View badges</router-link>
         <router-link class="header-item" to="/community">Community</router-link>
-      </div>
     </div>
     <Push>
         <router-link class="header-item" to="/">Home</router-link>
@@ -69,6 +67,10 @@ export default ({
     justify-content: flex-end;
   }
 
+
+
+
+
   @media only screen and (min-width: 1025px) {
      .bm-burger-button {
        display: none;
@@ -78,24 +80,32 @@ export default ({
      }
   }
 
+
+
+
   @media only screen and (max-width: 1024px) {
+    #nav {
+      .header-item {
+        margin: 0;
+      }
+    }
 
  .bm-burger-button {
       position: fixed;
-      width: 36px;
-      height: 30px;
+      width: 25px;
+      height: 20px;
       left: 36px;
       top: 36px;
       cursor: pointer;
     }
     .bm-burger-bars {
       background-color: white;
-      border-radius: 2rem;
+      // border-radius: 2rem;
     }
 
     .line-style {
       position: absolute;
-      height: 20%;
+      height: 10%;
       left: 0;
       right: 0;
     }
@@ -109,8 +119,8 @@ export default ({
       background: #bdc3c7;
     }
     .bm-cross-button {
-      height: 24px;
-      width: 24px;
+      height: 20px;
+      width: 20px;
     }
     .bm-menu {
       height: 100%; /* 100% Full-height */
@@ -130,7 +140,6 @@ export default ({
     }
     .bm-item-list {
       color: #b8b7ad;
-      margin-left: 10%;
       font-size: 20px;
     }
     .bm-item-list > * {
