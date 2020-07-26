@@ -88,6 +88,9 @@
     .about__info {
       padding-right: 2rem;
 
+      @media only screen and (max-width: 1024px) {
+        padding-right: 0;
+      }
 
       & p:first-of-type {
         font-weight: bold;
