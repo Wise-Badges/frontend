@@ -1,6 +1,9 @@
 <template>
   <div class="maxi-form-container">
     <div class="selectedBadge-container">
+      <!-- <img :class="'img-badge-form img-badge-' + this.$store.state.badgesApi.data[0].figure" :src="'/assets/img/badges/' + this.$store.state.badges[$route.params.id - 1].img + '.svg'" v-bind:alt="this.$store.state.badges[$route.params.id - 1].img"> -->
+      <p class="selectedBadge-name">{{this.$store.state.badgesApi.data[0].name}}</p>
+
       <img :class="'img-badge-form img-badge-' + this.$store.state.badges[$route.params.id - 1].figure" :src="'/assets/img/badges/' + this.$store.state.badges[$route.params.id - 1].img + '.svg'" v-bind:alt="this.$store.state.badges[$route.params.id - 1].img">
       <div class="badge-text">
         <p class="selectedBadge-name">{{this.$store.state.badges[$route.params.id - 1].name}}</p>
@@ -27,9 +30,9 @@
               <router-link to="" class="bol bol-inactive"></router-link>
               <router-link to="" class="bol bol-inactive"></router-link>
             </div>
-            <router-link  :class="this.$store.state.validField ? 'router-item' : 'router-item-invalid'" :to=" this.$store.state.validField ? '/receiver/' + this.$store.state.badges[$route.params.id - 1].id + '/' + this.$store.state.receiver[0].receiver : '/receiver/' + this.$store.state.badges[$route.params.id - 1].id">
+            <!-- <router-link  :class="this.$store.state.validField ? 'router-item' : 'router-item-invalid'" :to=" this.$store.state.validField ? '/receiver/' + this.$store.state.badges[$route.params.id - 1].id + '/' + this.$store.state.receiver[0].receiver : '/receiver/' + this.$store.state.badges[$route.params.id - 1].id">
               <span :id="this.$store.state.validField ? 'prim-btn' : 'prim-btn-disabled'" v-on:click="handleSubmit">Next</span>
-            </router-link>
+            </router-link> -->
           </div>
       </div>
   </div>
@@ -52,7 +55,8 @@ export default {
     if (this.$refs.receiver.value !== '') {
       this.$store.state.validField = true;
     }
-
+    
+    //console.log(this.$store.state.badgesApi.data[0].id)
     console.log(this.$store.state.badgesApi);
   },
   handleSubmit: function(e) {
