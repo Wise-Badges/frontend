@@ -126,17 +126,15 @@ export default ({
       background: #331F9F !important;
     }
 
-    .bm-overlay {
-      background: #0B1147 !important;
-    }
-
     .bm-item-list {
       color: #b8b7ad;
       font-size: 1rem;
     }
   }
 
-
+  .bm-overlay {
+    background: #0B1147 !important;
+  }
 
 
   @media only screen and (max-width: 1024px) {
