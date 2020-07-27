@@ -41,14 +41,14 @@ export default ({
   height: 100%;
 
   & > div {
-    background-image: url('/assets/img/bg-shapes.svg');
+    background-image: url('/assets/img/background/bg-shapes.svg');
     background-repeat: no-repeat;
     background-size: 30rem;
     background-position-x: calc((100vw - 60rem)/2 - 10rem);
   }
 
   & .home {
-    background-image: url('/assets/img/bg-shapes.svg'), url('/assets/img/bg-banner.svg');
+    background-image: url('/assets/img/background/bg-shapes.svg'), url('/assets/img/flag/bg.svg');
     background-position-x: calc((100vw - 60rem)/2 - 10rem), calc((100vw - 60rem)/2);
 
     @media only screen and (max-width: 1024px) {
@@ -58,7 +58,7 @@ export default ({
     }
 
     @media only screen and (max-width: 670px) {
-      background-image: url('/assets/img/bg-shapes-mobile.svg');
+      background-image: url('/assets/img/background/bg-shapes-mobile.svg');
       background-size: 16rem;
       background-position-x: 0;
       background-position-y: 5rem;

@@ -50,7 +50,7 @@ export default {
         bottom: 0;
         height: 48rem;
         width: 100%;
-        background-image: url('/assets/img/bg-banner-mobile.svg');
+        background-image: url('/assets/img/flag/bg-mobile.svg');
         background-repeat: no-repeat;
         background-position: bottom;
         z-index: -1;

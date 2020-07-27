@@ -81,7 +81,7 @@
   &::after {
     height: 5rem;
     width: inherit;
-    background-image: url('/assets/img/flag-bottom.svg');
+    background-image: url('/assets/img/flag/flag-bottom.svg');
     content: '';
     position: absolute;
     background-repeat: no-repeat;

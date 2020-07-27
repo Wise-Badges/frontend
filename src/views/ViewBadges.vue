@@ -104,7 +104,7 @@ export default ({
   .badge__amount::before {
     content: '';
 	  position: absolute;
-    background-image: url('/assets/img/award.svg');
+    background-image: url('/assets/img/icons/award.svg');
     width: 1.1rem;
     height: 1.5rem;
     background-repeat: no-repeat;
