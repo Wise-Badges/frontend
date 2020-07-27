@@ -101,7 +101,7 @@ export default ({
     }
 
     #nav {
-      margin-bottom: 1rem;
+      margin-bottom: 2rem;
 
       .header-item {
         margin: 0;
