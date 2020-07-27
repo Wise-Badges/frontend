@@ -5,15 +5,16 @@
 
       <div class="detail__info">
         <p>This badge has not been accepted yet, please accept it by liking the following Tweet. Only @username can officially accept this badge before 21/08/20.</p>
+
         <div class="tweet__wrapper">
-          <blockquote class="twitter-tweet">
+          <blockquote class="twitter-tweet" data-lang="en">
             <p lang="en" dir="ltr">Sunsets don&#39;t get much better than this one over
             <a href="https://twitter.com/GrandTetonNPS?ref_src=twsrc%5Etfw">@GrandTetonNPS</a>.
             <a href="https://twitter.com/hashtag/nature?src=hash&amp;ref_src=twsrc%5Etfw">#nature</a>
             <a href="https://twitter.com/hashtag/sunset?src=hash&amp;ref_src=twsrc%5Etfw">#sunset</a>
             <a href="http://t.co/YuKy2rcjyU">pic.twitter.com/YuKy2rcjyU</a></p>&mdash; US Department of the Interior (@Interior)
-            <a href="https://twitter.com/Interior/status/463440424141459456?ref_src=twsrc%5Etfw">May 5, 2014</a>
-          </blockquote>
+            <a href="https://twitter.com/Interior/status/463440424141459456?ref_src=twsrc%5Etfw">May 5, 2014</a></blockquote>
+
         </div>
       </div>
 
@@ -64,10 +65,18 @@
   display: grid;
   grid-template: auto / 2fr 1fr;
   grid-gap: 1.875rem;
+
+  @media only screen and (max-width: 1024px) {
+    grid-template: auto / 1fr;
+  }
 }
 
 .detail__info {
   padding-right: 2rem;
+
+    @media only screen and (max-width: 1024px) {
+        padding-right: 0;
+    }
 
   & .tweet__wrapper {
     margin-top: 3rem;
@@ -126,6 +135,10 @@
   place-items: center center;
   margin-top: 8rem;
 
+  @media only screen and (max-width: 1024px) {
+    grid-template: auto / 1fr;
+  }
+
   & p {
     color: $color-purpleLight;
     font-style: italic;
@@ -142,6 +155,10 @@
     width: calc(100vw - (100vw - 60rem));
     background: $color-purpleDark;
     transform: translateY(-4rem);
+
+    @media only screen and (max-width: 1024px) {
+      width: 0;
+    }
   }
 }
 </style>
