@@ -78,9 +78,6 @@ export default ({
   }
 
 
-
-
-
   @media only screen and (max-width: 1024px) {
     .bm-burger-button, .bm-burger-bars {
       display: inline;
@@ -148,7 +145,7 @@ export default ({
     }
 
     .bm-overlay {
-      background: #331F9F
+      background: #0B1147;
     }
 
     .bm-item-list {
