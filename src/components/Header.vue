@@ -42,6 +42,10 @@ export default ({
     align-items: flex-end;
     justify-content: space-between;
 
+    @media only screen and (max-width: 1024px) {
+      padding: 1.5rem 2rem 0;
+    }
+
     & .nav__links {
       order: 3;
     }
@@ -55,6 +59,10 @@ export default ({
 
       &.router-link-exact-active {
         border-bottom: 2px solid white;
+
+        @media only screen and (max-width: 1024px) {
+          border: 0;
+        }
       }
     }
   }
@@ -62,6 +70,12 @@ export default ({
   .nav__logo {
     height: 3rem;
     width: 3rem;
+
+    @media only screen and (max-width: 1024px) {
+      order: 3;
+      height: 2.5rem;
+      width: 2.5rem;
+    }
   }
 
   .nav__links {
@@ -69,6 +83,10 @@ export default ({
     justify-content: flex-end;
   }
 
+
+
+
+  /* HAMBURGER MENU ------------  */
   .bm-burger-button, .bm-burger-bars {
     display: none;
   }
@@ -76,7 +94,6 @@ export default ({
   .nav__hamburger {
     z-index: 9999;
   }
-
 
   @media only screen and (max-width: 1024px) {
     .bm-burger-button, .bm-burger-bars {
@@ -90,12 +107,12 @@ export default ({
         margin: 0;
       }
 
-      & .nav__links, .nav__logo {
+      & .nav__links {
       display: none;
       }
     }
 
-  .bm-burger-button {
+    .bm-burger-button {
       position: fixed;
       width: 25px;
       height: 20px;
@@ -103,9 +120,9 @@ export default ({
       top: 36px;
       cursor: pointer;
     }
+
     .bm-burger-bars {
       background-color: white;
-      // border-radius: 2rem;
     }
 
     .line-style {
