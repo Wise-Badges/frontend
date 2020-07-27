@@ -43,8 +43,44 @@ export default new Vuex.Store({
         .catch(error => {
           console.log('not loaded')
         });
-    }
+    },
+    // checkId: function() {
+    //   for(let i = 0; i < state.badgesApi.data.length; i++) {
+    //     //console.log(this.$store.state.badgesApi.data[i].id);
+    //     let fullId = state.badgesApi.data[i].id;
+    //     let shortId = /[^/]*$/.exec(fullId)[0]
+
+    //     // OKE DIT MOET DUS TOEGEPAST WORDEN VANBOVEN
+    //     if (this.$route.params.id === shortId) {
+    //       //console.log(this.$store.state.badgesApi.data[i].name);
+          
+    //       let currentBadgeSelected = state.badgesApi.data[i];
+          
+    //       return currentBadgeSelected
+    //     } else {
+    //       //this.$router.push('/') 
+    //     }
+    //   }
+    // },
   },
   modules: {
   },
+  // getters: {
+  //   checkId: state => {
+  //     for(let i = 0; i < state.badgesApi.data.length; i++) {
+  //       //console.log(this.$store.state.badgesApi.data[i].id);
+  //       let fullId = state.badgesApi.data[i].id;
+  //       let shortId = /[^/]*$/.exec(fullId)[0]
+
+  //       // OKE DIT MOET DUS TOEGEPAST WORDEN VANBOVEN
+  //       if (this.$route.params.id === shortId) {
+  //         //console.log(this.$store.state.badgesApi.data[i].name);
+          
+  //         let currentBadgeSelected = state.badgesApi.data[i];
+          
+  //         return currentBadgeSelected
+  //       } 
+  //     }
+  //   },
+  // }
 });

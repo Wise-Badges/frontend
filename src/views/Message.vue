@@ -2,9 +2,9 @@
   <div>
     <div class="maxi-form-container">
     <div class="data-selected-container selectedBadge-container">
-      <img class="img-badge-form" :src="'/assets/img/badges/' + this.$store.state.badges[$route.params.id - 1].img + '.svg'" v-bind:alt="this.$store.state.badges[$route.params.id - 1].img">
+      <img class="img-badge-form" :src="'/assets/img/badges/' + checkId().image + '.svg'" v-bind:alt="checkId().image">
       <div class="badge-text">
-        <p class="selectedBadge-name">{{this.$store.state.badges[$route.params.id - 1].name}}</p>
+        <p class="selectedBadge-name">{{checkId().name}}</p>
         <div class="selectedBadge-receiver">
           <p v-if="this.$store.state.receiver[0]">To {{$route.params.receiver}}</p>
           <p v-if="this.$store.state.receiver[0] == undefined">Something went wrong my dear</p>
@@ -15,14 +15,14 @@
       <div class="form-container">
         <textarea class="textarea-message" ref="message" name="message" id="1" cols="20" rows="10" placeholder="Type your personal message"></textarea>
         <div class="navigation-form">
-          <router-link class="router-item" :to="'/receiver/' + this.$store.state.badges[$route.params.id - 1].id"><span id="sec-btn">Previous</span></router-link>
+          <router-link class="router-item" :to="'/receiver/' + this.$route.params.id"><span id="sec-btn">Previous</span></router-link>
             <div class="bol-container">
               <router-link to="/" class="bol"></router-link>
-              <router-link :to="'/receiver/' + this.$store.state.badges[$route.params.id - 1].id" class="bol"></router-link>
+              <router-link :to="'/receiver/' + this.$route.params.id" class="bol"></router-link>
               <router-link to="" class="bol bol-active"></router-link>
               <router-link to="" class="bol bol-inactive"></router-link>
             </div>
-          <router-link class="router-item" :to="'/receiver/' + this.$store.state.badges[$route.params.id - 1].id + '/' + $route.params.receiver + '/' + this.$store.state.message[0].message">
+          <router-link class="router-item" :to="'/receiver/' + this.$route.params.id + '/' + $route.params.receiver + '/' + this.$store.state.message[0].message">
             <span id="prim-btn-twitter" class="twitter-btn" v-on:click="handleSubmitMessage">Issue badge</span>
           </router-link>
         </div>
@@ -47,8 +47,27 @@
         } else {
           //console.log('empty')
         }
+      },
+    checkId: function() {
+    for(let i = 0; i < this.$store.state.badgesApi.data.length; i++) {
+      //console.log(this.$store.state.badgesApi.data[i].id);
+      let fullId = this.$store.state.badgesApi.data[i].id;
+      let shortId = /[^/]*$/.exec(fullId)[0]
+
+      // OKE DIT MOET DUS TOEGEPAST WORDEN VANBOVEN
+      if (this.$route.params.id === shortId) {
+        //console.log(this.$store.state.badgesApi.data[i].name);
+        
+        let currentBadgeSelected = this.$store.state.badgesApi.data[i];
+        
+        return currentBadgeSelected
+      } else {
+        //this.$router.push('/') 
       }
     }
+  },
+  },  
+
   }
 </script>
 
