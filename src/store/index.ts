@@ -38,7 +38,6 @@ export default new Vuex.Store({
           let badgesApi = r.data;
           commit("SET_BADGES", badgesApi);
           console.log(badgesApi);
-          console.log('tessst');
         })
         .catch(error => {
           console.log('not loaded')
