@@ -9,12 +9,16 @@
     display: none;
 }
 
+<<<<<<< HEAD
 body {
   background-color: #0B1147;
 }
 
 
   @media only screen and (max-width: 1024px) {
+=======
+  @media only screen and (max-width: 1000px) {
+>>>>>>> 53dab2205c27837c35339aa7560f39d4cbcad938
     .container {
         max-width: 60rem;
         margin: 0 1.56rem;
@@ -24,6 +28,13 @@ body {
         display:none;
     }
 
+    .twitterlink-title-backup {
+      margin-bottom: 1rem;
+      margin-top: 3rem;
+      opacity: 0.6;
+
+    }
+
     /* .selectedBadge-container {
         background-image: url('/assets/img/flagMobile.svg');
         background-repeat: no-repeat;
@@ -31,7 +42,7 @@ body {
       } */
   }
 
-  @media only screen and (min-width: 1024px) {
+  @media only screen and (min-width: 1000px) {
     .bol-container {
         display: flex;
         align-items: center;
@@ -118,15 +129,9 @@ body {
   .bol-inactive {
       cursor: default;
   }
-
-
-
-
-
-  /* .bol-container {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-top: 3rem;
-  } */
   
+
+  .twitterlink {
+    color: #A37FFA;
+    margin-bottom: 2rem;
+  }

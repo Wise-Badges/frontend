@@ -2,7 +2,7 @@
   <div class="badge-select">
     <h2 class="subtitle">{{ msg }}</h2>
     <ul class="badges-ul">
-      <li class="single-badge" id="badgelist" v-for="badge in badges" :key="badge.name">
+      <li class="single-badge" id="badgelist" v-for="badge in this.$store.state.badges" :key="badge.name">
         <input class="radio-btn" type="radio" :checked="checked" v-on:change="$emit('change', $event.target.checked)" v-model="currentBadge" :id="badge.name" :value="badge.id" name="currentBadge">
         <label v-if="currentBadge === badge.id" class="badge-label" :for="badge.name" :id="badge.name" name="currentBadge">
           <img :class="'imgStnd active-badge-' + badge.figure" :src="'assets/img/badges/' + badge.img + '.svg'" v-bind:alt="badge.img">
@@ -15,7 +15,6 @@
         </label>
       </li>
     </ul>
-    <!-- <div class="step-container"> -->
       <div class="bol-container">
         <router-link to="" class="bol bol-active"></router-link>
         <router-link to="/" class="bol bol-inactive"></router-link>
@@ -24,7 +23,6 @@
       </div>
         <router-link class="router-item next-selectbadge" badge="badge" :to="'/receiver/' + currentBadge" id="prim-btn">next</router-link>
     </div>
-  <!-- </div> -->
 </template>
 
 <script>
@@ -41,22 +39,11 @@ export default ({
   data() {
     return {
       msg: 'Choose a badge to give',
-      badges: [
-        { id: 1, name: 'Did not Explode', img: 'didnt_explode', figure: 'circle'},
-        { id: 2, name: 'Eureka', img: 'eureka', figure: 'circle'},
-        { id: 3, name: 'Leading Lady', img: 'leading_lady', figure: 'hexagon'},
-        { id: 4, name: 'Mathematics Wizard', img: 'mathematics_wizard', figure: 'square'},
-        { id: 5, name: 'Next gen Einstein', img: 'next_gen_einstein', figure: 'square'},
-        { id: 6, name: 'The Bigbang Badge', img: 'the_bigbang_badge', figure: 'hexagon'},
-        { id: 7, name: 'You rock(et) science', img: 'you_rocket_science', figure: 'triangle'},
-        { id: 8, name: 'Another one', img: 'another_one', figure: 'hexagon'},
-      ],
       currentBadge: 2,
       active: true
     };
   },
   getImgUrl(badge) {
-    //var badgeImages = require.context('./assets/img/badges/', false, /\.svg$/)
     return badgeImages('./' + badge + ".svg")
   }
 });

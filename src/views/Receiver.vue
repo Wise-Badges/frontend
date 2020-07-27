@@ -8,7 +8,8 @@
       <div class="form-container">
           <div class="platform-receiver-container">
             <div class="select-platforms" name="platforms" id="platforms">
-              <p value="twitter">twitter</p>
+              <p class="twitter-text" value="twitter">twitter</p>
+              <img src="/assets/img/icons/twitterWhite.svg" alt="twitterLogo">
             </div>
             <!-- <select class="select-platforms" name="platforms" id="platforms">
               <option value="twitter">twitter</option>
@@ -112,10 +113,28 @@ export default {
   text-transform: uppercase;
   border: none;
   padding-top: 0.7rem;
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.select-platforms img {
+  margin-top: -0.5rem;
+  margin-right: 1rem;
 }
 
 .select-platforms:focus {
   outline: transparent;
+}
+
+@media only screen and (max-width: 800px) {
+  .twitter-text {
+    display: none;
+    margin-right: 1rem;
+  }
+
+  .select-platforms img {
+  margin-right: 0rem;
+}
 }
 
 </style>
