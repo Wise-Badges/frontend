@@ -8,7 +8,7 @@
           <li><img alt="Facebook" src="/assets/img/footer/facebook.svg"/><span class="hidden">Facebook</span></li>
         </ul>
         <div class="info">
-          <p class="info__site">WiseBadges is a part of Bridges a project funded by the Erasmus+ project to improve gender equity in the access to STEM</p>
+          <p class="info__site">WiseBadges is a part of Bridges, a project funded by the Erasmus+ project to improve gender equity in the access to STEM education</p>
           <div class="info__links">
             <p>Lorem ipsum</p>
             <p>Contact</p>
@@ -85,7 +85,7 @@ export default ({
       }
 
       & .info__site {
-        max-width: 22rem;
+        max-width: 24rem;
         line-height: 1.5rem;
       }
 

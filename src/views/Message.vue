@@ -3,7 +3,7 @@
     <div class="maxi-form-container">
     <div class="data-selected-container selectedBadge-container">
       <img class="img-badge-form" :src="'/assets/img/badges/' + this.$store.state.badges[$route.params.id - 1].img + '.svg'" v-bind:alt="this.$store.state.badges[$route.params.id - 1].img">
-      <div>
+      <div class="badge-text">
         <p class="selectedBadge-name">{{this.$store.state.badges[$route.params.id - 1].name}}</p>
         <div class="selectedBadge-receiver">
           <p v-if="this.$store.state.receiver[0]">To {{$route.params.receiver}}</p>

@@ -34,7 +34,6 @@ export default {
     align-items: center;
     font-weight: 700;
     line-height: 1.2;
-    // z-index: 10;
 
     @media only screen and (max-width: 670px) {
       margin-top: 12rem;
@@ -51,7 +50,7 @@ export default {
         bottom: 0;
         height: 48rem;
         width: 100%;
-        background-image: url('/assets/img/bg-banner-mobile.svg');
+        background-image: url('/assets/img/flag/bg-mobile.svg');
         background-repeat: no-repeat;
         background-position: bottom;
         z-index: -1;
@@ -72,7 +71,6 @@ export default {
     & .title__wise {
       font-size: 13rem;
       font-weight: 700;
-      // z-index: 10;
 
       @media only screen and (max-width: 1024px) {
         font-size: 10rem;
@@ -91,7 +89,6 @@ export default {
       font-size: 2.1rem;
       padding-left: 1rem;
       transform: translateY(.6rem);
-      // z-index: 10;
 
       @media only screen and (max-width: 1024px) {
         font-size: 1.65rem;
@@ -108,7 +105,6 @@ export default {
     max-width: 28rem;
     margin-top: 1rem;
     margin-left: auto;
-    // z-index: 10;
 
     @media only screen and (max-width: 1024px) {
       max-width: calc(50vw - 3.5rem);
