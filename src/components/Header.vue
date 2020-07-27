@@ -1,6 +1,6 @@
 <template>
   <div id="nav">
-      <router-link to="/"><img class="nav__logo" src="assets/logo.svg" alt="logo"></router-link>
+      <router-link to="/"><img class="nav__logo" src="/assets/logo.svg" alt="logo"></router-link>
       <div class="nav__links">
         <router-link class="header-item" to="/">Home</router-link>
         <router-link class="header-item" to="/about">About</router-link>
