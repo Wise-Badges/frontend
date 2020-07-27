@@ -2,11 +2,12 @@
   <div class="maxi-form-container">
     <div class="selectedBadge-container">
       <!-- <img :class="'img-badge-form img-badge-' + this.$store.state.badgesApi.data[0].figure" :src="'/assets/img/badges/' + this.$store.state.badges[$route.params.id - 1].img + '.svg'" v-bind:alt="this.$store.state.badges[$route.params.id - 1].img"> -->
-      <p class="selectedBadge-name">{{this.$store.state.badgesApi.data[0].name}}</p>
+      
+      <!-- <p v-if="this.$store.state.badgesApi.data." class="selectedBadge-name">{{this.$store.state.badgesApi.data}}</p> -->
 
-      <img :class="'img-badge-form img-badge-' + this.$store.state.badges[$route.params.id - 1].figure" :src="'/assets/img/badges/' + this.$store.state.badges[$route.params.id - 1].img + '.svg'" v-bind:alt="this.$store.state.badges[$route.params.id - 1].img">
+      <!-- <img :class="'img-badge-form img-badge-' + this.$store.state.badges[$route.params.id - 1].figure" :src="'/assets/img/badges/' + this.$store.state.badges[$route.params.id - 1].img + '.svg'" v-bind:alt="this.$store.state.badges[$route.params.id - 1].img"> -->
       <div class="badge-text">
-        <p class="selectedBadge-name">{{this.$store.state.badges[$route.params.id - 1].name}}</p>
+        <p class="selectedBadge-name">{{checkId().name}}</p>
       </div>
     </div>
     <h2 class="subtitle">Choose who you want to send the badge to</h2>
@@ -56,8 +57,41 @@ export default {
       this.$store.state.validField = true;
     }
     
+    
     //console.log(this.$store.state.badgesApi.data[0].id)
-    console.log(this.$store.state.badgesApi);
+    //console.log(this.$route.params.id);
+    //console.log(this.$store.state.badgesApi);
+
+    for(let i = 0; i < this.$store.state.badgesApi.data.length; i++) {
+      //console.log(this.$store.state.badgesApi.data[i].id);
+      let fullId = this.$store.state.badgesApi.data[i].id;
+      let shortId = /[^/]*$/.exec(fullId)[0]
+
+      console.log(shortId)
+
+      // OKE DIT MOET DUS TOEGEPAST WORDEN VANBOVEN
+      if (shortId === this.$route.params.id) {
+        console.log(this.$store.state.badgesApi.data[i].name);
+      }
+    }
+  },
+  checkId: function() {
+    for(let i = 0; i < this.$store.state.badgesApi.data.length; i++) {
+      //console.log(this.$store.state.badgesApi.data[i].id);
+      let fullId = this.$store.state.badgesApi.data[i].id;
+      let shortId = /[^/]*$/.exec(fullId)[0]
+
+      console.log(shortId)
+
+      // OKE DIT MOET DUS TOEGEPAST WORDEN VANBOVEN
+      if (shortId === this.$route.params.id) {
+        console.log(this.$store.state.badgesApi.data[i].name);
+        
+        let currentBadgeSelected = this.$store.state.badgesApi.data[i];
+        
+        return currentBadgeSelected
+      }
+    }
   },
   handleSubmit: function(e) {
     this.$store.state.receiver = [];
