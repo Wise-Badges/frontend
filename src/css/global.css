@@ -9,16 +9,11 @@
     display: none;
 }
 
-<<<<<<< HEAD
 body {
   background-color: #0B1147;
 }
 
-
   @media only screen and (max-width: 1024px) {
-=======
-  @media only screen and (max-width: 1000px) {
->>>>>>> 53dab2205c27837c35339aa7560f39d4cbcad938
     .container {
         max-width: 60rem;
         margin: 0 1.56rem;
