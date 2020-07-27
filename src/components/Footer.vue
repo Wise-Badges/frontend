@@ -85,7 +85,7 @@ export default ({
       }
 
       & .info__site {
-        max-width: 22rem;
+        max-width: 24rem;
         line-height: 1.5rem;
       }
 
