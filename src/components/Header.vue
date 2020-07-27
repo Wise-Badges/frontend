@@ -84,41 +84,18 @@ export default ({
   }
 
 
-
-
   /* HAMBURGER MENU ------------  */
   .bm-burger-button, .bm-burger-bars {
     display: none;
   }
 
   .nav__hamburger {
-    z-index: 9999;
-  }
-
-  @media only screen and (max-width: 1024px) {
-    .bm-burger-button, .bm-burger-bars {
-      display: inline;
-    }
-
-    #nav {
-      margin-bottom: 2rem;
-
-      .header-item {
-        margin: 0;
-      }
-
-      & .nav__links {
-      display: none;
-      }
-    }
+    z-index: 1000;
 
     .bm-burger-button {
-      position: fixed;
       width: 25px;
       height: 20px;
       left: 1.56rem;
-      top: 36px;
-      cursor: pointer;
     }
 
     .bm-burger-bars {
@@ -126,10 +103,7 @@ export default ({
     }
 
     .line-style {
-      position: absolute;
       height: 10%;
-      left: 0;
-      right: 0;
     }
 
     .cross-style {
@@ -149,39 +123,38 @@ export default ({
     }
 
     .bm-menu {
-      height: 100%; /* 100% Full-height */
-      width: 0; /* 0 width - change this with JavaScript */
-      position: fixed; /* Stay in place */
-      z-index: 1000; /* Stay on top */
-      top: 0;
-      left: 0;
-      background: #331F9F; /* Black*/
-      overflow-x: hidden; /* Disable horizontal scroll */
-      padding-top: 60px; /* Place content 60px from the top */
-      transition: 0.5s; /*0.5 second transition effect to slide in the sidenav*/
+      background: #331F9F !important;
     }
 
     .bm-overlay {
-      background: #0B1147;
+      background: #0B1147 !important;
     }
 
     .bm-item-list {
       color: #b8b7ad;
-      font-size: 20px;
+      font-size: 1rem;
+    }
+  }
+
+
+
+
+  @media only screen and (max-width: 1024px) {
+    .bm-burger-button, .bm-burger-bars {
+      display: inline;
     }
 
-    .bm-item-list > * {
-      display: flex;
-      text-decoration: none;
-      padding: 0.7em;
-    }
+    #nav {
+      margin-bottom: 2rem;
 
-    .bm-item-list > * > span {
-      margin-left: .6rem;
-      font-weight: 700;
-      color: white;
-    }
+      .header-item {
+        margin: 0;
+      }
 
+      & .nav__links {
+      display: none;
+      }
+    }
   }
 
 
