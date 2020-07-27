@@ -17,6 +17,7 @@ export default new Vuex.Store({
       { id: 8, name: 'Another one', img: 'another_one', figure: 'hexagon', hashtag: '%23anotherone'},
     ],
     badgesApi: [],
+    assertionsApi: [],
     receiver: [{ receiver: '' }],
     message: [{message: ''}],
     pressedAtmark: false,
@@ -29,6 +30,9 @@ export default new Vuex.Store({
   mutations: {
     SET_BADGES(state, badgesApi) {
       state.badgesApi = badgesApi;
+    },
+    SET_ASSERTIONS(state, assertionsApi) {
+      state.assertionsApi = assertionsApi;
     }
   },
   actions: {
@@ -44,6 +48,18 @@ export default new Vuex.Store({
           console.log('not loaded')
         });
     },
+    loadAssertions({commit}) {
+            axios
+        .get("https://api.wisebadges.osoc.be/assertions/")
+        .then(r => {
+          let assertionsApi = r.data;
+          commit("SET_ASSERTIONS", assertionsApi);
+          console.log(assertionsApi);
+        })
+        .catch(error => {
+          console.log('not loaded')
+        });
+    }
     // checkId: function() {
     //   for(let i = 0; i < state.badgesApi.data.length; i++) {
     //     //console.log(this.$store.state.badgesApi.data[i].id);
@@ -65,22 +81,4 @@ export default new Vuex.Store({
   },
   modules: {
   },
-  // getters: {
-  //   checkId: state => {
-  //     for(let i = 0; i < state.badgesApi.data.length; i++) {
-  //       //console.log(this.$store.state.badgesApi.data[i].id);
-  //       let fullId = state.badgesApi.data[i].id;
-  //       let shortId = /[^/]*$/.exec(fullId)[0]
-
-  //       // OKE DIT MOET DUS TOEGEPAST WORDEN VANBOVEN
-  //       if (this.$route.params.id === shortId) {
-  //         //console.log(this.$store.state.badgesApi.data[i].name);
-          
-  //         let currentBadgeSelected = state.badgesApi.data[i];
-          
-  //         return currentBadgeSelected
-  //       } 
-  //     }
-  //   },
-  // }
 });
