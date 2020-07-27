@@ -22,6 +22,7 @@ export default new Vuex.Store({
     pressedAtmark: false,
     validField: false,
     validMessage: false,
+    badgeId: '',
     twitterString: 'https://twitter.com/intent/tweet?text=Hey'
     // twitterString: 'https://twitter.com/intent/tweet?text=This%20is%20an%20example%20of%20a%20pre-written%20tweet-%20don%27t%20forget%20that%20it%20needs%20to%20be%20less%20than%20280%20characters'
   },
@@ -33,7 +34,7 @@ export default new Vuex.Store({
   actions: {
     loadBadges({ commit }) {
       axios
-        .get("http://localhost:5000/badgeclasses")
+        .get("https://api.wisebadges.osoc.be/badgeclasses/")
         .then(r => {
           let badgesApi = r.data;
           commit("SET_BADGES", badgesApi);

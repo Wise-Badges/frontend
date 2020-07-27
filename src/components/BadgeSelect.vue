@@ -2,17 +2,30 @@
   <div class="badge-select">
     <h2 class="subtitle">{{ msg }}</h2>
     <ul class="badges-ul">
-      <li class="single-badge" id="badgelist" v-for="badge in this.$store.state.badges" :key="badge.name">
-        <input class="radio-btn" type="radio" :checked="checked" v-on:change="$emit('change', $event.target.checked)" v-model="currentBadge" :id="badge.name" :value="badge.id" name="currentBadge">
-        <label v-if="currentBadge === badge.id" class="badge-label" :for="badge.name" :id="badge.name" name="currentBadge">
+      <li class="single-badge" id="badgelist" v-for="badge in this.$store.state.badgesApi.data" :key="badge.name">
+        <input class="radio-btn" type="radio" :checked="checked" v-on:change="$emit('change', $event.target.checked)" v-model="currentBadge" :id="badge.name" :value="badge.id" name="badge.id">
+        
+        <label class="badge-label" :for="badge.name" :id="badge.name" name="currentBadge">
           <img :class="'imgStnd active-badge-' + badge.figure" :src="'assets/img/badges/' + badge.img + '.svg'" v-bind:alt="badge.img">
           <p class="badge-name-bold">{{badge.name}}</p>
+          <p class="badge-name-bold">{{badge.id}}</p>
+          <p class="badge-name-bold">{{currentBadge}}</p>
         </label>
 
-        <label v-if="currentBadge !== badge.id" class="badge-label" :for="badge.name" :id="badge.name" name="currentBadge">
+
+        <!-- <label v-if="currentBadge === getId(badge.id)" class="badge-label" :for="badge.name" :id="badge.name" name="currentBadge">
+          <img :class="'imgStnd active-badge-' + badge.figure" :src="'assets/img/badges/' + badge.img + '.svg'" v-bind:alt="badge.img">
+          <p class="badge-name-bold">{{badge.name}}</p>
+        </label> -->
+        <!-- <label @click="getId" v-if="currentBadge === badge.id" class="badge-label" :for="badge.name" :id="badge.name" name="currentBadge">
+          <img :class="'imgStnd active-badge-' + badge.figure" :src="'assets/img/badges/' + badge.img + '.svg'" v-bind:alt="badge.img">
+          <p class="badge-name-bold">{{badge.name}}</p>
+        </label> -->
+
+        <!-- <label v-if="currentBadge !== badge.id" class="badge-label" :for="badge.name" :id="badge.name" name="currentBadge">
           <img class="imgStnd" :src="'assets/img/badges/' + badge.img + '.svg'" v-bind:alt="badge.img">
           <p class="badge-name">{{badge.name}}</p>
-        </label>
+        </label> -->
       </li>
     </ul>
       <div class="bol-container">
@@ -21,7 +34,7 @@
         <router-link to="/" class="bol bol-inactive"></router-link>
         <router-link to="/" class="bol bol-inactive"></router-link>
       </div>
-        <router-link class="router-item next-selectbadge" badge="badge" :to="'/receiver/' + currentBadge" id="prim-btn">next</router-link>
+        <router-link class="router-item next-selectbadge" badge="badge" :to="'/receiver/' + this.$store.state.shortId" id="prim-btn">next</router-link>
     </div>
 </template>
 
@@ -39,13 +52,28 @@ export default ({
   data() {
     return {
       msg: 'Choose a badge to give',
-      currentBadge: 2,
-      active: true
+      currentBadge: 'https://api.wisebadges.osoc.be/badgeclass/5f1ec15c71d07def7b588a73',
+      active: true,
+      // fullId: this.$store.state.badgesApi.data[currentBadge].id,
+      // shortId: /[^/]*$/.exec(fullId)[currentBadge]
     };
   },
   getImgUrl(badge) {
     return badgeImages('./' + badge + ".svg")
+  },
+  methods: {
+    getId() {
+      let fullId = this.$store.state.badgesApi.data[0].id;
+      let shortId = /[^/]*$/.exec(fullId)[0]
+
+      //console.log(this.currentBadge);
+      //this.$store.state.badgeId.push({badgeId: shortId})
+      this.$store.state.badgeId = shortId;
+      console.log(shortId);
+      return shortId;
+    }
   }
+
 });
 </script>
 
