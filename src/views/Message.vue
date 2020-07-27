@@ -36,36 +36,37 @@
   export default {
     name: 'message',
     methods: {
+    checkId: function() {
+      for(let i = 0; i < this.$store.state.badgesApi.data.length; i++) {
+        //console.log(this.$store.state.badgesApi.data[i].id);
+        let fullId = this.$store.state.badgesApi.data[i].id;
+        let shortId = /[^/]*$/.exec(fullId)[0]
+
+        // OKE DIT MOET DUS TOEGEPAST WORDEN VANBOVEN
+        if (this.$route.params.id === shortId) {
+          //console.log(this.$store.state.badgesApi.data[i].name);
+          
+          let currentBadgeSelected = this.$store.state.badgesApi.data[i];
+          
+          return currentBadgeSelected
+        } else {
+          //this.$router.push('/') 
+        }
+      }
+    },
       handleSubmitMessage: function(e) {
         this.$store.state.message = [];
 
         if (this.$store.state.message !== []) {
             this.$store.state.message.push({message: this.$refs.message.value})
 
-            let twitterRoute = this.$store.state.twitterString + ' @WiseBadges' + ', issue a '  + this.$store.state.badges[this.$route.params.id - 1].hashtag + ' to ' + this.$route.params.receiver + ' with this message: ' + this.$store.state.message[0].message
+            let twitterRoute = this.$store.state.twitterString + ' @WiseBadges' + ', issue a %23'  + this.checkId().tag + ' to ' + this.$route.params.receiver + ' with this message: ' + this.$store.state.message[0].message
             window.open(twitterRoute)
         } else {
           //console.log('empty')
         }
       },
-    checkId: function() {
-    for(let i = 0; i < this.$store.state.badgesApi.data.length; i++) {
-      //console.log(this.$store.state.badgesApi.data[i].id);
-      let fullId = this.$store.state.badgesApi.data[i].id;
-      let shortId = /[^/]*$/.exec(fullId)[0]
 
-      // OKE DIT MOET DUS TOEGEPAST WORDEN VANBOVEN
-      if (this.$route.params.id === shortId) {
-        //console.log(this.$store.state.badgesApi.data[i].name);
-        
-        let currentBadgeSelected = this.$store.state.badgesApi.data[i];
-        
-        return currentBadgeSelected
-      } else {
-        //this.$router.push('/') 
-      }
-    }
-  },
   },  
 
   }
