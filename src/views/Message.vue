@@ -7,7 +7,7 @@
         <p class="selectedBadge-name">{{this.$store.state.badges[$route.params.id - 1].name}}</p>
         <div class="selectedBadge-receiver">
           <p v-if="this.$store.state.receiver[0]">To {{$route.params.receiver}}</p>
-          <p v-if="this.$store.state.receiver[0] == undefined">Refreshing is forbidden my dear</p>
+          <p v-if="this.$store.state.receiver[0] == undefined">Something went wrong my dear</p>
         </div>
       </div>
     </div>
@@ -42,7 +42,7 @@
         if (this.$store.state.message !== []) {
             this.$store.state.message.push({message: this.$refs.message.value})
 
-            let twitterRoute = this.$store.state.twitterString + '%20@WiseBadges' + ',%20issue%20a%20'  + this.$store.state.badges[this.$route.params.id - 1].hashtag + '%20to%20' + this.$route.params.receiver + '%20with%20this%20message:%20' + this.$store.state.message[0].message
+            let twitterRoute = this.$store.state.twitterString + ' @WiseBadges' + ', issue a '  + this.$store.state.badges[this.$route.params.id - 1].hashtag + ' to ' + this.$route.params.receiver + ' with this message: ' + this.$store.state.message[0].message
             window.open(twitterRoute)
         } else {
           //console.log('empty')

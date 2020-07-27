@@ -13,7 +13,7 @@
     <router-link :to="'/receiver/' + this.$store.state.badges[$route.params.id - 1].id+ '/' + this.$store.state.receiver[0].receiver" class="bol"></router-link>
     <router-link to="" class="bol bol-active"></router-link>
   </div>
-  <h3 class="twitterlink-title-backup">Went something wrong? </br> Here is your <a class="twitterlink" :href="this.$store.state.twitterString + '%20@WiseBadges' + ',%20issue%20a%20'  + this.$store.state.badges[$route.params.id - 1].hashtag + '%20to%20' + $route.params.receiver + '%20with%20this%20message:%20' + $route.params.message" target=_black>Twitterlink</a></h3>
+  <h3 class="twitterlink-title-backup">Went something wrong? <br/> Here is your <a class="twitterlink" :href="this.$store.state.twitterString + ' @WiseBadges' + ', issue a '  + this.$store.state.badges[$route.params.id - 1].hashtag + ' to ' + $route.params.receiver + ' with this message: ' + $route.params.message" target=_black>Twitterlink</a></h3>
 
 </div>
 </template>
