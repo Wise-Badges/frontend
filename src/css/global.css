@@ -21,6 +21,11 @@
         display:none;
     }
 
+    .twitterlink-title-backup {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
     /* .selectedBadge-container {
         background-image: url('/assets/img/flagMobile.svg');
         background-repeat: no-repeat;
@@ -115,15 +120,9 @@
   .bol-inactive {
       cursor: default;
   }
-
-
-
-
-
-  /* .bol-container {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-top: 3rem;
-  } */
   
+
+  .twitterlink {
+    color: #A37FFA;
+    margin-bottom: 2rem;
+  }
