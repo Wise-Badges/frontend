@@ -1,11 +1,13 @@
 <template>
 <!-- eslint-disable -->
-  <div id="app" :class="{ 'home': $route.path==='/' }">
-    <Header />
-    <div class="container">
-      <router-view/>
+  <div id="app">
+    <div :class="{ 'home': $route.path==='/' }">
+      <Header />
+      <div class="container">
+        <router-view/>
+      </div>
+      <Footer />
     </div>
-    <Footer />
   </div>
 </template>
 
@@ -35,27 +37,32 @@ export default ({
   -moz-osx-font-smoothing: grayscale;
   color: white;
   line-height: 1.7;
-  background-color: #0B1147;
   min-height: 100vh;
   height: 100%;
-  background-image: url('/assets/img/bg-shapes.svg');
-  background-repeat: no-repeat;
-  background-size: 30rem;
-  background-position-x: calc((100vw - 60rem)/2 - 10rem);
-}
 
-/* to do, important weghalen */
-.home {
-  background-image: url('/assets/img/bg-shapes.svg'), url('/assets/img/bg-banner.svg') !important;
-  background-position-x: calc((100vw - 60rem)/2 - 10rem), calc((100vw - 60rem)/2) !important;
-}
-
- @media only screen and (max-width: 630px) {
-  .home {
-    background-image: url('/assets/img/bg-shapes-mobile.svg'), url('/assets/img/bg-banner-mobile.svg') !important;
-    background-size: 16rem, 100% !important;
-    background-position-x: 0, 0 !important;
-    background-position-y: 5rem, 0;
+  & > div {
+    background-image: url('/assets/img/bg-shapes.svg');
+    background-repeat: no-repeat;
+    background-size: 30rem;
+    background-position-x: calc((100vw - 60rem)/2 - 10rem);
   }
- }
+
+  & .home {
+    background-image: url('/assets/img/bg-shapes.svg'), url('/assets/img/bg-banner.svg');
+    background-position-x: calc((100vw - 60rem)/2 - 10rem), calc((100vw - 60rem)/2);
+
+    @media only screen and (max-width: 1024px) {
+      background-size: 50vw;
+      height: 30rem;
+      background-position: 0 0, bottom left;
+    }
+
+    @media only screen and (max-width: 670px) {
+      background-image: url('/assets/img/bg-shapes-mobile.svg');
+      background-size: 16rem;
+      background-position-x: 0;
+      background-position-y: 5rem;
+    }
+  }
+}
 </style>

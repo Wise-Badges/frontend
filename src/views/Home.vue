@@ -34,24 +34,45 @@ export default {
     align-items: center;
     font-weight: 700;
     line-height: 1.2;
+    // z-index: 10;
 
     @media only screen and (max-width: 670px) {
       margin-top: 12rem;
       flex-direction: column;
       align-items: flex-start;
-      margin-bottom: 4rem;
+      margin-bottom: 12rem;
+
+      &::before {
+        content: '';
+        position: absolute;
+        background-size: cover;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        height: 48rem;
+        width: 100%;
+        background-image: url('/assets/img/bg-banner-mobile.svg');
+        background-repeat: no-repeat;
+        background-position: bottom;
+        z-index: -1;
+      }
     }
 
     @media only screen and (max-width: 500px) {
       margin-top: 12rem;
       flex-direction: column;
       align-items: flex-start;
-      margin-bottom: 10rem;
+      margin-bottom: 8rem;
+
+      &::before {
+        height: 42rem;
+      }
     }
 
     & .title__wise {
       font-size: 13rem;
       font-weight: 700;
+      // z-index: 10;
 
       @media only screen and (max-width: 1024px) {
         font-size: 10rem;
@@ -70,11 +91,11 @@ export default {
       font-size: 2.1rem;
       padding-left: 1rem;
       transform: translateY(.6rem);
+      // z-index: 10;
 
       @media only screen and (max-width: 1024px) {
         font-size: 1.65rem;
       }
-
 
       @media only screen and (max-width: 670px) {
         font-size: 2.1rem;
@@ -87,8 +108,15 @@ export default {
     max-width: 28rem;
     margin-top: 1rem;
     margin-left: auto;
+    // z-index: 10;
+
+    @media only screen and (max-width: 1024px) {
+      max-width: calc(50vw - 3.5rem);
+      margin-left: auto;
+    }
 
     @media only screen and (max-width: 670px) {
+      max-width: 100%;
       margin-left: 0;
     }
   }

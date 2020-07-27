@@ -7,7 +7,7 @@
         <router-link class="header-item" to="/viewbadges">View badges</router-link>
         <router-link class="header-item" to="/community">Community</router-link>
       </div>
-      <Push>
+      <Push class="nav__hamburger">
         <router-link class="header-item" to="/">Home</router-link>
         <router-link class="header-item" to="/about">About</router-link>
         <router-link class="header-item" to="/viewbadges">View badges</router-link>
@@ -71,6 +71,10 @@ export default ({
 
   .bm-burger-button, .bm-burger-bars {
     display: none;
+  }
+
+  .nav__hamburger {
+    z-index: 9999;
   }
 
 
