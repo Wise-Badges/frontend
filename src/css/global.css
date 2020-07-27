@@ -9,8 +9,6 @@
     display: none;
 }
 
-
-
   @media only screen and (max-width: 1024px) {
     .container {
         max-width: 60rem;
@@ -22,8 +20,10 @@
     }
 
     .twitterlink-title-backup {
-      text-align: center;
       margin-bottom: 1rem;
+      margin-top: 3rem;
+      opacity: 0.6;
+
     }
 
     /* .selectedBadge-container {

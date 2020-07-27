@@ -35,9 +35,6 @@
 <script>
   export default {
     name: 'message',
-    created() {
-      console.log(this.$store.state.validMessage)
-    },
     methods: {
       handleSubmitMessage: function(e) {
         this.$store.state.message = [];
@@ -45,24 +42,11 @@
         if (this.$store.state.message !== []) {
             this.$store.state.message.push({message: this.$refs.message.value})
 
-
-
             let twitterRoute = this.$store.state.twitterString + '%20@WiseBadges' + ',%20issue%20a%20'  + this.$store.state.badges[this.$route.params.id - 1].hashtag + '%20to%20' + this.$route.params.receiver + '%20with%20this%20message:%20' + this.$store.state.message[0].message
-            console.log(twitterRoute)
             window.open(twitterRoute)
-            //console.log(twitterRoute);
-            //console.log('lalala')
         } else {
-          console.log('empty')
+          //console.log('empty')
         }
-
-        console.log(this.$store.state.message)
-
-        //let routeData = this.$router.resolve({name: 'https://www.google.be', query: {data: "www.google.be"}});
-        //console.log(routeData)
-        //let personalRoute = this.$store.state.twitterString + '%20@WiseBadges' + ',%20issue%20a%20'  + this.$store.state.badges[$route.params.id - 1].hashtag + '%20to%20' + $route.params.receiver + '%20with%20this%20message:%20' + $route.params.message
-        //console.log(personalRoute);
-        //window.open('www.google.be');
       }
     }
   }
