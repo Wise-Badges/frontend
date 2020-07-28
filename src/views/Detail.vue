@@ -1,12 +1,12 @@
 <template>
 <div>
-  <div v-if="loading">Loading...</div>
-  <div v-else>
+  <!-- <div v-if="loading">Loading...</div> -->
+  <!-- <div v-else> -->
   <h1 class="title">Your badge</h1>
     <div class="detail">
 
       <div class="detail__info">
-        <p>This badge has not been accepted yet, please accept it by liking the following Tweet. Only @{{loadCurrentAssertionsId().recipient.name}} can officially accept this badge before 21/08/20.</p>
+        <!-- <p>This badge has not been accepted yet, please accept it by liking the following Tweet. Only @{{loadCurrentAssertionsId().recipient.name}} can officially accept this badge before 21/08/20.</p> -->
 
         <div class="tweet__wrapper">
           <blockquote class="twitter-tweet" data-lang="en">
@@ -20,9 +20,9 @@
       </div>
 
       <div class="detail__badge">
-        <div>
-          <img class="badge__img" :src="badgeOfCurrentAssertionsId().image" :alt="badgeOfCurrentAssertionsId().image">
-          <p class="badge__title">{{badgeOfCurrentAssertionsId().name}}</p>
+        <div class="badge__container">
+          <!-- <img class="badge__img" :src="badgeOfCurrentAssertionsId().image" :alt="badgeOfCurrentAssertionsId().image"> -->
+          <!-- <p class="badge__title">{{badgeOfCurrentAssertionsId().name}}</p> -->
           <a href="/" id="prim-btn">Download</a>
           <p class="badge__status">Badge has not been accepted.</p>
         </div>
@@ -32,7 +32,7 @@
       <p>Not happy with your badge? With a simple Tweet command, our bot will delete your badge Open Badge permanently. Only a tweet by @receiver_here will be accepted.</p>
       <router-link to="/" target="_blank" id="prim-btn">Tweet to delete</router-link>
     </div>
-  </div>
+  <!-- </div> -->
   </div>
 </template>
 
@@ -45,7 +45,15 @@
     async created() {
       await this.$store.dispatch('loadBadges');
       await this.$store.dispatch('loadAssertions');
-      this.loading = false;
+
+      this.loading = true;
+    },
+    created() {
+      //this.$store.state.assertionId = this.$route.params.assertionId
+     // console.log(this.$store.state.assertionId)
+    },
+    mounted() {
+
     },
     // mounted() {
     //   let recaptchaScript = document.createElement('script')
@@ -57,45 +65,48 @@
     // },
     methods: {
       badgeOfCurrentAssertionsId: function() {
-        for(let i = 0; i < this.$store.state.badgesApi.data.length; i++) {
+        // console.log(this.currentAssertion.badge);
+        // console.log(this.$store.state.badgesApi.data[0].id);
 
-          if (this.currentAssertion.badge === this.$store.state.badgesApi.data[i].id) {
-            console.log('overeenkomstige id:' + this.$store.state.badgesApi.data[i].id);
+        // for(let i = 0; i < this.$store.state.badgesApi.data.length; i++) {
 
-            let currentBadge = this.$store.state.badgesApi.data[i];
+        //   if (this.currentAssertion.badge === this.$store.state.badgesApi.data[i].id) {
+        //     console.log('overeenkomstige id:' + this.$store.state.badgesApi.data[i].id);
 
-            return currentBadge
-          } else {
-            console.log('ai fout')
-          }
-        }
+        //     let currentBadge = this.$store.state.badgesApi.data[i];
+
+        //     return currentBadge
+        //   } else {
+        //     //this.$router.push('/')
+        //     console.log('ai fout')
+        //   }
+        // }
       },
       loadCurrentAssertionsId: function() {
-        
-        for(let i = 0; i < this.$store.state.assertionsApi.data.length; i++) {
-          //console.log(this.$store.state.badgesApi.data[i].id);
-          let fullId = this.$store.state.assertionsApi.data[i].id;
-          let shortId = /[^/]*$/.exec(fullId)[0];
-          
-          //console.log(this.$route.params.idString);
-          //console.log(shortId);
-          if (this.$route.params.idString === shortId) {
-            //console.log(this.$store.state.badgesApi.data[i].name);
-            console.log('succeed')
-            let currentAssertionsDetail = this.$store.state.assertionsApi.data[i];
-            //console.log(currentAssertionsDetail)
+        // for(let i = 0; i < this.$store.state.assertionsApi.data.length; i++) {
+        //   //console.log(this.$store.state.badgesApi.data[i].id);
+        //   let fullId = this.$store.state.assertionsApi.data[i].id;
+        //   let shortId = /[^/]*$/.exec(fullId)[0];
 
-           this.currentAssertion = currentAssertionsDetail;
+        //   //console.log(this.$route.params.idString);
+        //   //console.log(shortId);
+        //   if (this.$route.params.idString === shortId) {
+        //     //console.log(this.$store.state.badgesApi.data[i].name);
+        //     console.log('succeed')
+        //     let currentAssertionsDetail = this.$store.state.assertionsApi.data[i];
+        //     //console.log(currentAssertionsDetail)
 
-           //console.log(this.currentAssertion);
-            
-            return currentAssertionsDetail
-          } else {
-            this.$router.push('/') 
-            console.log('error loop')
-            return 'erroooor assertion'
-          }
-        }
+        //    this.currentAssertion = currentAssertionsDetail;
+
+        //    //console.log(this.currentAssertion);
+
+        //     return currentAssertionsDetail
+        //   } else {
+        //     this.$router.push('/')
+        //     console.log('error loop')
+        //     return 'erroooor assertion'
+        //   }
+        // }
       },
     }
   }
@@ -132,6 +143,12 @@
   }
 }
 
+.badge__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .detail__badge {
   width: calc(((100% - (100% - 60rem)) - 1.875rem) /3);
   // calc(((100% - (100% - 60rem)) - 1.875rem) /3)
@@ -157,6 +174,8 @@
 
   & .badge__img {
     margin-bottom: 2rem;
+    width: 10rem;
+    height: 10rem;
   }
 
   & .badge__title {

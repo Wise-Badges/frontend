@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import axios from "axios";
+import router from '../router';
 
 Vue.use(Vuex, axios);
 
@@ -18,12 +19,15 @@ export default new Vuex.Store({
     ],
     badgesApi: [],
     assertionsApi: [],
+    assertionByIdApi: [],
     receiver: [{ receiver: '' }],
     message: [{message: ''}],
     pressedAtmark: false,
     validField: false,
     validMessage: false,
     badgeId: '',
+    assertionId: '',
+    thrustedDomain: 'https://api.wisebadges.osoc.be',
     twitterString: 'https://twitter.com/intent/tweet?text=Hey',
     // twitterString: 'https://twitter.com/intent/tweet?text=This%20is%20an%20example%20of%20a%20pre-written%20tweet-%20don%27t%20forget%20that%20it%20needs%20to%20be%20less%20than%20280%20characters'
   },
@@ -33,6 +37,9 @@ export default new Vuex.Store({
     },
     SET_ASSERTIONS(state, assertionsApi) {
       state.assertionsApi = assertionsApi;
+    },
+    SET_ASSERTIONBYID(state, assertionByIdApi) {
+      state.assertionByIdApi = assertionByIdApi;
     }
   },
   actions: {
@@ -59,7 +66,21 @@ export default new Vuex.Store({
         .catch(error => {
           return Promise.reject(error);
         })
+    },
+    loadAssertionById({ commit }, assertionID) {
+      return axios
+        // .get('https://api.wisebadges.osoc.be/assertion/' + this.route.params)
+        .get('https://api.wisebadges.osoc.be/assertion/' + assertionID.assertionID)
+        .then(r => {
+          let assertionByIdApi = r.data
+          commit("SET_ASSERTIONBYID", assertionByIdApi);
+          console.log(assertionByIdApi);
+        })
+        .catch(error => {
+          return Promise.reject(error);
+        })
     }
+
   },
   modules: {
   },

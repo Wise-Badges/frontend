@@ -23,9 +23,13 @@ export default ({
     Footer
   },
   data: () => ({loading: true}),
-  mounted() {
-    this.$store.dispatch('loadBadges');
-    this.$store.dispatch('loadAssertions');
+  async mounted() {
+    await this.$store.dispatch('loadBadges');
+    await this.$store.dispatch('loadAssertions');
+    await this.$store.dispatch('loadAssertionById', {
+        assertionID: this.$route.params.assertionId
+    });
+
     //this.loaded = true;
   },
 })
