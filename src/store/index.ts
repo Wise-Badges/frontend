@@ -74,13 +74,30 @@ export default new Vuex.Store({
         .then(r => {
           let assertionByIdApi = r.data
           commit("SET_ASSERTIONBYID", assertionByIdApi);
+          console.log(assertionID);
           console.log(assertionByIdApi);
         })
         .catch(error => {
+          console.log('error')
           return Promise.reject(error);
         })
-    }
-
+    },
+    // loadBadgesByAssertionId({ commit }, assertionID) {
+    //   return axios
+    //     // .get('https://api.wisebadges.osoc.be/assertion/' + this.route.params)
+    //     .get('https://api.wisebadges.osoc.be/badgeclass/' + assertionID.assertionID)
+    //     .then(r => {
+    //       let assertionByIdApi = r.data
+    //       commit("SET_ASSERTIONBYID", assertionByIdApi);
+    //       console.log('test');
+    //       console.log(assertionID);
+    //       console.log(assertionByIdApi);
+    //     })
+    //     .catch(error => {
+    //       console.log('error')
+    //       return Promise.reject(error);
+    //     })
+    // }
   },
   modules: {
   },

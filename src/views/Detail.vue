@@ -6,7 +6,7 @@
     <div class="detail">
 
       <div class="detail__info">
-        <!-- <p>This badge has not been accepted yet, please accept it by liking the following Tweet. Only @{{loadCurrentAssertionsId().recipient.name}} can officially accept this badge before 21/08/20.</p> -->
+        <p>This badge has not been accepted yet, please accept it by liking the following Tweet. Only @{{this.$store.state.assertionByIdApi.recipient.name}} can officially accept this badge before 21/08/20.</p>
 
         <div class="tweet__wrapper">
           <blockquote class="twitter-tweet" data-lang="en">
@@ -22,7 +22,7 @@
       <div class="detail__badge">
         <div class="badge__container">
           <!-- <img class="badge__img" :src="badgeOfCurrentAssertionsId().image" :alt="badgeOfCurrentAssertionsId().image"> -->
-          <!-- <p class="badge__title">{{badgeOfCurrentAssertionsId().name}}</p> -->
+          <p class="badge__title">{{this.$store.state.assertionByIdApi.badge}}</p>
           <a href="/" id="prim-btn">Download</a>
           <p class="badge__status">Badge has not been accepted.</p>
         </div>
@@ -47,13 +47,6 @@
       await this.$store.dispatch('loadAssertions');
 
       this.loading = true;
-    },
-    created() {
-      //this.$store.state.assertionId = this.$route.params.assertionId
-     // console.log(this.$store.state.assertionId)
-    },
-    mounted() {
-
     },
     // mounted() {
     //   let recaptchaScript = document.createElement('script')
