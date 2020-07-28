@@ -1,5 +1,7 @@
 <template>
 <div>
+  <div v-if="loading">Loading...</div>
+  <div v-else>
   <h1 class="title">Your badge</h1>
     <div class="detail">
 
@@ -20,36 +22,83 @@
       <div class="detail__badge">
         <div>
           <img class="badge__img" src="assets/img/badges/eureka.svg" alt="eureka">
-          <p class="badge__title">{{this.$store.state.assertionsApi.data[0].badge}}</p>
+          <!-- <p class="badge__title">{{badgeOfCurrentAssertionsId()}}</p> -->
+          <p>{{loadCurrentAssertionsId().id}}</p>
+          <p>{{badgeOfCurrentAssertionsId().name}}</p>
           <a href="/" id="prim-btn">Download</a>
           <p class="badge__status">Badge has not been accepted.</p>
         </div>
       </div>
-
     </div>
     <div class="delete">
       <p>Not happy with your badge? With a simple Tweet command, our bot will delete your badge Open Badge permanently. Only a tweet by @receiver_here will be accepted.</p>
       <router-link to="/" target="_blank" id="prim-btn">Tweet to delete</router-link>
     </div>
-
+  </div>
   </div>
 </template>
 
 <script>
   export default {
     data: () => ({
-
+      loading: true,
+      currentAssertion: ''
     }),
-    mounted() {
-      let recaptchaScript = document.createElement('script')
-      console.log(recaptchaScript)
-      recaptchaScript.setAttribute('src', 'https://platform.twitter.com/widgets.js')
-      document.head.appendChild(recaptchaScript)
-
-      console.log(this.$store.state.assertionsApi);
+    async created() {
+      await this.$store.dispatch('loadBadges');
+      await this.$store.dispatch('loadAssertions');
+      this.loading = false;
     },
-    methods: {
+    // mounted() {
+    //   let recaptchaScript = document.createElement('script')
+    //   console.log(recaptchaScript)
+    //   recaptchaScript.setAttribute('src', 'https://platform.twitter.com/widgets.js')
+    //   document.head.appendChild(recaptchaScript)
 
+    //   console.log(this.$store.state.assertionsApi);
+    // },
+    methods: {
+      badgeOfCurrentAssertionsId: function() {
+        for(let i = 0; i < this.$store.state.badgesApi.data.length; i++) {
+
+          if (this.currentAssertion.badge === this.$store.state.badgesApi.data[i].id) {
+            console.log('overeenkomstige id:' + this.$store.state.badgesApi.data[i].id);
+
+            let currentBadge = this.$store.state.badgesApi.data[i];
+
+            return currentBadge
+          } else {
+            console.log('ai fout')
+          }
+        }
+      },
+      loadCurrentAssertionsId: function() {
+        
+        for(let i = 0; i < this.$store.state.assertionsApi.data.length; i++) {
+          //console.log(this.$store.state.badgesApi.data[i].id);
+          let fullId = this.$store.state.assertionsApi.data[i].id;
+          let shortId = /[^/]*$/.exec(fullId)[0];
+          
+          //console.log(this.$route.params.idString);
+          //console.log(shortId);
+          if (this.$route.params.idString === shortId) {
+            //console.log(this.$store.state.badgesApi.data[i].name);
+            console.log('succeed')
+            let currentAssertionsDetail = this.$store.state.assertionsApi.data[i];
+            //console.log(currentAssertionsDetail)
+
+           this.currentAssertion = currentAssertionsDetail;
+
+           //console.log(this.currentAssertion);
+            
+            return currentAssertionsDetail
+          } else {
+            this.$router.push('/') 
+            console.log('error loop')
+            return 'erroooor assertion'
+          }
+        }
+      },
     }
   }
 </script>

@@ -37,7 +37,7 @@ export default new Vuex.Store({
   },
   actions: {
     loadBadges({ commit }) {
-      axios
+      return axios
         .get("https://api.wisebadges.osoc.be/badgeclasses/")
         .then(r => {
           let badgesApi = r.data;
@@ -45,11 +45,11 @@ export default new Vuex.Store({
           //console.log(badgesApi);
         })
         .catch(error => {
-          console.log('not loaded')
+          return Promise.reject(error);
         });
     },
     loadAssertions({commit}) {
-      axios
+      return axios
         .get("https://api.wisebadges.osoc.be/assertions/")
         .then(r => {
           let assertionsApi = r.data;
@@ -57,29 +57,10 @@ export default new Vuex.Store({
           console.log(assertionsApi);
         })
         .catch(error => {
-          console.log('assertions not loaded')
-        });
+          return Promise.reject(error);
+        })
     }
-  //   checkId: function() {
-  //   for(let i = 0; i < this.state.badgesApi.data.length; i++) {
-  //     //console.log(this.$store.state.badgesApi.data[i].id);
-  //     let fullId = this.state.badgesApi.data[i].id;
-  //     let shortId = /[^/]*$/.exec(fullId)[0]
-
-  //     // OKE DIT MOET DUS TOEGEPAST WORDEN VANBOVEN
-  //     if (this.$route.params.id === shortId) {
-  //       //console.log(this.$store.state.badgesApi.data[i].name);
-        
-  //       let currentBadgeSelected = this.state.badgesApi.data[i];
-        
-  //       return currentBadgeSelected
-  //     } else {
-  //       //this.$router.push('/') 
-  //     }
-  //   }
-  // },
-  }
-  
+  },
   modules: {
   },
 });
