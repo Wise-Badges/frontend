@@ -6,7 +6,7 @@
     <div class="detail">
 
       <div class="detail__info">
-        <p>This badge has not been accepted yet, please accept it by liking the following Tweet. Only @username can officially accept this badge before 21/08/20.</p>
+        <p>This badge has not been accepted yet, please accept it by liking the following Tweet. Only @{{loadCurrentAssertionsId().recipient.name}} can officially accept this badge before 21/08/20.</p>
 
         <div class="tweet__wrapper">
           <blockquote class="twitter-tweet" data-lang="en">
@@ -21,10 +21,8 @@
 
       <div class="detail__badge">
         <div>
-          <img class="badge__img" src="assets/img/badges/eureka.svg" alt="eureka">
-          <!-- <p class="badge__title">{{badgeOfCurrentAssertionsId()}}</p> -->
-          <p>{{loadCurrentAssertionsId().id}}</p>
-          <p>{{badgeOfCurrentAssertionsId().name}}</p>
+          <img class="badge__img" :src="badgeOfCurrentAssertionsId().image" :alt="badgeOfCurrentAssertionsId().image">
+          <p class="badge__title">{{badgeOfCurrentAssertionsId().name}}</p>
           <a href="/" id="prim-btn">Download</a>
           <p class="badge__status">Badge has not been accepted.</p>
         </div>
