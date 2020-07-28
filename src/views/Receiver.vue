@@ -1,7 +1,7 @@
 <template>
   <div class="maxi-form-container">
     <div class="selectedBadge-container">
-      <img :class="'img-badge-form img-badge-' + checkId().figure" :src="checkId().image" v-bind:alt="checkId().image">
+      <img :class="'img-badge-form img-badge-' + checkId().figure" :src="checkId().image" v-bind:alt="checkId().name">
       <div class="badge-text">
         <p class="selectedBadge-name">{{checkId().name}}</p>
       </div>
@@ -139,6 +139,10 @@ export default {
 .platform-receiver-container {
   display: flex;
   width: 100%;
+}
+
+.img-badge-form {
+  height: 10.4rem;
 }
 
 .select-platforms {
