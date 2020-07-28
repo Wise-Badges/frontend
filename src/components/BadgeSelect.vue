@@ -58,7 +58,6 @@ export default ({
       //console.log(/[^/]*$/.exec(this.currentBadge)[0]);
 
       let shortBadgeId = /[^/]*$/.exec(this.currentBadge)[0];
-
       return shortBadgeId;
     }
   }

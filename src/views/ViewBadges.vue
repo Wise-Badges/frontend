@@ -7,7 +7,7 @@
           <img class="badge__img" :src="badge.image" v-bind:alt="badge.name">
           <h2 class="badge__title">{{badge.name}}</h2>
           <p class="badge__amount">2.340</p>
-          <router-link class="router-item" badge="badge" :to="'/receiver/' + badge.id" id="prim-btn">award badge</router-link>
+          <router-link class="router-item" badge="badge"  :to="'/receiver/' + getId(currentBadge)" id="prim-btn">award badge</router-link>
           <router-link class="router-item" to="/" id="sec-btn">View earners</router-link>
         </section>
       </li>
@@ -20,7 +20,8 @@ export default ({
   data() {
     return {
       msg: 'Choose a badge to give',
-      badges: this.$store.state.badgesApi.data
+      badges: this.$store.state.badgesApi.data,
+      currentBadge: 'https://api.wisebadges.osoc.be/badgeclass/5f1ec15c71d07def7b588a73'
       // badges: [
       //   { id: 1, name: 'Did not Explode', img: 'didnt_explode', figure: 'circle'},
       //   { id: 2, name: 'Eureka', img: 'eureka', figure: 'circle'},
@@ -38,6 +39,12 @@ export default ({
   getImgUrl(badge) {
     //var badgeImages = require.context('./assets/img/badges/', false, /\.svg$/)
     return badgeImages('./' + badge + ".svg")
+  },
+  methods: {
+    getId() {
+      let shortBadgeId = /[^/]*$/.exec(this.currentBadge)[0];
+      return shortBadgeId;
+    }
   }
 });
 </script>
