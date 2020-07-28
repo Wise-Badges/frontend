@@ -24,7 +24,7 @@ export default new Vuex.Store({
     validField: false,
     validMessage: false,
     badgeId: '',
-    twitterString: 'https://twitter.com/intent/tweet?text=Hey'
+    twitterString: 'https://twitter.com/intent/tweet?text=Hey',
     // twitterString: 'https://twitter.com/intent/tweet?text=This%20is%20an%20example%20of%20a%20pre-written%20tweet-%20don%27t%20forget%20that%20it%20needs%20to%20be%20less%20than%20280%20characters'
   },
   mutations: {
@@ -60,26 +60,6 @@ export default new Vuex.Store({
           return Promise.reject(error);
         })
     }
-  },
-
-  //   checkId: function() {
-  //   for(let i = 0; i < this.state.badgesApi.data.length; i++) {
-  //     //console.log(this.$store.state.badgesApi.data[i].id);
-  //     let fullId = this.state.badgesApi.data[i].id;
-  //     let shortId = /[^/]*$/.exec(fullId)[0]
-
-  //     // OKE DIT MOET DUS TOEGEPAST WORDEN VANBOVEN
-  //     if (this.$route.params.id === shortId) {
-  //       //console.log(this.$store.state.badgesApi.data[i].name);
-
-  //       let currentBadgeSelected = this.state.badgesApi.data[i];
-
-  //       return currentBadgeSelected
-  //     } else {
-  //       //this.$router.push('/')
-  //     }
-  //   }
-  // },
   },
   modules: {
   },
