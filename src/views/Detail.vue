@@ -1,52 +1,104 @@
 <template>
 <div>
+  <div v-if="loading">Loading...</div>
+  <div v-else>
   <h1 class="title">Your badge</h1>
     <div class="detail">
 
       <div class="detail__info">
         <p>This badge has not been accepted yet, please accept it by liking the following Tweet. Only @username can officially accept this badge before 21/08/20.</p>
+
         <div class="tweet__wrapper">
-          <blockquote class="twitter-tweet">
+          <blockquote class="twitter-tweet" data-lang="en">
             <p lang="en" dir="ltr">Sunsets don&#39;t get much better than this one over
             <a href="https://twitter.com/GrandTetonNPS?ref_src=twsrc%5Etfw">@GrandTetonNPS</a>.
             <a href="https://twitter.com/hashtag/nature?src=hash&amp;ref_src=twsrc%5Etfw">#nature</a>
             <a href="https://twitter.com/hashtag/sunset?src=hash&amp;ref_src=twsrc%5Etfw">#sunset</a>
             <a href="http://t.co/YuKy2rcjyU">pic.twitter.com/YuKy2rcjyU</a></p>&mdash; US Department of the Interior (@Interior)
-            <a href="https://twitter.com/Interior/status/463440424141459456?ref_src=twsrc%5Etfw">May 5, 2014</a>
-          </blockquote>
+            <a href="https://twitter.com/Interior/status/463440424141459456?ref_src=twsrc%5Etfw">May 5, 2014</a></blockquote>
         </div>
       </div>
 
       <div class="detail__badge">
         <div>
           <img class="badge__img" src="assets/img/badges/eureka.svg" alt="eureka">
-          <p class="badge__title">Next Gen Albert Einstein</p>
+          <!-- <p class="badge__title">{{badgeOfCurrentAssertionsId()}}</p> -->
+          <p>{{loadCurrentAssertionsId().id}}</p>
+          <p>{{badgeOfCurrentAssertionsId().name}}</p>
           <a href="/" id="prim-btn">Download</a>
           <p class="badge__status">Badge has not been accepted.</p>
         </div>
       </div>
-
     </div>
     <div class="delete">
       <p>Not happy with your badge? With a simple Tweet command, our bot will delete your badge Open Badge permanently. Only a tweet by @receiver_here will be accepted.</p>
       <router-link to="/" target="_blank" id="prim-btn">Tweet to delete</router-link>
     </div>
-
+  </div>
   </div>
 </template>
 
 <script>
   export default {
     data: () => ({
-
+      loading: true,
+      currentAssertion: ''
     }),
-    mounted() {
-      let recaptchaScript = document.createElement('script')
-      recaptchaScript.setAttribute('src', 'https://platform.twitter.com/widgets.js')
-      document.head.appendChild(recaptchaScript)
+    async created() {
+      await this.$store.dispatch('loadBadges');
+      await this.$store.dispatch('loadAssertions');
+      this.loading = false;
     },
-    methods: {
+    // mounted() {
+    //   let recaptchaScript = document.createElement('script')
+    //   console.log(recaptchaScript)
+    //   recaptchaScript.setAttribute('src', 'https://platform.twitter.com/widgets.js')
+    //   document.head.appendChild(recaptchaScript)
 
+    //   console.log(this.$store.state.assertionsApi);
+    // },
+    methods: {
+      badgeOfCurrentAssertionsId: function() {
+        for(let i = 0; i < this.$store.state.badgesApi.data.length; i++) {
+
+          if (this.currentAssertion.badge === this.$store.state.badgesApi.data[i].id) {
+            console.log('overeenkomstige id:' + this.$store.state.badgesApi.data[i].id);
+
+            let currentBadge = this.$store.state.badgesApi.data[i];
+
+            return currentBadge
+          } else {
+            console.log('ai fout')
+          }
+        }
+      },
+      loadCurrentAssertionsId: function() {
+        
+        for(let i = 0; i < this.$store.state.assertionsApi.data.length; i++) {
+          //console.log(this.$store.state.badgesApi.data[i].id);
+          let fullId = this.$store.state.assertionsApi.data[i].id;
+          let shortId = /[^/]*$/.exec(fullId)[0];
+          
+          //console.log(this.$route.params.idString);
+          //console.log(shortId);
+          if (this.$route.params.idString === shortId) {
+            //console.log(this.$store.state.badgesApi.data[i].name);
+            console.log('succeed')
+            let currentAssertionsDetail = this.$store.state.assertionsApi.data[i];
+            //console.log(currentAssertionsDetail)
+
+           this.currentAssertion = currentAssertionsDetail;
+
+           //console.log(this.currentAssertion);
+            
+            return currentAssertionsDetail
+          } else {
+            this.$router.push('/') 
+            console.log('error loop')
+            return 'erroooor assertion'
+          }
+        }
+      },
     }
   }
 </script>
@@ -64,10 +116,18 @@
   display: grid;
   grid-template: auto / 2fr 1fr;
   grid-gap: 1.875rem;
+
+  @media only screen and (max-width: 1024px) {
+    grid-template: auto / 1fr;
+  }
 }
 
 .detail__info {
   padding-right: 2rem;
+
+    @media only screen and (max-width: 1024px) {
+        padding-right: 0;
+    }
 
   & .tweet__wrapper {
     margin-top: 3rem;
@@ -126,6 +186,10 @@
   place-items: center center;
   margin-top: 8rem;
 
+  @media only screen and (max-width: 1024px) {
+    grid-template: auto / 1fr;
+  }
+
   & p {
     color: $color-purpleLight;
     font-style: italic;
@@ -142,6 +206,10 @@
     width: calc(100vw - (100vw - 60rem));
     background: $color-purpleDark;
     transform: translateY(-4rem);
+
+    @media only screen and (max-width: 1024px) {
+      width: 0;
+    }
   }
 }
 </style>

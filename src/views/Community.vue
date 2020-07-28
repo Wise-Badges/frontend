@@ -17,12 +17,13 @@
     data() {
       return {
         msg: 'Community',
-        badges: [
-          { id: 1, receiver: 'username', issuer: 'username', message: 'At vero eos et accusamus et iusto odio dignis simos ducimus qui blanditiis praesentium voluptatum  et accusamus et iusto.', date: '24/05/2020', platform: 'Twitter'},
-          { id: 2, receiver: 'username', issuer: 'username', message: 'At vero eos et accusamus et iusto odio dignis simos ducimus qui blanditiis praesentium voluptatum  et accusamus et iusto.', date: '24/05/2020', platform: 'Twitter'},
-          { id: 3, receiver: 'username', issuer: 'username', message: 'At vero eos et accusamus et iusto odio dignis simos ducimus qui blanditiis praesentium voluptatum  et accusamus et iusto.', date: '24/05/2020', platform: 'Twitter'},
-          { id: 4, receiver: 'username', issuer: 'username', message: 'At vero eos et accusamus et iusto odio dignis simos ducimus qui blanditiis praesentium voluptatum  et accusamus et iusto.', date: '24/05/2020', platform: 'Twitter'}
-        ],
+        badges: this.$store.state.badgesApi.data
+        // badges: [
+        //   { id: 1, receiver: 'username', issuer: 'username', message: 'At vero eos et accusamus et iusto odio dignis simos ducimus qui blanditiis praesentium voluptatum  et accusamus et iusto.', date: '24/05/2020', platform: 'Twitter'},
+        //   { id: 2, receiver: 'username', issuer: 'username', message: 'At vero eos et accusamus et iusto odio dignis simos ducimus qui blanditiis praesentium voluptatum  et accusamus et iusto.', date: '24/05/2020', platform: 'Twitter'},
+        //   { id: 3, receiver: 'username', issuer: 'username', message: 'At vero eos et accusamus et iusto odio dignis simos ducimus qui blanditiis praesentium voluptatum  et accusamus et iusto.', date: '24/05/2020', platform: 'Twitter'},
+        //   { id: 4, receiver: 'username', issuer: 'username', message: 'At vero eos et accusamus et iusto odio dignis simos ducimus qui blanditiis praesentium voluptatum  et accusamus et iusto.', date: '24/05/2020', platform: 'Twitter'}
+        // ],
       };
     },
     getImgUrl(badge) {

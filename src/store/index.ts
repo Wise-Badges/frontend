@@ -17,32 +17,48 @@ export default new Vuex.Store({
       { id: 8, name: 'Another one', img: 'another_one', figure: 'hexagon', hashtag: '%23anotherone'},
     ],
     badgesApi: [],
+    assertionsApi: [],
     receiver: [{ receiver: '' }],
     message: [{message: ''}],
     pressedAtmark: false,
     validField: false,
     validMessage: false,
     badgeId: '',
-    twitterString: 'https://twitter.com/intent/tweet?text=Hey'
+    twitterString: 'https://twitter.com/intent/tweet?text=Hey',
     // twitterString: 'https://twitter.com/intent/tweet?text=This%20is%20an%20example%20of%20a%20pre-written%20tweet-%20don%27t%20forget%20that%20it%20needs%20to%20be%20less%20than%20280%20characters'
   },
   mutations: {
     SET_BADGES(state, badgesApi) {
       state.badgesApi = badgesApi;
+    },
+    SET_ASSERTIONS(state, assertionsApi) {
+      state.assertionsApi = assertionsApi;
     }
   },
   actions: {
     loadBadges({ commit }) {
-      axios
+      return axios
         .get("https://api.wisebadges.osoc.be/badgeclasses/")
         .then(r => {
           let badgesApi = r.data;
           commit("SET_BADGES", badgesApi);
-          console.log(badgesApi);
+          //console.log(badgesApi);
         })
         .catch(error => {
-          console.log('not loaded')
+          return Promise.reject(error);
         });
+    },
+    loadAssertions({commit}) {
+      return axios
+        .get("https://api.wisebadges.osoc.be/assertions/")
+        .then(r => {
+          let assertionsApi = r.data;
+          commit("SET_ASSERTIONS", assertionsApi);
+          console.log(assertionsApi);
+        })
+        .catch(error => {
+          return Promise.reject(error);
+        })
     }
   },
   modules: {

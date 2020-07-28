@@ -22,9 +22,12 @@ export default ({
     Header,
     Footer
   },
+  data: () => ({loading: true}),
   mounted() {
-    this.$store.dispatch('loadBadges')
-  }
+    this.$store.dispatch('loadBadges');
+    this.$store.dispatch('loadAssertions');
+    //this.loaded = true;
+  },
 })
 </script>
 

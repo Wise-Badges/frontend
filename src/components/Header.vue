@@ -1,6 +1,6 @@
 <template>
   <div id="nav">
-      <router-link to="/"><img class="nav__logo" src="/assets/logo.svg" alt="logo"></router-link>
+      <router-link class="nav__logo" to="/"><img src="/assets/logo.svg" alt="logo"></router-link>
       <div class="nav__links">
         <router-link class="header-item" to="/">Home</router-link>
         <router-link class="header-item" to="/about">About</router-link>
@@ -126,17 +126,15 @@ export default ({
       background: #331F9F !important;
     }
 
-    .bm-overlay {
-      background: #0B1147 !important;
-    }
-
     .bm-item-list {
       color: #b8b7ad;
       font-size: 1rem;
     }
   }
 
-
+  .bm-overlay {
+    background: #0B1147 !important;
+  }
 
 
   @media only screen and (max-width: 1024px) {
