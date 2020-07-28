@@ -2,13 +2,16 @@
   <div class="view-badges">
     <h1 class="title">Community</h1>
     <ul class="acceptedBadges">
-        <li class="acceptedBadge"v-for="assertion in assertions" :key="assertion.id">
-          <a :href="assertion.evidence.id">
-          <p class="badge__receiver">{{ assertion.recipient.name }} received {{ getBadgeNameById(assertion.badge) }}</p>
-          <!-- <p class="badge__message">{{ assertion.message }}</p> -->
-          <p class="badge__issuer">issued on {{ getDate(assertion.issuedOn) }}</p>
-          </a>
-        </li>
+      <!-- ALL -->
+      <li v-if="this.$route.params.id" class="acceptedBadge"v-for="assertion in assertions" :key="assertion.id">
+        <a :href="assertion.evidence.id">
+        <p class="badge__receiver">{{ assertion.recipient.name }} received {{ getBadgeNameById(assertion.badge) }}</p>
+        <!-- <p class="badge__message">{{ assertion.message }}</p> -->
+        <p class="badge__issuer">issued on {{ getDate(assertion.issuedOn) }}</p>
+        </a>
+      </li>
+
+      <!-- PER BADGE -->
     </ul>
   </div>
 </template>

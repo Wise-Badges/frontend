@@ -29,6 +29,11 @@ const routes: Array<RouteConfig> = [
     component: () => import(/* webpackChunkName: "about" */ '../views/Community.vue'),
   },
   {
+    path: '/community/:id',
+    name: 'Community',
+    component: () => import(/* webpackChunkName: "about" */ '../views/Community.vue'),
+  },
+  {
     path: '/receiver/:id',
     name: 'Receiver',
     component: () => import(/* webpackChunkName: "about" */ '../views/Receiver.vue'),
