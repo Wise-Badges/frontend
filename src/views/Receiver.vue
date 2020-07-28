@@ -13,6 +13,7 @@
               <p class="twitter-text" value="twitter">twitter</p>
               <img src="/assets/img/icons/twitterWhite.svg" alt="twitterLogo">
             </div>
+            <!-- FUTURE: Selection between platforms if needed -->
             <!-- <select class="select-platforms" name="platforms" id="platforms">
               <option value="twitter">twitter</option>
               <option value="facebook">facebook</option>
