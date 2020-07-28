@@ -2,7 +2,7 @@
   <div class="maxi-form-container">
     <div class="selectedBadge-container">
       <img :class="'img-badge-form img-badge-' + checkId().figure" :src="'/assets/img/badges/' + checkId().image + '.svg'" v-bind:alt="checkId().image">
-      
+
       <div class="badge-text">
         <p class="selectedBadge-name">{{checkId().name}}</p>
       </div>
@@ -18,7 +18,9 @@
               <option value="twitter">twitter</option>
               <option value="facebook">facebook</option>
             </select> -->
-            <input v-on:keyup="checkCharacter" ref="receiver" class="form-receiver" type="text" placeholder="@TwitterHandler" v-model="twitterhandler">
+            <span class="twitter-receiver">
+             <input v-on:keyup="checkCharacter" ref="receiver" class="form-receiver" type="text" placeholder="TwitterHandler" v-model="twitterhandler">
+            </span>
           </div>
           <div class="navigation-form">
             <router-link id="sec-btn" class="router-item" to="/">Previous</router-link>
@@ -53,7 +55,7 @@ export default {
     if (this.$refs.receiver.value !== '') {
       this.$store.state.validField = true;
     }
-  
+
   },
   checkId: function() {
     for(let i = 0; i < this.$store.state.badgesApi.data.length; i++) {
@@ -64,12 +66,12 @@ export default {
       // OKE DIT MOET DUS TOEGEPAST WORDEN VANBOVEN
       if (this.$route.params.id === shortId) {
         //console.log(this.$store.state.badgesApi.data[i].name);
-        
+
         let currentBadgeSelected = this.$store.state.badgesApi.data[i];
-        
+
         return currentBadgeSelected
       } else {
-        //this.$router.push('/') 
+        //this.$router.push('/')
       }
     }
   },
@@ -101,11 +103,29 @@ export default {
   border: 0.1rem solid transparent;
   height: 1rem;
   width: calc(100% - 4rem);
-  padding: 1rem 2rem 1rem 1rem;
+  padding: 1rem 2rem 1rem 2.4rem;
   color: #7C6DF3;
   letter-spacing: 0.05rem;
   font-size: 1rem;
 
+  &::placeholder {
+    color: #7C6DF1;
+    opacity: .5;
+  }
+}
+
+.twitter-receiver {
+  width: 100%;
+  display: flex;
+  align-items: center;
+
+    &::before {
+    content: '@';
+    position: absolute;
+    color: #7C6DF1;
+    font-size: 1.2rem;
+    padding-left: 1rem;
+  }
 }
 
 .form-receiver:focus {

@@ -7,7 +7,7 @@
           <img class="badge__img" :src="badge.image" v-bind:alt="badge.name">
           <h2 class="badge__title">{{badge.name}}</h2>
           <p class="badge__amount">2.340</p>
-          <router-link class="router-item" badge="badge"  :to="'/receiver/' + getId(currentBadge)" id="prim-btn">award badge</router-link>
+          <router-link class="router-item" badge="badge"  :to="'/receiver/' + getId(badge.id)" id="prim-btn">award badge</router-link>
           <router-link class="router-item" to="/" id="sec-btn">View earners</router-link>
         </section>
       </li>
@@ -21,28 +21,11 @@ export default ({
     return {
       msg: 'Choose a badge to give',
       badges: this.$store.state.badgesApi.data,
-      currentBadge: 'https://api.wisebadges.osoc.be/badgeclass/5f1ec15c71d07def7b588a73'
-      // badges: [
-      //   { id: 1, name: 'Did not Explode', img: 'didnt_explode', figure: 'circle'},
-      //   { id: 2, name: 'Eureka', img: 'eureka', figure: 'circle'},
-      //   { id: 3, name: 'Leading Lady', img: 'leading_lady', figure: 'hexagon'},
-      //   { id: 4, name: 'Mathematics Wizard', img: 'mathematics_wizard', figure: 'square'},
-      //   { id: 5, name: 'Next gen Einstein', img: 'next_gen_einstein', figure: 'square'},
-      //   { id: 6, name: 'The Bigbang Badge', img: 'the_bigbang_badge', figure: 'hexagon'},
-      //   { id: 7, name: 'You rock(et) science', img: 'you_rocket_science', figure: 'triangle'},
-      //   { id: 8, name: 'Another one', img: 'another_one', figure: 'hexagon'},
-      // ],
-      // currentBadge: 2,
-      // active: true
     };
   },
-  getImgUrl(badge) {
-    //var badgeImages = require.context('./assets/img/badges/', false, /\.svg$/)
-    return badgeImages('./' + badge + ".svg")
-  },
   methods: {
-    getId() {
-      let shortBadgeId = /[^/]*$/.exec(this.currentBadge)[0];
+    getId(id) {
+      let shortBadgeId = /[^/]*$/.exec(id)[0];
       return shortBadgeId;
     }
   }

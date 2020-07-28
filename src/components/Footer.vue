@@ -10,10 +10,8 @@
         <div class="info">
           <p class="info__site">WiseBadges is a part of Bridges, a project funded by the Erasmus+ programme to improve gender equity in the access to STEM education</p>
           <div class="info__links">
-            <p>Lorem ipsum</p>
-            <p>Contact</p>
-            <p><a href="https://bridges.openrecognition.org/" target="_blank" class="sec-btn-inline">bridges.openrecognition.org</a></p>
-            <p>Contact: serge.ravet@openrecognition.org</p>
+            <p><a href="https://bridges.openrecognition.org/" target="_blank">Open Recognition</a></p>
+            <p><a href="mailto:serge.ravet@openrecognition.org">Contact</a></p>
           </div>
         </div>
       </div>
