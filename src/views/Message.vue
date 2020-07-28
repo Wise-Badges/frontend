@@ -2,7 +2,7 @@
   <div>
     <div class="maxi-form-container">
     <div class="data-selected-container selectedBadge-container">
-      <img class="img-badge-form" :src="'/assets/img/badges/' + checkId().image + '.svg'" v-bind:alt="checkId().image">
+      <img class="img-badge-form" :src="checkId().image" v-bind:alt="checkId().image">
       <div class="badge-text">
         <p class="selectedBadge-name">{{checkId().name}}</p>
         <div class="selectedBadge-receiver">

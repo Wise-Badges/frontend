@@ -1,8 +1,7 @@
 <template>
   <div class="maxi-form-container">
     <div class="selectedBadge-container">
-      <img :class="'img-badge-form img-badge-' + checkId().figure" :src="'/assets/img/badges/' + checkId().image + '.svg'" v-bind:alt="checkId().image">
-
+      <img :class="'img-badge-form img-badge-' + checkId().figure" :src="checkId().image" v-bind:alt="checkId().image">
       <div class="badge-text">
         <p class="selectedBadge-name">{{checkId().name}}</p>
       </div>
