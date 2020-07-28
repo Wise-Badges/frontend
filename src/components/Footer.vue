@@ -19,7 +19,7 @@
 
     <div class="footer__copyright">
       <div class="container">
-        <p>Made with love at <a href="http://osoc.be/editions/2020" target="_blank" class="sec-btn-inline">OSOC20</a></p>
+        <p>Made with love at <a href="https://osoc.be/editions/2020/wise-badges" target="_blank" class="sec-btn-inline">OSOC20</a></p>
         <div class="footer__logos">
           <img class="footer__logo--erasmus" alt="Erasmus" src="/assets/img/footer/logo-erasmus.png" />
           <img class="footer__logo--osoc" alt="OSOC" src="/assets/img/footer/logo-osoc.svg" />
