@@ -42,6 +42,7 @@
     }),
     mounted() {
       let recaptchaScript = document.createElement('script')
+      console.log(recaptchaScript)
       recaptchaScript.setAttribute('src', 'https://platform.twitter.com/widgets.js')
       document.head.appendChild(recaptchaScript)
     },
