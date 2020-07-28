@@ -86,18 +86,22 @@ export default new Vuex.Store({
           return Promise.reject(error);
         })
     },
-    loadBadgesByAssertionId({ commit }) {
+    loadBadgesByAssertionId({ commit }, badgeID) {
       return axios
         // .get('https://api.wisebadges.osoc.be/assertion/' + this.route.params)
-        .get('https://api.wisebadges.osoc.be/badgeclass/5f201418631ce1068d217667/assertions')
+        // .get('https://api.wisebadges.osoc.be/badgeclass/'+ badgeID.badgeID + '/assertions')
+        .get('https://api.wisebadges.osoc.be/badgeclass/' + badgeID.badgeID)
         .then(r => {
-          let badgeByAssertionIdApi = r.data.data[0].badge
+          let badgeByAssertionIdApi = r.data
+
+          // let badgeByAssertionIdApi = r.data.data[0].badge
           commit("SET_BADGEBYASSERTIONID", badgeByAssertionIdApi);
           console.log('))))');
           console.log(badgeByAssertionIdApi);
+          console.log(badgeID.badgeID)
         })
         .catch(error => {
-          console.log('error')
+          console.log('errorRRRRRR')
           return Promise.reject(error);
         })
     }
