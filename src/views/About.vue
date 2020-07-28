@@ -20,8 +20,8 @@
           <div class="support">
             <span>Support us on</span>
             <ul>
-              <li>Open Collective</li>
-              <li>Github</li>
+              <li><a target="_blank" class="sec-btn-inline" href="https://opencollective.com/openrecognition">Open Collective</a></li>
+              <li><a target="_blank" class="sec-btn-inline" href="https://github.com/wise-badges">Github</a></li>
             </ul>
           </div>
         </div>
