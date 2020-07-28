@@ -28,9 +28,9 @@ export default new Vuex.Store({
     validMessage: false,
     badgeId: '',
     assertionId: '',
+
     thrustedDomain: 'https://api.wisebadges.osoc.be',
     twitterString: 'https://twitter.com/intent/tweet?text=Hey',
-    // twitterString: 'https://twitter.com/intent/tweet?text=This%20is%20an%20example%20of%20a%20pre-written%20tweet-%20don%27t%20forget%20that%20it%20needs%20to%20be%20less%20than%20280%20characters'
   },
   mutations: {
     SET_BADGES(state, badgesApi) {
@@ -86,19 +86,28 @@ export default new Vuex.Store({
           return Promise.reject(error);
         })
     },
-    loadBadgesByAssertionId({ commit }, badgeID) {
+    loadBadgeByAssertionId({ commit }, assertionID) {
       return axios
         // .get('https://api.wisebadges.osoc.be/assertion/' + this.route.params)
         // .get('https://api.wisebadges.osoc.be/badgeclass/'+ badgeID.badgeID + '/assertions')
-        .get('https://api.wisebadges.osoc.be/badgeclass/' + badgeID.badgeID)
+        // .get('https://api.wisebadges.osoc.be/badgeclass/' + badgeID.badgeID)
+        .get('https://api.wisebadges.osoc.be/assertion/' + assertionID.assertionID)
         .then(r => {
-          let badgeByAssertionIdApi = r.data
+          let badgeByAssertionIdApi = r.data.badge
+
+          console.log(badgeByAssertionIdApi)
+
+          return axios
+            .get(badgeByAssertionIdApi)
+            .then(badgeresponse => {
+              let badgeByAssertionIdApi = badgeresponse.data;
+              commit("SET_BADGEBYASSERTIONID", badgeByAssertionIdApi);
+              console.log(badgeresponse.data);
+          })
 
           // let badgeByAssertionIdApi = r.data.data[0].badge
-          commit("SET_BADGEBYASSERTIONID", badgeByAssertionIdApi);
-          console.log('))))');
-          console.log(badgeByAssertionIdApi);
-          console.log(badgeID.badgeID)
+          // commit("SET_BADGEBYASSERTIONID", badgeByAssertionIdApi);
+          // console.log(badgeByAssertionIdApi);
         })
         .catch(error => {
           console.log('errorRRRRRR')
