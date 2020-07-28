@@ -4,7 +4,7 @@
     <div class="badge-text">
       <p class="selectedBadge-name">{{checkId().name}}</p>
       <div class="selectedBadge-receiver">
-        <p v-if="this.$store.state.receiver[0]">To {{$route.params.receiver}}</p>
+        <p v-if="$route.params.receiver">To {{$route.params.receiver}}</p>
         <p v-if="this.$store.state.receiver[0] == undefined">Something went wrong my dear</p>
       </div>
     </div>
