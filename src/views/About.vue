@@ -22,6 +22,7 @@
             <ul>
               <li><a target="_blank" class="sec-btn-inline" href="https://opencollective.com/openrecognition">Open Collective</a></li>
               <li><a target="_blank" class="sec-btn-inline" href="https://github.com/wise-badges">Github</a></li>
+              <li><a target="_blank" class="sec-btn-inline" href="https://join.slack.com/t/wisebadges/shared_invite/zt-g689qtur-yXwL5ZpIBPd89d7iaMVldw">Slack</a></li>
             </ul>
           </div>
         </div>
