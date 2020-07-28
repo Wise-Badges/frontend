@@ -60,7 +60,7 @@ export default ({
     background-color: $color-purpleDark;
   }
 
-  .badge {
+  .badge section {
     padding: 2rem 1.2rem 2.5rem;
     display: flex;
     flex-direction: column;
