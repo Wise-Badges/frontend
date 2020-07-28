@@ -94,7 +94,7 @@ import BadgeExample from '@/components/BadgeExample.vue';
 }
 
 .issueBadge-info {
-  opacity: 0.5;
+  color: #7C6DF1;
   width: 15rem;
   text-align: right;
   align-self: flex-end;
