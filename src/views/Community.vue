@@ -3,7 +3,7 @@
     <h1 class="title">Community</h1>
     <ul class="acceptedBadges">
       <!-- ALL -->
-      <li v-if="this.$route.params.id" class="acceptedBadge"v-for="assertion in assertions" :key="assertion.id">
+      <li class="acceptedBadge"v-for="assertion in assertions" :key="assertion.id">
         <a :href="assertion.evidence.id">
         <p class="badge__receiver">{{ assertion.recipient.name }} received {{ getBadgeNameById(assertion.badge) }}</p>
         <!-- <p class="badge__message">{{ assertion.message }}</p> -->
