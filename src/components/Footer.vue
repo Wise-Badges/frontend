@@ -3,15 +3,15 @@
     <div class="footer__main">
       <div class="container">
         <ul class="social">
-          <li><img alt="Twitter" src="/assets/img/footer/twitter.svg"/><span class="hidden">Twitter</span></li>
+          <li><a href="https://twitter.com/wisebadges" target="_blank"><img alt="Twitter" src="/assets/img/footer/twitter.svg"/></a><span class="hidden">Twitter</span></li>
           <li><img alt="Instagram" src="/assets/img/footer/instagram.svg"/><span class="hidden">Instagram</span></li>
           <li><img alt="Facebook" src="/assets/img/footer/facebook.svg"/><span class="hidden">Facebook</span></li>
         </ul>
         <div class="info">
-          <p class="info__site">WiseBadges is a part of Bridges, a project funded by the Erasmus+ project to improve gender equity in the access to STEM education</p>
+          <p class="info__site">WiseBadges is a part of Bridges, a project funded by the Erasmus+ programme to improve gender equity in the access to STEM education</p>
           <div class="info__links">
-            <p>Lorem ipsum</p>
-            <p>Contact</p>
+            <p><a href="https://bridges.openrecognition.org/" target="_blank" class="sec-btn-inline">bridges.openrecognition.org</a></p>
+            <p>Contact: serge.ravet@openrecognition.org</p>
           </div>
         </div>
       </div>
