@@ -69,17 +69,17 @@ export default new Vuex.Store({
   //     // OKE DIT MOET DUS TOEGEPAST WORDEN VANBOVEN
   //     if (this.$route.params.id === shortId) {
   //       //console.log(this.$store.state.badgesApi.data[i].name);
-        
+
   //       let currentBadgeSelected = this.state.badgesApi.data[i];
-        
+
   //       return currentBadgeSelected
   //     } else {
-  //       //this.$router.push('/') 
+  //       //this.$router.push('/')
   //     }
   //   }
   // },
-  }
-  
+  },
+
   modules: {
   },
 });

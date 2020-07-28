@@ -4,7 +4,7 @@
     <ul class="badges">
       <li class="badge"v-for="badge in badges" :key="badge.name">
         <section>
-          <img class="badge__img" :src="'assets/img/badges/' + badge.img + '.svg'" v-bind:alt="badge.img">
+          <img class="badge__img" :src="badge.image" v-bind:alt="badge.name">
           <h2 class="badge__title">{{badge.name}}</h2>
           <p class="badge__amount">2.340</p>
           <router-link class="router-item" badge="badge" :to="'/receiver/' + badge.id" id="prim-btn">award badge</router-link>
@@ -20,18 +20,19 @@ export default ({
   data() {
     return {
       msg: 'Choose a badge to give',
-      badges: [
-        { id: 1, name: 'Did not Explode', img: 'didnt_explode', figure: 'circle'},
-        { id: 2, name: 'Eureka', img: 'eureka', figure: 'circle'},
-        { id: 3, name: 'Leading Lady', img: 'leading_lady', figure: 'hexagon'},
-        { id: 4, name: 'Mathematics Wizard', img: 'mathematics_wizard', figure: 'square'},
-        { id: 5, name: 'Next gen Einstein', img: 'next_gen_einstein', figure: 'square'},
-        { id: 6, name: 'The Bigbang Badge', img: 'the_bigbang_badge', figure: 'hexagon'},
-        { id: 7, name: 'You rock(et) science', img: 'you_rocket_science', figure: 'triangle'},
-        { id: 8, name: 'Another one', img: 'another_one', figure: 'hexagon'},
-      ],
-      currentBadge: 2,
-      active: true
+      badges: this.$store.state.badgesApi.data
+      // badges: [
+      //   { id: 1, name: 'Did not Explode', img: 'didnt_explode', figure: 'circle'},
+      //   { id: 2, name: 'Eureka', img: 'eureka', figure: 'circle'},
+      //   { id: 3, name: 'Leading Lady', img: 'leading_lady', figure: 'hexagon'},
+      //   { id: 4, name: 'Mathematics Wizard', img: 'mathematics_wizard', figure: 'square'},
+      //   { id: 5, name: 'Next gen Einstein', img: 'next_gen_einstein', figure: 'square'},
+      //   { id: 6, name: 'The Bigbang Badge', img: 'the_bigbang_badge', figure: 'hexagon'},
+      //   { id: 7, name: 'You rock(et) science', img: 'you_rocket_science', figure: 'triangle'},
+      //   { id: 8, name: 'Another one', img: 'another_one', figure: 'hexagon'},
+      // ],
+      // currentBadge: 2,
+      // active: true
     };
   },
   getImgUrl(badge) {
@@ -74,6 +75,7 @@ export default ({
 
     & .badge__img {
       margin-bottom: 2rem;
+      height: 10.4rem;
     }
 
     & #prim-btn {
