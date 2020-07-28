@@ -61,6 +61,26 @@ export default new Vuex.Store({
         })
     }
   },
+
+  //   checkId: function() {
+  //   for(let i = 0; i < this.state.badgesApi.data.length; i++) {
+  //     //console.log(this.$store.state.badgesApi.data[i].id);
+  //     let fullId = this.state.badgesApi.data[i].id;
+  //     let shortId = /[^/]*$/.exec(fullId)[0]
+
+  //     // OKE DIT MOET DUS TOEGEPAST WORDEN VANBOVEN
+  //     if (this.$route.params.id === shortId) {
+  //       //console.log(this.$store.state.badgesApi.data[i].name);
+
+  //       let currentBadgeSelected = this.state.badgesApi.data[i];
+
+  //       return currentBadgeSelected
+  //     } else {
+  //       //this.$router.push('/')
+  //     }
+  //   }
+  // },
+  },
   modules: {
   },
 });
