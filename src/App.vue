@@ -24,13 +24,20 @@ export default ({
   },
   data: () => ({loading: true}),
   async mounted() {
+
     await this.$store.dispatch('loadBadges');
     await this.$store.dispatch('loadAssertions');
     await this.$store.dispatch('loadAssertionById', {
         assertionID: this.$route.params.assertionId
     });
-    await this.$store.dispatch('loadBadgesByAssertionId');
-    //this.loaded = true;
+
+    let fullId = this.$store.state.badgesApi.data[1].id;
+    let shortId = /[^/]*$/.exec(fullId)[0];
+    console.log(shortId);
+
+    await this.$store.dispatch('loadBadgesByAssertionId', {
+        badgeID: shortId
+    });
   },
 })
 </script>
