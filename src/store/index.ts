@@ -89,12 +89,11 @@ export default new Vuex.Store({
     loadBadgesByAssertionId({ commit }) {
       return axios
         // .get('https://api.wisebadges.osoc.be/assertion/' + this.route.params)
-        .get('https://api.wisebadges.osoc.be/badgeclass/5f201751631ce1068d217668')
+        .get('https://api.wisebadges.osoc.be/badgeclass/5f201418631ce1068d217667/assertions')
         .then(r => {
-          let badgeByAssertionIdApi = r.data
+          let badgeByAssertionIdApi = r.data.data[0].badge
           commit("SET_BADGEBYASSERTIONID", badgeByAssertionIdApi);
-          console.log('test');
-          console.log(badgeByAssertionIdApi);
+          console.log('))))');
           console.log(badgeByAssertionIdApi);
         })
         .catch(error => {
