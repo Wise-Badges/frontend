@@ -107,11 +107,6 @@ export default {
   color: #7C6DF3;
   letter-spacing: 0.05rem;
   font-size: 1rem;
-
-  &::placeholder {
-    color: #7C6DF1;
-    opacity: .5;
-  }
 }
 
 .twitter-receiver {

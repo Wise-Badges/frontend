@@ -2,6 +2,11 @@ textarea {
     border-radius: .5rem;
 }
 
+*::placeholder {
+  color: #7C6DF1;
+  opacity: .5;
+}
+
 .navigation-form {
     display: flex;
     flex-direction: row;
