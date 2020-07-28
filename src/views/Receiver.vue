@@ -1,11 +1,7 @@
 <template>
   <div class="maxi-form-container">
-    <div class="selectedBadge-container">
-      <img :class="'img-badge-form img-badge-' + checkId().figure" :src="checkId().image" v-bind:alt="checkId().name">
-      <div class="badge-text">
-        <p class="selectedBadge-name">{{checkId().name}}</p>
-      </div>
-    </div>
+
+    <BadgeExample />
     <h2 class="subtitle">Choose who you want to send the badge to</h2>
       <div class="form-container">
           <div class="platform-receiver-container">
@@ -40,12 +36,17 @@
 
 
 <script>
+import BadgeExample from '@/components/BadgeExample.vue';
+
 export default {
   name: 'receiver',
   data() {
     return {
       twitterhandler: [],
     }
+  },
+  components: {
+    BadgeExample
   },
   methods: {
   checkCharacter: function(e) {
@@ -95,7 +96,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 
 .form-receiver {
   border-top-right-radius: 3rem;
@@ -136,8 +137,11 @@ export default {
   width: 100%;
 }
 
-.img-badge-form {
-  height: 10.4rem;
+.badge-text {
+    @media only screen and (max-width: 630px) {
+      text-align: center;
+      margin: 0 auto;
+   }
 }
 
 .select-platforms {
