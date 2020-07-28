@@ -20,6 +20,7 @@ export default new Vuex.Store({
     badgesApi: [],
     assertionsApi: [],
     assertionByIdApi: [],
+    badgeByAssertionIdApi: [],
     receiver: [{ receiver: '' }],
     message: [{message: ''}],
     pressedAtmark: false,
@@ -40,6 +41,9 @@ export default new Vuex.Store({
     },
     SET_ASSERTIONBYID(state, assertionByIdApi) {
       state.assertionByIdApi = assertionByIdApi;
+    },
+    SET_BADGEBYASSERTIONID(state, badgeByAssertionIdApi) {
+      state.badgeByAssertionIdApi = badgeByAssertionIdApi;
     }
   },
   actions: {
@@ -74,30 +78,30 @@ export default new Vuex.Store({
         .then(r => {
           let assertionByIdApi = r.data
           commit("SET_ASSERTIONBYID", assertionByIdApi);
-          console.log(assertionID);
-          console.log(assertionByIdApi);
+          //console.log(assertionID);
+          //console.log(assertionByIdApi);
+        })
+        .catch(error => {
+          //console.log('error')
+          return Promise.reject(error);
+        })
+    },
+    loadBadgesByAssertionId({ commit }) {
+      return axios
+        // .get('https://api.wisebadges.osoc.be/assertion/' + this.route.params)
+        .get('https://api.wisebadges.osoc.be/badgeclass/5f201751631ce1068d217668')
+        .then(r => {
+          let badgeByAssertionIdApi = r.data
+          commit("SET_BADGEBYASSERTIONID", badgeByAssertionIdApi);
+          console.log('test');
+          console.log(badgeByAssertionIdApi);
+          console.log(badgeByAssertionIdApi);
         })
         .catch(error => {
           console.log('error')
           return Promise.reject(error);
         })
-    },
-    // loadBadgesByAssertionId({ commit }, assertionID) {
-    //   return axios
-    //     // .get('https://api.wisebadges.osoc.be/assertion/' + this.route.params)
-    //     .get('https://api.wisebadges.osoc.be/badgeclass/' + assertionID.assertionID)
-    //     .then(r => {
-    //       let assertionByIdApi = r.data
-    //       commit("SET_ASSERTIONBYID", assertionByIdApi);
-    //       console.log('test');
-    //       console.log(assertionID);
-    //       console.log(assertionByIdApi);
-    //     })
-    //     .catch(error => {
-    //       console.log('error')
-    //       return Promise.reject(error);
-    //     })
-    // }
+    }
   },
   modules: {
   },

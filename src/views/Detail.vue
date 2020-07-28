@@ -1,7 +1,7 @@
 <template>
 <div>
-  <!-- <div v-if="loading">Loading...</div> -->
-  <!-- <div v-else> -->
+  <div v-if="loading">Loading...</div>
+  <div v-else>
   <h1 class="title">Your badge</h1>
     <div class="detail">
 
@@ -21,10 +21,11 @@
 
       <div class="detail__badge">
         <div class="badge__container">
-          <!-- <img class="badge__img" :src="badgeOfCurrentAssertionsId().image" :alt="badgeOfCurrentAssertionsId().image"> -->
-          <p class="badge__title">{{this.$store.state.assertionByIdApi.badge}}</p>
+          <img class="badge__img" :src="this.$store.state.badgeByAssertionIdApi.image" :alt="this.$store.state.badgeByAssertionIdApi.image">
+          <p class="badge__title">{{this.$store.state.badgeByAssertionIdApi.name}}</p>
           <a href="/" id="prim-btn">Download</a>
-          <p class="badge__status">Badge has not been accepted.</p>
+          <p v-if="this.$store.state.assertionByIdApi.accepted === true" class="badge__status">Badge has already been accepted</p>
+          <p v-if="this.$store.state.assertionByIdApi.accepted === false" class="badge__status">Badge has not been accepted.</p>
         </div>
       </div>
     </div>
@@ -32,7 +33,7 @@
       <p>Not happy with your badge? With a simple Tweet command, our bot will delete your badge Open Badge permanently. Only a tweet by @receiver_here will be accepted.</p>
       <router-link to="/" target="_blank" id="prim-btn">Tweet to delete</router-link>
     </div>
-  <!-- </div> -->
+  </div>
   </div>
 </template>
 
@@ -46,7 +47,7 @@
       await this.$store.dispatch('loadBadges');
       await this.$store.dispatch('loadAssertions');
 
-      this.loading = true;
+      this.loading = false;
     },
     // mounted() {
     //   let recaptchaScript = document.createElement('script')

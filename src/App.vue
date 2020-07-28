@@ -29,7 +29,7 @@ export default ({
     await this.$store.dispatch('loadAssertionById', {
         assertionID: this.$route.params.assertionId
     });
-
+    await this.$store.dispatch('loadBadgesByAssertionId');
     //this.loaded = true;
   },
 })
