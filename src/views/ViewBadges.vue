@@ -8,7 +8,7 @@
           <h2 class="badge__title">{{badge.name}}</h2>
           <p class="badge__amount">2.340</p>
           <router-link class="router-item" badge="badge"  :to="'/receiver/' + getId(badge.id)" id="prim-btn">award badge</router-link>
-          <router-link class="router-item" to="/" id="sec-btn">View earners</router-link>
+          <router-link class="router-item" to="/community" id="sec-btn">View earners</router-link>
         </section>
       </li>
     </ul>
