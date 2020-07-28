@@ -23,7 +23,8 @@ export default ({
     Footer
   },
   mounted() {
-    this.$store.dispatch('loadBadges')
+    this.$store.dispatch('loadBadges');
+    this.$store.dispatch('loadAssertions');
   }
 })
 </script>

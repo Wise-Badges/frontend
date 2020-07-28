@@ -21,7 +21,7 @@
       <div class="detail__badge">
         <div>
           <img class="badge__img" src="assets/img/badges/eureka.svg" alt="eureka">
-          <p class="badge__title">Next Gen Albert Einstein</p>
+          <p class="badge__title">{{this.$store.state.assertionsApi.data[0].badge}}</p>
           <a href="/" id="prim-btn">Download</a>
           <p class="badge__status">Badge has not been accepted.</p>
         </div>
@@ -46,6 +46,8 @@
       console.log(recaptchaScript)
       recaptchaScript.setAttribute('src', 'https://platform.twitter.com/widgets.js')
       document.head.appendChild(recaptchaScript)
+
+      console.log(this.$store.state.assertionsApi);
     },
     methods: {
 
