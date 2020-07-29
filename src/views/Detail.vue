@@ -43,13 +43,6 @@
     async created() {
       await this.$store.dispatch('loadBadges');
       await this.$store.dispatch('loadAssertions');
-      console.log(this.$route.params)
-
-      if (this.$route.params)
-
-      // if (this.$store.error.response.status == 404) {
-      //   console.log('ondmqfksdqfksd‡')
-      // }
 
       this.loading = false;
     },
