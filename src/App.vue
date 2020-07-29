@@ -30,13 +30,8 @@ export default ({
     await this.$store.dispatch('loadAssertionById', {
         assertionID: this.$route.params.assertionId
     });
-
-    let fullId = this.$store.state.badgesApi.data[1].id;
-    let shortId = /[^/]*$/.exec(fullId)[0];
-    console.log(shortId);
-
-    await this.$store.dispatch('loadBadgesByAssertionId', {
-        badgeID: shortId
+    await this.$store.dispatch('loadBadgeByAssertionId', {
+        assertionID: this.$route.params.assertionId
     });
   },
 })
