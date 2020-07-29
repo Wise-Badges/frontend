@@ -8,7 +8,6 @@
       <div class="detail__info">
         <p><span v-if="this.$store.state.assertionByIdApi.accepted === false"><span class="bold__text">This badge has not been accepted yet,</span> please accept it by liking the <a class="tweet__link" target="_blank" :href="'https://platform.twitter.com/embed/index.html?&embedId=twitter-widget-0&hideThread=false&theme=light&id=' + shortenAnswerId()">following Tweet.</a><br/><br/> Only @{{getName()}} can officially accept this badge before 21/08/20</span><span v-if="this.$store.state.assertionByIdApi.accepted === true" class="bold__text">Congratulations, this badge has already been accepted.</span></p>
         <div class="tweet__wrapper">
-          <!-- <iframe v-if="this.$store.state.assertionByIdApi.accepted === false" class="twitter-answer" :src="'https://platform.twitter.com/embed/index.html?&embedId=twitter-widget-0&hideThread=false&theme=light&id=' + shortenAnswerId()" frameborder="0" height=700 width=500></iframe> -->
           <iframe class="twitter-answer" :src="'https://platform.twitter.com/embed/index.html?&embedId=twitter-widget-0&hideThread=false&theme=light&id=' + shortenEvidenceId()" frameborder="0" height=400 width=500></iframe>
           <router-link id="sec-btn" class="otherbadges__view" to="/community">view other earners</router-link>
         </div>
@@ -43,7 +42,14 @@
     }),
     async created() {
       await this.$store.dispatch('loadBadges');
-      //await this.$store.dispatch('loadAssertions');
+      await this.$store.dispatch('loadAssertions');
+      console.log(this.$route.params)
+
+      if (this.$route.params)
+
+      // if (this.$store.error.response.status == 404) {
+      //   console.log('ondmqfksdqfksd‡')
+      // }
 
       this.loading = false;
     },
@@ -57,14 +63,13 @@
       shortenAnswerId() {
         let fullAnswerId = this.$store.state.assertionByIdApi.answer
         let shortAnswerId = /[^/]*$/.exec(fullAnswerId)[0]
-        console.log(fullAnswerId)
-        console.log(shortAnswerId)
 
         return shortAnswerId
       },
       getDate(dateString) {
         let date = new Date(dateString);
         let fullDate = `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`;
+
         return fullDate;
       },
       getName() {
@@ -74,14 +79,6 @@
         return shortTwitterName
       }
     }
-    // mounted() {
-    //   let recaptchaScript = document.createElement('script')
-    //   console.log(recaptchaScript)
-    //   recaptchaScript.setAttribute('src', 'https://platform.twitter.com/widgets.js')
-    //   document.head.appendChild(recaptchaScript)
-
-    //   console.log(this.$store.state.assertionsApi);
-    // },
   }
 </script>
 
