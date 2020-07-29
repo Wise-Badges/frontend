@@ -53,6 +53,12 @@ const routes: Array<RouteConfig> = [
     name: 'Detail',
     component: () => import('../views/Detail.vue'),
   },
+  {
+    // matches everything else
+    path: '*',
+    name: 'notFound',
+    component: () => import('../views/NotFound.vue'),
+  }
 ];
 
 const router = new VueRouter({

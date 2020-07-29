@@ -42,8 +42,6 @@ export default ({
       msg: 'Choose a badge to give',
       currentBadge: 'https://api.wisebadges.osoc.be/badgeclass/5f1ec15c71d07def7b588a73',
       active: true,
-      // fullId: this.$store.state.badgesApi.data[currentBadge].id,
-      // shortId: /[^/]*$/.exec(fullId)[currentBadge]
     };
   },
   getImgUrl(badge) {
@@ -51,9 +49,6 @@ export default ({
   },
   methods: {
     getId() {
-      //console.log(this.currentBadge);
-      //console.log(/[^/]*$/.exec(this.currentBadge)[0]);
-
       let shortBadgeId = /[^/]*$/.exec(this.currentBadge)[0];
 
       return shortBadgeId;
@@ -113,7 +108,6 @@ li {
 }
 
 .radio-btn {
-  //display: none;
   opacity: 0;
   position: fixed;
   width: 0;
@@ -138,7 +132,6 @@ li {
 
 .single-badge {
   font-weight: 400;
-  /* margin: 2rem; */
   opacity: 0.8;
   transition: 0.2s opacity;
 
@@ -169,7 +162,6 @@ li {
 .active-badge-square {
   padding: 0.5rem;
 }
-
 
 .single-badge .radio-btn:checked + .active-badge-square {
   padding: 0.5rem;
@@ -217,12 +209,5 @@ li {
 .next-selectbadge {
   margin-top: -2.5rem;
 }
-/*
-.badges-ul [type="radio"]:checked + .single-badge {
-  background-color: red;
-  font-weight: 700;
-  opacity: 1;
-  color: orange;
-}
-*/
+
 </style>

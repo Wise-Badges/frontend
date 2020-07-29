@@ -24,19 +24,15 @@ export default {
   methods: {
   checkId: function() {
     for(let i = 0; i < this.$store.state.badgesApi.data.length; i++) {
-      //console.log(this.$store.state.badgesApi.data[i].id);
+
       let fullId = this.$store.state.badgesApi.data[i].id;
       let shortId = /[^/]*$/.exec(fullId)[0]
 
-      // OKE DIT MOET DUS TOEGEPAST WORDEN VANBOVEN
       if (this.$route.params.id === shortId) {
-        //console.log(this.$store.state.badgesApi.data[i].name);
 
         let currentBadgeSelected = this.$store.state.badgesApi.data[i];
 
         return currentBadgeSelected
-      } else {
-        //this.$router.push('/')
       }
     }
   },
@@ -62,16 +58,10 @@ export default {
 }
 </script>
 
-
 <style lang="scss">
 .img-badge-form {
   height: 10.4rem;
-  // margin-left: -4.5rem;
   z-index: 2;
-
-  @media only screen and (max-width: 630px) {
-      // height: 7rem;
-  }
 }
 
 .selectedBadge-container {
@@ -137,7 +127,6 @@ export default {
     letter-spacing: 0.1rem;
     font-weight: 400;
     margin-left: 4rem;
-
   }
 
   .bol {
@@ -156,7 +145,6 @@ export default {
   .bol-inactive {
       cursor: default;
   }
-
 
   .twitterlink {
     color: #A37FFA;
