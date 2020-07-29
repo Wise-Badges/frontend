@@ -8,7 +8,8 @@
       <div class="detail__info">
         <p>This badge has not been accepted yet, please accept it by liking the following Tweet. Only @{{this.$store.state.assertionByIdApi.recipient.name}} can officially accept this badge before 21/08/20.</p>
         <div class="tweet__wrapper">
-        <iframe :src="'https://platform.twitter.com/embed/index.html?&embedId=twitter-widget-0&hideThread=false&theme=light&id=' + shortenEvidenceId()" frameborder="0" height=700 width=500></iframe>
+          <iframe class="twitter-answer" :src="'https://platform.twitter.com/embed/index.html?&embedId=twitter-widget-0&hideThread=false&theme=light&id=' + shortenEvidenceId()" frameborder="0" height=300 width=500></iframe>
+          <iframe class="twitter-answer" :src="'https://platform.twitter.com/embed/index.html?&embedId=twitter-widget-0&hideThread=false&theme=light&id=' + '1288390856592982016'" frameborder="0" height=700 width=500></iframe>
         </div>
       </div>
 
@@ -178,5 +179,10 @@
       width: 0;
     }
   }
+}
+
+.twitter-answer {
+  width: 100%;
+  height: 100;
 }
 </style>
