@@ -8,13 +8,7 @@
       <div class="detail__info">
         <p>This badge has not been accepted yet, please accept it by liking the following Tweet. Only @{{this.$store.state.assertionByIdApi.recipient.name}} can officially accept this badge before 21/08/20.</p>
         <div class="tweet__wrapper">
-          <blockquote class="twitter-tweet" data-lang="en">
-            <p lang="en" dir="ltr">Sunsets don&#39;t get much better than this one over
-            <a href="https://twitter.com/GrandTetonNPS?ref_src=twsrc%5Etfw">@GrandTetonNPS</a>.
-            <a href="https://twitter.com/hashtag/nature?src=hash&amp;ref_src=twsrc%5Etfw">#nature</a>
-            <a href="https://twitter.com/hashtag/sunset?src=hash&amp;ref_src=twsrc%5Etfw">#sunset</a>
-            <a href="http://t.co/YuKy2rcjyU">pic.twitter.com/YuKy2rcjyU</a></p>&mdash; US Department of the Interior (@Interior)
-            <a href="https://twitter.com/Interior/status/463440424141459456?ref_src=twsrc%5Etfw">May 5, 2014</a></blockquote>
+        <iframe :src="'https://platform.twitter.com/embed/index.html?&embedId=twitter-widget-0&hideThread=false&theme=light&id=' + shortenEvidenceId()" frameborder="0" height=700 width=500></iframe>
         </div>
       </div>
 
@@ -48,6 +42,14 @@
 
       this.loading = false;
     },
+    methods: {
+      shortenEvidenceId() {
+        let fullEvidenceId = this.$store.state.assertionByIdApi.evidence.id;
+        let shortEvidenceId = /[^/]*$/.exec(fullEvidenceId)[0]
+        console.log(shortEvidenceId)
+        return shortEvidenceId
+      }
+    }
     // mounted() {
     //   let recaptchaScript = document.createElement('script')
     //   console.log(recaptchaScript)
@@ -56,52 +58,6 @@
 
     //   console.log(this.$store.state.assertionsApi);
     // },
-    methods: {
-      badgeOfCurrentAssertionsId: function() {
-        // console.log(this.currentAssertion.badge);
-        // console.log(this.$store.state.badgesApi.data[0].id);
-
-        // for(let i = 0; i < this.$store.state.badgesApi.data.length; i++) {
-
-        //   if (this.currentAssertion.badge === this.$store.state.badgesApi.data[i].id) {
-        //     console.log('overeenkomstige id:' + this.$store.state.badgesApi.data[i].id);
-
-        //     let currentBadge = this.$store.state.badgesApi.data[i];
-
-        //     return currentBadge
-        //   } else {
-        //     //this.$router.push('/')
-        //     console.log('ai fout')
-        //   }
-        // }
-      },
-      loadCurrentAssertionsId: function() {
-        // for(let i = 0; i < this.$store.state.assertionsApi.data.length; i++) {
-        //   //console.log(this.$store.state.badgesApi.data[i].id);
-        //   let fullId = this.$store.state.assertionsApi.data[i].id;
-        //   let shortId = /[^/]*$/.exec(fullId)[0];
-
-        //   //console.log(this.$route.params.idString);
-        //   //console.log(shortId);
-        //   if (this.$route.params.idString === shortId) {
-        //     //console.log(this.$store.state.badgesApi.data[i].name);
-        //     console.log('succeed')
-        //     let currentAssertionsDetail = this.$store.state.assertionsApi.data[i];
-        //     //console.log(currentAssertionsDetail)
-
-        //    this.currentAssertion = currentAssertionsDetail;
-
-        //    //console.log(this.currentAssertion);
-
-        //     return currentAssertionsDetail
-        //   } else {
-        //     this.$router.push('/')
-        //     console.log('error loop')
-        //     return 'erroooor assertion'
-        //   }
-        // }
-      },
-    }
   }
 </script>
 
