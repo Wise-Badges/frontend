@@ -6,7 +6,7 @@
     <div class="detail">
 
       <div class="detail__info">
-        <p><span v-if="this.$store.state.assertionByIdApi.accepted === false">This badge has not been accepted yet, please accept it by liking the following Tweet. Only @{{this.$store.state.assertionByIdApi.recipient.name}} can officially accept this badge before 21/08/20</span><span v-if="this.$store.state.assertionByIdApi.accepted === true">This badge has been accepted already.</span></p>
+        <p><span v-if="this.$store.state.assertionByIdApi.accepted === false">This badge has not been accepted yet, please accept it by liking the following Tweet. Only @{{this.$store.state.assertionByIdApi.recipient.name}} can officially accept this badge before 21/08/20</span><span v-if="this.$store.state.assertionByIdApi.accepted === true">This badge has already been accepted.</span></p>
         <div class="tweet__wrapper">
           <iframe v-if="this.$store.state.assertionByIdApi.accepted === false" class="twitter-answer" :src="'https://platform.twitter.com/embed/index.html?&embedId=twitter-widget-0&hideThread=false&theme=light&id=' + shortenAnswerId()" frameborder="0" height=700 width=500></iframe>
           <iframe class="twitter-answer" :src="'https://platform.twitter.com/embed/index.html?&embedId=twitter-widget-0&hideThread=false&theme=light&id=' + shortenEvidenceId()" frameborder="0" height=600 width=500></iframe>
