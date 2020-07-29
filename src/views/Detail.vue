@@ -10,7 +10,7 @@
         <div class="tweet__wrapper">
           <!-- <iframe v-if="this.$store.state.assertionByIdApi.accepted === false" class="twitter-answer" :src="'https://platform.twitter.com/embed/index.html?&embedId=twitter-widget-0&hideThread=false&theme=light&id=' + shortenAnswerId()" frameborder="0" height=700 width=500></iframe> -->
           <iframe class="twitter-answer" :src="'https://platform.twitter.com/embed/index.html?&embedId=twitter-widget-0&hideThread=false&theme=light&id=' + shortenEvidenceId()" frameborder="0" height=400 width=500></iframe>
-          <router-link to="/community">view other earners</router-link>
+          <router-link id="sec-btn" class="otherbadges__view" to="/community">view other earners</router-link>
         </div>
       </div>
 
@@ -241,5 +241,9 @@
 
 .tweet__link {
   color: #7C6DF3;
+}
+
+.otherbadges__view {
+  text-decoration: none;
 }
 </style>
