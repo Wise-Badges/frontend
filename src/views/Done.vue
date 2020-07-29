@@ -13,7 +13,7 @@
     <router-link :to="'/receiver/' + this.$route.params.id + '/' + this.$store.state.receiver[0].receiver" class="bol"></router-link>
     <router-link to="" class="bol bol-active"></router-link>
   </div>
-  <h3 class="twitterlink-title-backup">Went something wrong? <br/> Here is your <a class="twitterlink" :href="this.$store.state.twitterString + ' @WiseBadges' + ', issue a %23'  + checkId().tag + ' to ' + $route.params.receiver + ' with this message: ' + $route.params.message" target=_black>Twitterlink</a></h3>
+  <h3 class="twitterlink-title-backup">Went something wrong? <br/> Here is your <a class="twitterlink" :href="this.$store.state.twitterString + 'Hey @WiseBadges' + ', issue a %23'  + checkId().tag + ' to ' + $route.params.receiver + ' with this message: ' + $route.params.message" target=_black>Twitterlink</a></h3>
 
 </div>
 </template>
@@ -30,12 +30,12 @@ export default {
       // OKE DIT MOET DUS TOEGEPAST WORDEN VANBOVEN
       if (this.$route.params.id === shortId) {
         //console.log(this.$store.state.badgesApi.data[i].name);
-        
+
         let currentBadgeSelected = this.$store.state.badgesApi.data[i];
-        
+
         return currentBadgeSelected
       } else {
-        //this.$router.push('/') 
+        //this.$router.push('/')
       }
     }
   },
