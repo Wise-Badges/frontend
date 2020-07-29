@@ -16,7 +16,7 @@
         <div class="badge__container">
           <img class="badge__img" :src="this.$store.state.badgeByAssertionIdApi.image" :alt="this.$store.state.badgeByAssertionIdApi.image">
           <p class="badge__title">{{this.$store.state.badgeByAssertionIdApi.name}}</p>
-          <a href="/" id="prim-btn">Download</a>
+          <a :href="'https://api.wisebadges.osoc.be/assertion/' + this.$route.params.assertionId + '/badge'" id="prim-btn">Download</a>
           <p v-if="this.$store.state.assertionByIdApi.accepted === true" class="badge__status">Badge has already been accepted</p>
           <p v-if="this.$store.state.assertionByIdApi.accepted === false" class="badge__status">Badge has not been accepted.</p>
         </div>
@@ -24,7 +24,8 @@
     </div>
     <div class="delete">
       <p>Not happy with your badge? With a simple Tweet command, our bot will delete your badge Open Badge permanently. Only a tweet by @{{this.$store.state.assertionByIdApi.recipient.name}} will be accepted.</p>
-      <router-link to="/" target="_blank" id="prim-btn">Tweet to delete</router-link>
+      <a target="_blank" id="prim-btn" :href="this.$store.state.twitterString + ' @wisebadges %23delete-' + shortenEvidenceId()">Tweet to delete</a>
+      <!-- <router-link :to="this.$store.state.twitterString + '@wisebadges %23delete-' + shortenEvidenceId()" target="_blank" id="prim-btn">Tweet to delete {{this.$store.state.twitterString}}</router-link> -->
     </div>
   </div>
   </div>
