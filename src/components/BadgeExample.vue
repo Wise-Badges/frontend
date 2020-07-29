@@ -55,7 +55,6 @@ export default {
 }
 </script>
 
-
 <style lang="scss">
 .img-badge-form {
   height: 10.4rem;
@@ -125,7 +124,6 @@ export default {
     letter-spacing: 0.1rem;
     font-weight: 400;
     margin-left: 4rem;
-
   }
 
   .bol {

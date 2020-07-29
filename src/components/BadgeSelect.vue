@@ -108,7 +108,6 @@ li {
 }
 
 .radio-btn {
-  //display: none;
   opacity: 0;
   position: fixed;
   width: 0;
@@ -133,7 +132,6 @@ li {
 
 .single-badge {
   font-weight: 400;
-  /* margin: 2rem; */
   opacity: 0.8;
   transition: 0.2s opacity;
 
@@ -163,7 +161,6 @@ li {
 .active-badge-square {
   padding: 0.5rem;
 }
-
 
 .single-badge .radio-btn:checked + .active-badge-square {
   padding: 0.5rem;
