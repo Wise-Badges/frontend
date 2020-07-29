@@ -4,26 +4,14 @@
     <ul class="badges-ul">
       <li class="single-badge" id="badgelist" v-for="badge in this.$store.state.badgesApi.data" :key="badge.name">
         <input class="radio-btn" type="radio" :checked="checked" v-on:change="$emit('change', $event.target.checked)" v-model="currentBadge" :id="badge.name" :value="badge.id" name="badge.id">
-        
+
         <label v-if="currentBadge === badge.id" class="badge-label" :for="badge.name" :id="badge.name" name="currentBadge">
-          <img :class="'imgStnd active-badge-' + badge.figure" :src="'assets/img/badges/' + badge.img + '.svg'" v-bind:alt="badge.img">
+          <img :class="'imgStnd active-badge-' + badge.figure" :src="badge.image" v-bind:alt="badge.name">
           <p class="badge-name-bold">{{badge.name}}</p>
-          <!-- <p class="badge-name-bold">{{badge.id}}</p>
-          <p class="badge-name-bold">{{currentBadge}}</p> -->
         </label>
 
-
-        <!-- <label v-if="currentBadge === getId(badge.id)" class="badge-label" :for="badge.name" :id="badge.name" name="currentBadge">
-          <img :class="'imgStnd active-badge-' + badge.figure" :src="'assets/img/badges/' + badge.img + '.svg'" v-bind:alt="badge.img">
-          <p class="badge-name-bold">{{badge.name}}</p>
-        </label> -->
-        <!-- <label @click="getId" v-if="currentBadge === badge.id" class="badge-label" :for="badge.name" :id="badge.name" name="currentBadge">
-          <img :class="'imgStnd active-badge-' + badge.figure" :src="'assets/img/badges/' + badge.img + '.svg'" v-bind:alt="badge.img">
-          <p class="badge-name-bold">{{badge.name}}</p>
-        </label> -->
-
         <label v-if="currentBadge !== badge.id" class="badge-label" :for="badge.name" :id="badge.name" name="currentBadge">
-          <img class="imgStnd" :src="'assets/img/badges/' + badge.img + '.svg'" v-bind:alt="badge.img">
+          <img class="imgStnd" :src="badge.image" v-bind:alt="badge.name">
           <p class="badge-name">{{badge.name}}</p>
         </label>
       </li>
@@ -154,7 +142,6 @@ li {
   opacity: 0.8;
   transition: 0.2s opacity;
 
-
     @media only screen and (max-width: 630px) {
       background-color: #331F9F;
       margin: 0;
@@ -172,6 +159,7 @@ li {
 .imgStnd {
   padding: 0.5rem;
   border: 0.1rem solid transparent;
+  height: 8.8rem;
 
   @media only screen and (max-width: 630px) {
     height: 5rem;

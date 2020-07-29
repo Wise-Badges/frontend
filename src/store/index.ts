@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
 import axios from "axios";
+import router from '../router';
 
 Vue.use(Vuex, axios);
 
@@ -18,14 +19,18 @@ export default new Vuex.Store({
     ],
     badgesApi: [],
     assertionsApi: [],
+    assertionByIdApi: [],
+    badgeByAssertionIdApi: [],
     receiver: [{ receiver: '' }],
     message: [{message: ''}],
     pressedAtmark: false,
     validField: false,
     validMessage: false,
     badgeId: '',
-    twitterString: 'https://twitter.com/intent/tweet?text=Hey'
-    // twitterString: 'https://twitter.com/intent/tweet?text=This%20is%20an%20example%20of%20a%20pre-written%20tweet-%20don%27t%20forget%20that%20it%20needs%20to%20be%20less%20than%20280%20characters'
+    assertionId: '',
+
+    thrustedDomain: 'https://api.wisebadges.osoc.be',
+    twitterString: 'https://twitter.com/intent/tweet?text=Hey',
   },
   mutations: {
     SET_BADGES(state, badgesApi) {
@@ -33,23 +38,29 @@ export default new Vuex.Store({
     },
     SET_ASSERTIONS(state, assertionsApi) {
       state.assertionsApi = assertionsApi;
+    },
+    SET_ASSERTIONBYID(state, assertionByIdApi) {
+      state.assertionByIdApi = assertionByIdApi;
+    },
+    SET_BADGEBYASSERTIONID(state, badgeByAssertionIdApi) {
+      state.badgeByAssertionIdApi = badgeByAssertionIdApi;
     }
   },
   actions: {
     loadBadges({ commit }) {
-      axios
+      return axios
         .get("https://api.wisebadges.osoc.be/badgeclasses/")
         .then(r => {
           let badgesApi = r.data;
           commit("SET_BADGES", badgesApi);
-          console.log(badgesApi);
+          //console.log(badgesApi);
         })
         .catch(error => {
-          console.log('not loaded')
+          return Promise.reject(error);
         });
     },
     loadAssertions({commit}) {
-            axios
+      return axios
         .get("https://api.wisebadges.osoc.be/assertions/")
         .then(r => {
           let assertionsApi = r.data;
@@ -57,27 +68,52 @@ export default new Vuex.Store({
           console.log(assertionsApi);
         })
         .catch(error => {
-          console.log('not loaded')
-        });
-    }
-    // checkId: function() {
-    //   for(let i = 0; i < state.badgesApi.data.length; i++) {
-    //     //console.log(this.$store.state.badgesApi.data[i].id);
-    //     let fullId = state.badgesApi.data[i].id;
-    //     let shortId = /[^/]*$/.exec(fullId)[0]
+          return Promise.reject(error);
+        })
+    },
+    loadAssertionById({ commit }, assertionID) {
+      return axios
+        // .get('https://api.wisebadges.osoc.be/assertion/' + this.route.params)
+        .get('https://api.wisebadges.osoc.be/assertion/' + assertionID.assertionID)
+        .then(r => {
+          let assertionByIdApi = r.data
+          commit("SET_ASSERTIONBYID", assertionByIdApi);
+          //console.log(assertionID);
+          //console.log(assertionByIdApi);
+        })
+        .catch(error => {
+          //console.log('error')
+          return Promise.reject(error);
+        })
+    },
+    loadBadgeByAssertionId({ commit }, assertionID) {
+      return axios
+        // .get('https://api.wisebadges.osoc.be/assertion/' + this.route.params)
+        // .get('https://api.wisebadges.osoc.be/badgeclass/'+ badgeID.badgeID + '/assertions')
+        // .get('https://api.wisebadges.osoc.be/badgeclass/' + badgeID.badgeID)
+        .get('https://api.wisebadges.osoc.be/assertion/' + assertionID.assertionID)
+        .then(r => {
+          let badgeByAssertionIdApi = r.data.badge
 
-    //     // OKE DIT MOET DUS TOEGEPAST WORDEN VANBOVEN
-    //     if (this.$route.params.id === shortId) {
-    //       //console.log(this.$store.state.badgesApi.data[i].name);
-          
-    //       let currentBadgeSelected = state.badgesApi.data[i];
-          
-    //       return currentBadgeSelected
-    //     } else {
-    //       //this.$router.push('/') 
-    //     }
-    //   }
-    // },
+          console.log(badgeByAssertionIdApi)
+
+          return axios
+            .get(badgeByAssertionIdApi)
+            .then(badgeresponse => {
+              let badgeByAssertionIdApi = badgeresponse.data;
+              commit("SET_BADGEBYASSERTIONID", badgeByAssertionIdApi);
+              console.log(badgeresponse.data);
+          })
+
+          // let badgeByAssertionIdApi = r.data.data[0].badge
+          // commit("SET_BADGEBYASSERTIONID", badgeByAssertionIdApi);
+          // console.log(badgeByAssertionIdApi);
+        })
+        .catch(error => {
+          console.log('errorRRRRRR')
+          return Promise.reject(error);
+        })
+    }
   },
   modules: {
   },

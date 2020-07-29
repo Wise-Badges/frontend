@@ -1,12 +1,7 @@
 <template>
   <div class="maxi-form-container">
-    <div class="selectedBadge-container">
-      <img :class="'img-badge-form img-badge-' + checkId().figure" :src="'/assets/img/badges/' + checkId().image + '.svg'" v-bind:alt="checkId().image">
-      
-      <div class="badge-text">
-        <p class="selectedBadge-name">{{checkId().name}}</p>
-      </div>
-    </div>
+
+    <BadgeExample />
     <h2 class="subtitle">Choose who you want to send the badge to</h2>
       <div class="form-container">
           <div class="platform-receiver-container">
@@ -14,11 +9,14 @@
               <p class="twitter-text" value="twitter">twitter</p>
               <img src="/assets/img/icons/twitterWhite.svg" alt="twitterLogo">
             </div>
+            <!-- FUTURE: Selection between platforms if needed -->
             <!-- <select class="select-platforms" name="platforms" id="platforms">
               <option value="twitter">twitter</option>
               <option value="facebook">facebook</option>
             </select> -->
-            <input v-on:keyup="checkCharacter" ref="receiver" class="form-receiver" type="text" placeholder="@TwitterHandler" v-model="twitterhandler">
+            <span class="twitter-receiver">
+             <input v-on:keyup="checkCharacter" ref="receiver" class="form-receiver" type="text" placeholder="TwitterHandler" v-model="twitterhandler">
+            </span>
           </div>
           <div class="navigation-form">
             <router-link id="sec-btn" class="router-item" to="/">Previous</router-link>
@@ -38,12 +36,17 @@
 
 
 <script>
+import BadgeExample from '@/components/BadgeExample.vue';
+
 export default {
   name: 'receiver',
   data() {
     return {
       twitterhandler: [],
     }
+  },
+  components: {
+    BadgeExample
   },
   methods: {
   checkCharacter: function(e) {
@@ -53,7 +56,7 @@ export default {
     if (this.$refs.receiver.value !== '') {
       this.$store.state.validField = true;
     }
-  
+
   },
   checkId: function() {
     for(let i = 0; i < this.$store.state.badgesApi.data.length; i++) {
@@ -64,12 +67,12 @@ export default {
       // OKE DIT MOET DUS TOEGEPAST WORDEN VANBOVEN
       if (this.$route.params.id === shortId) {
         //console.log(this.$store.state.badgesApi.data[i].name);
-        
+
         let currentBadgeSelected = this.$store.state.badgesApi.data[i];
-        
+
         return currentBadgeSelected
       } else {
-        //this.$router.push('/') 
+        //this.$router.push('/')
       }
     }
   },
@@ -93,7 +96,7 @@ export default {
 }
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 
 .form-receiver {
   border-top-right-radius: 3rem;
@@ -101,11 +104,24 @@ export default {
   border: 0.1rem solid transparent;
   height: 1rem;
   width: calc(100% - 4rem);
-  padding: 1rem 2rem 1rem 1rem;
+  padding: 1rem 2rem 1rem 2.4rem;
   color: #7C6DF3;
   letter-spacing: 0.05rem;
   font-size: 1rem;
+}
 
+.twitter-receiver {
+  width: 100%;
+  display: flex;
+  align-items: center;
+
+    &::before {
+    content: '@';
+    position: absolute;
+    color: #7C6DF1;
+    font-size: 1.2rem;
+    padding-left: 1rem;
+  }
 }
 
 .form-receiver:focus {
@@ -119,6 +135,13 @@ export default {
 .platform-receiver-container {
   display: flex;
   width: 100%;
+}
+
+.badge-text {
+    @media only screen and (max-width: 630px) {
+      text-align: center;
+      margin: 0 auto;
+   }
 }
 
 .select-platforms {

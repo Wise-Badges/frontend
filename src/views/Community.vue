@@ -2,11 +2,16 @@
   <div class="view-badges">
     <h1 class="title">Community</h1>
     <ul class="acceptedBadges">
-      <li class="acceptedBadge"v-for="badge in badges" :key="badge.id">
-        <p class="badge__receiver">{{ badge.receiver }}</p>
-        <p class="badge__message">{{ badge.message }}</p>
-        <p class="badge__issuer">issued by {{ badge.issuer }} on {{ badge.platform }}</p>
+      <!-- ALL -->
+      <li class="acceptedBadge"v-for="assertion in assertions" :key="assertion.id">
+        <a :href="assertion.evidence.id">
+        <p class="badge__receiver">{{ assertion.recipient.name }} received {{ getBadgeNameById(assertion.badge) }}</p>
+        <!-- <p class="badge__message">{{ assertion.message }}</p> -->
+        <p class="badge__issuer">issued on {{ getDate(assertion.issuedOn) }}</p>
+        </a>
       </li>
+
+      <!-- PER BADGE -->
     </ul>
   </div>
 </template>
@@ -16,18 +21,25 @@
   export default ({
     data() {
       return {
-        msg: 'Community',
-        badges: [
-          { id: 1, receiver: 'username', issuer: 'username', message: 'At vero eos et accusamus et iusto odio dignis simos ducimus qui blanditiis praesentium voluptatum  et accusamus et iusto.', date: '24/05/2020', platform: 'Twitter'},
-          { id: 2, receiver: 'username', issuer: 'username', message: 'At vero eos et accusamus et iusto odio dignis simos ducimus qui blanditiis praesentium voluptatum  et accusamus et iusto.', date: '24/05/2020', platform: 'Twitter'},
-          { id: 3, receiver: 'username', issuer: 'username', message: 'At vero eos et accusamus et iusto odio dignis simos ducimus qui blanditiis praesentium voluptatum  et accusamus et iusto.', date: '24/05/2020', platform: 'Twitter'},
-          { id: 4, receiver: 'username', issuer: 'username', message: 'At vero eos et accusamus et iusto odio dignis simos ducimus qui blanditiis praesentium voluptatum  et accusamus et iusto.', date: '24/05/2020', platform: 'Twitter'}
-        ],
+        assertions: this.$store.state.assertionsApi.data,
+        badges: this.$store.state.badgesApi.data
       };
     },
-    getImgUrl(badge) {
-      //var badgeImages = require.context('./assets/img/badges/', false, /\.svg$/)
-      return badgeImages('./' + badge + ".svg")
+    methods: {
+      getDate(dateString) {
+        let date = new Date(dateString);
+        let fullDate = `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`;
+        return fullDate;
+      },
+      getBadgeNameById(id) {
+        let badge = this.badges.find(badge => badge.id === id);
+        if (badge) {
+          return badge.name;
+        } else {
+          return 'undefined';
+        }
+
+      }
     }
   });
 </script>
@@ -62,6 +74,7 @@
     .badge__receiver {
       transform: translateX(2rem);
       margin-bottom: 1rem;
+      padding-right: 2rem;
       font-weight: 700;
 
       &::before {
@@ -73,6 +86,11 @@
         background-repeat: no-repeat;
         transform: translate(-2rem, .1rem)
       }
+    }
+
+    & a {
+      color: white;
+      text-decoration: none;
     }
 
     .badge__message {

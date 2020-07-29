@@ -29,6 +29,11 @@ const routes: Array<RouteConfig> = [
     component: () => import(/* webpackChunkName: "about" */ '../views/Community.vue'),
   },
   {
+    path: '/community/:id',
+    name: 'Community',
+    component: () => import(/* webpackChunkName: "about" */ '../views/Community.vue'),
+  },
+  {
     path: '/receiver/:id',
     name: 'Receiver',
     component: () => import(/* webpackChunkName: "about" */ '../views/Receiver.vue'),
@@ -43,13 +48,8 @@ const routes: Array<RouteConfig> = [
     name: 'Done',
     component: () => import(/* webpackChunkName: "about" */ '../views/Done.vue'),
   },
-  // {
-  //   path: '/detail',
-  //   name: 'Your Badge',
-  //   component: () => import('../views/Detail.vue'),
-  // },
   {
-    path: '/detail/:idString',
+    path: '/detail/:assertionId',
     name: 'Detail',
     component: () => import('../views/Detail.vue'),
   },

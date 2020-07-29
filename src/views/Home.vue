@@ -16,7 +16,7 @@
 </template>
 
 <script>
-// @ is an alias to /src
+
 import BadgeSelect from '@/components/BadgeSelect.vue';
 
 export default {
