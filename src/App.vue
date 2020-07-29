@@ -27,12 +27,14 @@ export default ({
 
     await this.$store.dispatch('loadBadges');
     await this.$store.dispatch('loadAssertions');
-    await this.$store.dispatch('loadAssertionById', {
-        assertionID: this.$route.params.assertionId
-    });
-    await this.$store.dispatch('loadBadgeByAssertionId', {
-        assertionID: this.$route.params.assertionId
-    });
+    if(this.$route.params.assertionId !== undefined) {
+      await this.$store.dispatch('loadAssertionById', {
+          assertionID: this.$route.params.assertionId
+      });
+      await this.$store.dispatch('loadBadgeByAssertionId', {
+          assertionID: this.$route.params.assertionId
+      });
+    }
   },
 })
 </script>
