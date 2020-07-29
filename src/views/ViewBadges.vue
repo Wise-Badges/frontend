@@ -110,6 +110,6 @@ export default ({
 
   .badge__description {
     text-align: center;
-    margin-top: rem;
+    margin-top: 1rem;
   }
 </style>
