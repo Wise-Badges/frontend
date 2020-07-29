@@ -17,7 +17,7 @@
         <li class="li__badge" v-for="assertion in this.$store.state.assertionsApi.data" :key="assertion.id">
           <div v-if="currentBadge === getId(assertion.badge)">
             <div class="acceptedBadge li__badge__active" >
-              <a :href="assertion.evidence.id">
+              <a target="_blank" :href="assertion.evidence.id">
               <p class="badge__receiver">{{ assertion.recipient.name }} received <span class="make__italic">#{{dirtyFunctionBecause1AM(assertion.badge)}}</span></p>
               <p class="badge__message">{{ assertion.message }}</p>
               <p class="badge__issuer">issued on {{ getDate(assertion.issuedOn) }}</p>
@@ -25,7 +25,7 @@
             </div>
           </div>
           <div class="acceptedBadge li__badge__active" v-if="currentBadge === ''">
-            <a :href="assertion.evidence.id">
+            <a target="_blank" :href="assertion.evidence.id">
             <p class="badge__receiver">{{ assertion.recipient.name }} received <span class="make__italic">#{{dirtyFunctionBecause1AM(assertion.badge)}}</span></p>
             <p class="badge__message">{{ assertion.message }}</p>
             <p class="badge__issuer">issued on {{ getDate(assertion.issuedOn) }}</p>
