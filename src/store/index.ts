@@ -11,6 +11,7 @@ export default new Vuex.Store({
     assertionsApi: [],
     assertionByIdApi: [],
     badgeByAssertionIdApi: [],
+    assertionsByBadgeIdApi: [],
     receiver: [{ receiver: '' }],
     message: [{message: ''}],
     pressedAtmark: false,
@@ -34,8 +35,12 @@ export default new Vuex.Store({
     },
     SET_BADGEBYASSERTIONID(state, badgeByAssertionIdApi) {
       state.badgeByAssertionIdApi = badgeByAssertionIdApi;
+    },
+    SET_ASSERTIONSBYBADGEID(state, assertionsByBadgeIdApi) {
+      state.assertionsByBadgeIdApi = assertionsByBadgeIdApi;
     }
   },
+
   actions: {
     loadBadges({ commit }) {
       return axios
@@ -50,6 +55,7 @@ export default new Vuex.Store({
           return Promise.reject(error);
         });
     },
+
     loadAssertions({commit}) {
       return axios
         .get("https://api.wisebadges.osoc.be/assertions/")
@@ -63,6 +69,7 @@ export default new Vuex.Store({
           return Promise.reject(error);
         })
     },
+
     loadAssertionById({ commit }, assertionID) {
       return axios
         // .get('https://api.wisebadges.osoc.be/assertion/' + this.route.params)
@@ -78,6 +85,7 @@ export default new Vuex.Store({
           return Promise.reject(error);
         })
     },
+
     loadBadgeByAssertionId({ commit }, assertionID) {
       return axios
         .get('https://api.wisebadges.osoc.be/assertion/' + assertionID.assertionID)
@@ -98,7 +106,20 @@ export default new Vuex.Store({
           router.push({ name: 'notFound' })
           return Promise.reject(error);
         })
-    }
+    },
+
+    loadAssertionsByBadgeId({ commit }, badgeId) {
+      return axios
+        .get('https://api.wisebadges.osoc.be/badgeclasses/' + badgeId + '/assertions')
+        .then(r => {
+          let assertionsByBadgeIdApi = r.data;
+          commit("SET_ASSERTIONSBYBADGEID", assertionsByBadgeIdApi);
+        })
+        .catch(error => {
+          return Promise.reject(error);
+        });
+    },
+
   },
   modules: {
   },

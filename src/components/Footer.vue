@@ -3,9 +3,10 @@
     <div class="footer__main">
       <div class="container">
         <ul class="social">
-          <li><a href="https://twitter.com/wisebadges" target="_blank"><img alt="Twitter" src="/assets/img/footer/twitter.svg"/></a><span class="hidden">Twitter</span></li>
-          <li><a href="https://www.instagram.com/wisebadges/" target="_blank"><img alt="Instagram" src="/assets/img/footer/instagram.svg"/></a><span class="hidden">Instagram</span></li>
-          <li><img alt="Facebook" src="/assets/img/footer/facebook.svg"/><span class="hidden">Facebook</span></li>
+          <li><a href="https://twitter.com/wisebadges" target="_blank"><img class="social__icon" alt="Twitter" src="/assets/img/footer/twitter.svg"/></a><span class="hidden">Twitter</span></li>
+          <li><a href="https://www.instagram.com/wisebadges/" target="_blank"><img class="social__icon" alt="Instagram" src="/assets/img/footer/instagram.svg"/></a><span class="hidden">Instagram</span></li>
+          <li><a href="https://www.linkedin.com/in/wisebadges" target="_blank"><img class="social__icon" alt="LinkedIn" src="/assets/img/footer/linkedin.svg"/></a><span class="hidden">LinkedIn</span></li>
+          <li><a href="https://join.slack.com/t/wisebadges/shared_invite/zt-g689qtur-yXwL5ZpIBPd89d7iaMVldw" target="_blank"><img class="social__icon" alt="Slack" src="/assets/img/footer/slack.svg"/></a><span class="hidden">Slack</span></li>
         </ul>
         <div class="info">
           <p class="info__site">WiseBadges is a part of Bridges, a project funded by the Erasmus+ programme to improve gender equity in the access to STEM education</p>
@@ -72,6 +73,10 @@ export default ({
 
       & li {
       padding: 0 .5rem;
+      }
+
+      & .social__icon {
+        height: 1.875rem;
       }
     }
 
