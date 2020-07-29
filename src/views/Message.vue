@@ -74,16 +74,7 @@ export default {
       if (this.$store.state.message !== []) {
         this.$store.state.message.push({ message: this.$refs.message.value });
 
-        let twitterRoute =
-          this.$store.state.twitterString +
-          "Hey @WiseBadges" +
-          ", issue a %23" +
-          this.checkId().tag +
-          " to " +
-          this.$route.params.receiver +
-          " with this message: " +
-          encodeURIComponent(this.$store.state.message[0].message);
-          alert(twitterRoute);
+        let twitterRoute = `${this.$store.state.twitterString} Hey @WiseBadges , issue a %23 ${this.checkId().tag} to ${this.$route.params.receiver} with this message: ${encodeURIComponent(this.$store.state.message[0].messag)}`;
         window.open(twitterRoute);
       }
     }
