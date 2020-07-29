@@ -2,11 +2,12 @@
   <div>
     <h1 class="title">View badges</h1>
     <ul class="badges">
-      <li class="badge"v-for="badge in badges" :key="badge.name">
+      <li class="badge"v-for="badge in this.$store.state.badgesApi.data" :key="badge.name">
         <section>
           <img class="badge__img" :src="badge.image" v-bind:alt="badge.name">
           <h2 class="badge__title">{{badge.name}}</h2>
           <p class="badge__amount">2.340</p>
+          <p class="badge__description">{{badge.description}}</p>
           <router-link class="router-item" badge="badge"  :to="'/receiver/' + getId(badge.id)" id="prim-btn">award badge</router-link>
           <router-link class="router-item" to="/community" id="sec-btn">View earners</router-link>
         </section>
@@ -20,7 +21,6 @@ export default ({
   data() {
     return {
       msg: 'Choose a badge to give',
-      badges: this.$store.state.badgesApi.data,
     };
   },
   methods: {
@@ -104,5 +104,10 @@ export default ({
     height: 1.5rem;
     background-repeat: no-repeat;
     transform: translate(-2rem, -.1rem)
+  }
+
+  .badge__description {
+    text-align: center;
+    margin-top: rem;
   }
 </style>
