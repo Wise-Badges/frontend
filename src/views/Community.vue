@@ -1,30 +1,45 @@
 <template>
   <div class="view-badges">
-    <h1 class="title">Community</h1>
+    <div v-if="loading">Loading...</div>
+    <div v-else>
+      <h1 class="title">Community</h1>
 
-    <select v-on:change="changeRout" v-model="currentBadge">
-      <option>All</option>
-      <option
-        v-for="badge in badges"
-        v-bind:key="badge.name"
-        v-bind:value="getId(badge.id)"
-      >{{ badge.name }}</option>
-    </select>
+      <!-- <select v-on:change="changeRout" v-model="currentBadge">
+        <option selected value="all" class="all__option">All</option> -->
+        <!-- <option
+          v-for="badge in badges"
+          v-bind:key="badge.name"
+          v-bind:value="getId(badge.id)"
+        >{{ badge.name }}</option> -->
+      <!-- </select> -->
+
+      <select name="" id="">
+        <option value="all">All</option>
+        <option
+          v-for="badge in this.$store.state.badgesApi.data"
+          v-bind:key="badge.name"
+          v-bind:value="getId(badge.id)"
+        >{{ badge.name }}</option>
+      </select>
+
+      <p>{{ currentBadge }}</p>
 
 
-    <p>{{ currentBadge }}</p>
+      {{findAllAssertions()}}
+      <ul class="acceptedBadges">
+        <!-- ALL  -->
 
 
-    <ul class="acceptedBadges">
-      <!-- ALL -->
-      <li class="acceptedBadge" v-for="assertion in this.$store.state.assertionsByBadgeIdApi" :key="assertion.id">
-        <a :href="assertion.evidence.id">
-        <p class="badge__receiver">{{ assertion.recipient.name }} received {{ getBadgeNameById(assertion.badge) }}</p>
-        <!-- <p class="badge__message">{{ assertion.message }}</p> -->
-        <p class="badge__issuer">issued on {{ getDate(assertion.issuedOn) }}</p>
-        </a>
-      </li>
-    </ul>
+        <!-- SELECTEDBY -->
+        <li class="acceptedBadge" v-for="assertion in this.$store.state.assertionsByBadgeIdApi" :key="assertion.id">
+          <a :href="assertion.evidence.id">
+          <p class="badge__receiver">{{ assertion.recipient.name }} received {{ getBadgeNameById(assertion.badge) }}</p>
+          <p class="badge__message">{{ assertion.message }}</p>
+          <p class="badge__issuer">issued on {{ getDate(assertion.issuedOn) }}</p>
+          </a>
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -35,9 +50,17 @@
         assertions: this.$store.state.assertionsApi.data,
         badges: this.$store.state.badgesApi.data,
         currentBadge: '',
+        loading: true,
       };
     },
+    async created() {
+      await this.$store.dispatch('loadBadges');
+      await this.$store.dispatch('loadAssertions');
 
+      await (this.$store.state.assertionsByBadgeIdApi !== false)
+
+      this.loading = false;
+    },
     methods: {
       getId(id) {
         let shortBadgeId = /[^/]*$/.exec(id)[0];
@@ -46,7 +69,6 @@
 
       changeRout() {
         this.$router.push({path:'/community/' + this.currentBadge });
-        console.log(this.selected);
         console.log(this.$store.state.assertionsByBadgeIdApi)
       },
 
@@ -62,7 +84,9 @@
         } else {
           return 'undefined';
         }
-
+      },
+      findAllAssertions() {
+        console.log(this.$store.state)
       }
     }
   });
@@ -133,5 +157,9 @@
         transform: translate(-3rem, .9rem);
       }
     }
+  }
+
+  .all__option {
+    color: black;
   }
 </style>
