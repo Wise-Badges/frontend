@@ -4,16 +4,7 @@
     <div v-else>
       <h1 class="title">Community</h1>
 
-      <!-- <select v-on:change="changeRout" v-model="currentBadge">
-        <option selected value="all" class="all__option">All</option> -->
-        <!-- <option
-          v-for="badge in badges"
-          v-bind:key="badge.name"
-          v-bind:value="getId(badge.id)"
-        >{{ badge.name }}</option> -->
-      <!-- </select> -->
-
-      <select v-on:change="changeRout"  v-model="currentBadge" name="select-badge" id="">
+      <select class="badge__select" v-on:change="changeRout"  v-model="currentBadge" name="select-badge" id="">
         <option value="" selected>All</option>
         <option
           v-for="badge in this.$store.state.badgesApi.data"
@@ -22,30 +13,26 @@
         >{{ badge.name }}</option>
       </select>
 
-      <p>{{ currentBadge }}</p>
-
-
-      {{findAllAssertions()}}
       <ul class="acceptedBadges">
-        <!-- ALL  -->
-        <li  v-for="assertion in this.$store.state.assertionsApi.data" :key="assertion.id">
+        <li class="li__badge" v-for="assertion in this.$store.state.assertionsApi.data" :key="assertion.id">
+          <div v-if="currentBadge === getId(assertion.badge)">
+            <div class="acceptedBadge" >
+              <a :href="assertion.evidence.id">
+              <p class="badge__receiver">{{ assertion.recipient.name }} received LATER OPLOSSEN</p>
+              <p class="badge__message">{{ assertion.message }}</p>
+              <!-- <p>{{getId(assertion.badge)}}</p> -->
+              <p class="badge__issuer">issued on {{ getDate(assertion.issuedOn) }}</p>
+              </a>
+            </div>
+          </div>
           <div class="acceptedBadge" v-if="currentBadge === ''">
-            <p>{{assertion.recipient.name}} received {{getBadgeNameById()}}</p>
-            <p>{{getId(assertion.badge)}}</p>
+            <a :href="assertion.evidence.id">
+            <p class="badge__receiver">{{ assertion.recipient.name }} received LATER OPLOSSEN</p>
+            <!-- <p>{{getId(assertion.badge)}}</p> -->
+            <p class="badge__message">{{ assertion.message }}</p>
+            <p class="badge__issuer">issued on {{ getDate(assertion.issuedOn) }}</p>
+            </a>
           </div>
-          <div class="acceptedBadge" v-if="currentBadge === getId(assertion.badge)">
-            <p>{{assertion.recipient.name}} received {{getBadgeNameById()}}</p>
-            <p>{{getId(assertion.badge)}}</p>
-          </div>
-        </li>
-
-        <!-- SELECTEDBY -->
-        <li class="acceptedBadge" v-for="assertion in this.$store.state.assertionsByBadgeIdApi" :key="assertion.id">
-          <a :href="assertion.evidence.id">
-          <p class="badge__receiver">{{ assertion.recipient.name }} received {{ getBadgeNameById(assertion.badge) }}</p>
-          <p class="badge__message">{{ assertion.message }}</p>
-          <p class="badge__issuer">issued on {{ getDate(assertion.issuedOn) }}</p>
-          </a>
         </li>
       </ul>
     </div>
@@ -64,18 +51,24 @@
       };
     },
     async created() {
-
       //console.log(this.$route.fullPath)
       this.currentPath = this.$route.fullPath;
       //console.log(this.currentPath)
       await this.$store.dispatch('loadBadges');
       await this.$store.dispatch('loadAssertions');
+      //if (this.$store.state.loadAssertionsByBadgeId !== undefined) {
+      //console.log(this.$store.state.loadAssertionsByBadgeId);
+      //}
+
 
       //console.log("created")
       //console.log(this.$store.state.assertionsApi.data);
 
       this.loading = false;
     },
+    // mounted () {
+    //   console.log(this.$store.state.assertionsByBadgeIdApi);
+    // },
     methods: {
       getId(id) {
         let shortBadgeId = /[^/]*$/.exec(id)[0];
@@ -119,6 +112,10 @@
         //   return 'undefined';
         // }
       },
+      getAssertionInfo() {
+          console.log('test');
+          console.log(this.$store.state);
+      },
       findAllAssertions() {
         //console.log(this.$store.state)
       }
@@ -137,14 +134,21 @@
   $color-red: #DF7668;
 
   .acceptedBadges {
-    display: grid;
-    grid-template: repeat(3, auto) / repeat(2, 1fr);
-    grid-gap: 1.875rem;
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+    // flex-wrap: wrap;
+    // grid-template: repeat(3, auto) / repeat(2, 1fr);
+     //grid-gap: 1.875rem;
 
-    @media only screen and (max-width: 768px) {
-      grid-template: auto / repeat(1, 1fr);
-      grid-gap: 1.25rem;
-    }
+    // @media only screen and (max-width: 768px) {
+    //   grid-template: auto / repeat(1, 1fr);
+    //   grid-gap: 1.25rem;
+    // }
+  }
+
+  .li__badge {
+    margin-top: 1rem;
   }
 
   .acceptedBadge {
@@ -196,4 +200,15 @@
   .all__option {
     color: black;
   }
+
+
+.badge__select {
+  padding: 1rem 2rem;
+  border-radius: 3rem;
+  font-size: 1rem;
+}
+
+.badge__select:focus {
+  outline: transparent;
+}
 </style>
