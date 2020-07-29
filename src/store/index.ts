@@ -134,6 +134,7 @@ export default new Vuex.Store({
           return Promise.reject(error);
         });
     },
+
   },
   modules: {
   },

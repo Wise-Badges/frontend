@@ -6,7 +6,8 @@
         <section>
           <img class="badge__img" :src="badge.image" v-bind:alt="badge.name">
           <h2 class="badge__title">{{badge.name}}</h2>
-          <p class="badge__amount">2.340</p>
+          <!-- TO DO: Total amount of accepted badges display -->
+          <!-- <p class="badge__amount">2.340</p> -->
           <p class="badge__description">{{badge.description}}</p>
           <router-link class="router-item" badge="badge"  :to="'/receiver/' + getId(badge.id)" id="prim-btn">award badge</router-link>
           <router-link class="router-item" to="/community" id="sec-btn">View earners</router-link>
@@ -21,6 +22,7 @@ export default ({
   data() {
     return {
       msg: 'Choose a badge to give',
+      assertionsByBadges: this.$store.state.assertionsByBadgeIdApi
     };
   },
   methods: {
