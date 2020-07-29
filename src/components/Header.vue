@@ -16,7 +16,6 @@
   </div>
 </template>
 
-
 <script>
 import { Push } from 'vue-burger-menu'
 
@@ -28,7 +27,6 @@ export default ({
   });
 </script>
 
-
 <style lang="scss">
   #nav {
     padding: 2.8rem 2.5rem 2.5rem 3.5rem;
@@ -37,7 +35,6 @@ export default ({
     letter-spacing: 0.2em;
     font-size: .875rem;
     margin-bottom: 8rem;
-
     display: flex;
     align-items: flex-end;
     justify-content: space-between;
@@ -136,7 +133,6 @@ export default ({
     background: #0B1147 !important;
   }
 
-
   @media only screen and (max-width: 1024px) {
     .bm-burger-button, .bm-burger-bars {
       display: inline;
@@ -154,8 +150,4 @@ export default ({
       }
     }
   }
-
-
-
-
 </style>
