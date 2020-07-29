@@ -13,7 +13,6 @@
 
 <script>
 
-
 export default {
   name: 'receiver',
   data() {
@@ -24,27 +23,21 @@ export default {
   methods: {
   checkId: function() {
     for(let i = 0; i < this.$store.state.badgesApi.data.length; i++) {
-      //console.log(this.$store.state.badgesApi.data[i].id);
+
       let fullId = this.$store.state.badgesApi.data[i].id;
       let shortId = /[^/]*$/.exec(fullId)[0]
 
-      // OKE DIT MOET DUS TOEGEPAST WORDEN VANBOVEN
       if (this.$route.params.id === shortId) {
-        //console.log(this.$store.state.badgesApi.data[i].name);
 
         let currentBadgeSelected = this.$store.state.badgesApi.data[i];
 
         return currentBadgeSelected
-      } else {
-        //this.$router.push('/')
       }
     }
   },
 
-
   handleSubmit: function(e) {
     this.$store.state.receiver = [];
-
 
     if (this.$refs.receiver.value === '') {
       this.$store.state.validField = false;
@@ -52,11 +45,11 @@ export default {
       this.$store.state.validField = true;
     }
 
-      if(this.$store.state.pressedAtmark) {
-        this.$store.state.receiver.push({receiver: this.$refs.receiver.value})
-      } else {
-        this.$store.state.receiver.push({receiver: '@' + this.$refs.receiver.value})
-      }
+    if(this.$store.state.pressedAtmark) {
+      this.$store.state.receiver.push({receiver: this.$refs.receiver.value})
+    } else {
+      this.$store.state.receiver.push({receiver: '@' + this.$refs.receiver.value})
+    }
   }
   }
 }
@@ -66,12 +59,7 @@ export default {
 <style lang="scss">
 .img-badge-form {
   height: 10.4rem;
-  // margin-left: -4.5rem;
   z-index: 2;
-
-  @media only screen and (max-width: 630px) {
-      // height: 7rem;
-  }
 }
 
 .selectedBadge-container {
@@ -156,7 +144,6 @@ export default {
   .bol-inactive {
       cursor: default;
   }
-
 
   .twitterlink {
     color: #A37FFA;

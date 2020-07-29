@@ -42,8 +42,6 @@ export default ({
       msg: 'Choose a badge to give',
       currentBadge: 'https://api.wisebadges.osoc.be/badgeclass/5f1ec15c71d07def7b588a73',
       active: true,
-      // fullId: this.$store.state.badgesApi.data[currentBadge].id,
-      // shortId: /[^/]*$/.exec(fullId)[currentBadge]
     };
   },
   getImgUrl(badge) {
@@ -51,9 +49,6 @@ export default ({
   },
   methods: {
     getId() {
-      //console.log(this.currentBadge);
-      //console.log(/[^/]*$/.exec(this.currentBadge)[0]);
-
       let shortBadgeId = /[^/]*$/.exec(this.currentBadge)[0];
 
       return shortBadgeId;
@@ -147,7 +142,6 @@ li {
       margin: 0;
       padding: 1rem;
    }
-
 }
 
 .single-badge:hover {
@@ -189,7 +183,6 @@ li {
 
 .active-badge-triangle {
   padding: 0.5rem;
-  //border: 0.1rem solid transparent;
   background-image: url('/assets/img/shapes/triangle.svg');
   background-size: 102%;
   background-position-x: -0.1rem;
@@ -199,7 +192,6 @@ li {
 
 .active-badge-hexagon {
   padding: 0.5rem;
-  //border: 0.1rem solid transparent;
   background-image: url('/assets/img/shapes/hexagon.svg');
   background-size: 89%;
   background-repeat: no-repeat;
@@ -217,12 +209,5 @@ li {
 .next-selectbadge {
   margin-top: -2.5rem;
 }
-/*
-.badges-ul [type="radio"]:checked + .single-badge {
-  background-color: red;
-  font-weight: 700;
-  opacity: 1;
-  color: orange;
-}
-*/
+
 </style>
