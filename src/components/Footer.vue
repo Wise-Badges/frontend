@@ -77,6 +77,11 @@ export default ({
 
       & .social__icon {
         height: 1.875rem;
+        transition: .4s;
+
+        &:hover {
+          filter: brightness(300%);
+        }
       }
     }
 
