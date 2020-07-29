@@ -14,24 +14,19 @@
       </select>
 
       <ul class="acceptedBadges">
-          <div v-if="currentBadge !== ''">
-            <p>OOPS NO BADGES YET ASSIGNED</p>
-          </div>
         <li class="li__badge" v-for="assertion in this.$store.state.assertionsApi.data" :key="assertion.id">
           <div v-if="currentBadge === getId(assertion.badge)">
-            <div class="acceptedBadge" >
-              <a :href="assertion.evidence.id">
-              <p class="badge__receiver">{{ assertion.recipient.name }} received LATER OPLOSSEN</p>
+            <div class="acceptedBadge li__badge__active" >
+              <a target="_blank" :href="assertion.evidence.id">
+              <p class="badge__receiver">{{ assertion.recipient.name }} received <span class="make__italic">#{{dirtyFunctionBecause1AM(assertion.badge)}}</span></p>
               <p class="badge__message">{{ assertion.message }}</p>
-              <!-- <p>{{getId(assertion.badge)}}</p> -->
               <p class="badge__issuer">issued on {{ getDate(assertion.issuedOn) }}</p>
               </a>
             </div>
           </div>
-          <div class="acceptedBadge" v-if="currentBadge === ''">
-            <a :href="assertion.evidence.id">
-            <p class="badge__receiver">{{ assertion.recipient.name }} received LATER OPLOSSEN</p>
-            <!-- <p>{{getId(assertion.badge)}}</p> -->
+          <div class="acceptedBadge li__badge__active" v-if="currentBadge === ''">
+            <a target="_blank" :href="assertion.evidence.id">
+            <p class="badge__receiver">{{ assertion.recipient.name }} received <span class="make__italic">#{{dirtyFunctionBecause1AM(assertion.badge)}}</span></p>
             <p class="badge__message">{{ assertion.message }}</p>
             <p class="badge__issuer">issued on {{ getDate(assertion.issuedOn) }}</p>
             </a>
@@ -46,22 +41,15 @@
   export default ({
     data() {
       return {
-        //assertions: this.$store.state.assertionsApi.data,
-        //badges: this.$store.state.badgesApi.data,
         currentBadge: '',
         loading: true,
         currentPath: ''
       };
     },
     async created() {
-      //console.log(this.$route.fullPath)
       this.currentPath = this.$route.fullPath;
-      //console.log(this.currentPath)
       await this.$store.dispatch('loadBadges');
       await this.$store.dispatch('loadAssertions');
-      //if (this.$store.state.loadAssertionsByBadgeId !== undefined) {
-      //console.log(this.$store.state.loadAssertionsByBadgeId);
-      //}
 
       this.loading = false;
     },
@@ -70,9 +58,7 @@
         let shortBadgeId = /[^/]*$/.exec(id)[0];
         return shortBadgeId;
       },
-
       changeRout() {
-        //this.$router.push(""/community/ + this.currentBadge").catch(()=>{});
         this.$router.push({path: '/community/' + this.currentBadge }).catch(()=>{});
         console.log(this.$store.state.assertionsByBadgeIdApi)
       },
@@ -82,15 +68,13 @@
         return fullDate;
       },
       getBadgeNameById() {
+        if(this.$route.params.badgeId === undefined) {
+          console.log('all page')
 
-        // if(this.$route.params.badgeId === undefined) {
-        //   console.log('all page')
-
-        // } else {
-        //   console.log(this.$store.state.assertionByIdApi)
-        //   console.log(this.$route.params)
-        // }
-
+        } else {
+          console.log(this.$store.state.assertionByIdApi)
+          console.log(this.$route.params)
+        }
       },
       getAssertionInfo() {
           //console.log('test');
@@ -98,6 +82,31 @@
       },
       findAllAssertions() {
         //console.log(this.$store.state)
+      },
+      dirtyFunctionBecause1AM(badgeOfPerson) {
+        // SORRY
+        console.log(badgeOfPerson)
+        if( badgeOfPerson === 'https://api.wisebadges.osoc.be/badgeclass/5f201418631ce1068d217667') {
+          return 'DidNotExplode'
+        } else if (badgeOfPerson === 'https://api.wisebadges.osoc.be/badgeclass/5f201805631ce1068d217669') {
+          return 'EmpowermentPractices'
+        } else if (badgeOfPerson === 'https://api.wisebadges.osoc.be/badgeclass/5f2012ff631ce1068d217666') {
+          return 'Eureka'
+        } else if (badgeOfPerson === 'https://api.wisebadges.osoc.be/badgeclass/5f201e51631ce1068d21766e') {
+          return 'HackerWoMan'
+        } else if (badgeOfPerson === 'https://api.wisebadges.osoc.be/badgeclass/5f200a8e631ce1068d217664') {
+          return 'LeadingLady'
+        } else if (badgeOfPerson === 'https://api.wisebadges.osoc.be/badgeclass/5f2018d7631ce1068d21766a') {
+          return 'MathematicsWizzard'
+        } else if (badgeOfPerson === 'https://api.wisebadges.osoc.be/badgeclass/5f201b84631ce1068d21766c') {
+          return 'NextGenGenius'
+        } else if (badgeOfPerson === 'https://api.wisebadges.osoc.be/badgeclass/5f201751631ce1068d217668') {
+          return 'BigBangBadge'
+        } else if (badgeOfPerson === 'https://api.wisebadges.osoc.be/badgeclass/5f201a58631ce1068d21766b') {
+          return 'YouRocketScience'
+        } else if (badgeOfPerson === 'https://api.wisebadges.osoc.be/badgeclass/5f201253631ce1068d217665') {
+          return 'osoc20Survivor'
+        }
       }
     }
   });
@@ -127,7 +136,7 @@
     // }
   }
 
-  .li__badge {
+    .li__badge__active {
     margin-top: 1rem;
   }
 
@@ -190,5 +199,10 @@
 
 .badge__select:focus {
   outline: transparent;
+}
+
+.make__italic {
+  font-style: italic;
+  font-weight: 400;
 }
 </style>
