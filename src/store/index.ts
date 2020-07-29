@@ -48,7 +48,6 @@ export default new Vuex.Store({
         .then(r => {
           let badgesApi = r.data;
           commit("SET_BADGES", badgesApi);
-          //console.log(badgesApi);
         })
         .catch(error => {
           router.push({ name: 'notFound' })
@@ -62,7 +61,6 @@ export default new Vuex.Store({
         .then(r => {
           let assertionsApi = r.data;
           commit("SET_ASSERTIONS", assertionsApi);
-          //console.log(assertionsApi);
         })
         .catch(error => {
           router.push({ name: 'notFound' })
@@ -72,13 +70,10 @@ export default new Vuex.Store({
 
     loadAssertionById({ commit }, assertionID) {
       return axios
-        // .get('https://api.wisebadges.osoc.be/assertion/' + this.route.params)
         .get('https://api.wisebadges.osoc.be/assertion/' + assertionID.assertionID)
         .then(r => {
           let assertionByIdApi = r.data
           commit("SET_ASSERTIONBYID", assertionByIdApi);
-          //console.log(assertionID);
-          //console.log(assertionByIdApi);
         })
         .catch(error => {
           router.push({ name: 'notFound' })
@@ -92,14 +87,11 @@ export default new Vuex.Store({
         .then(r => {
           let badgeByAssertionIdApi = r.data.badge
 
-          //console.log(badgeByAssertionIdApi)
-
           return axios
             .get(badgeByAssertionIdApi)
             .then(badgeresponse => {
               let badgeByAssertionIdApi = badgeresponse.data;
               commit("SET_BADGEBYASSERTIONID", badgeByAssertionIdApi);
-              //console.log(badgeresponse.data);
           })
         })
         .catch(error => {
