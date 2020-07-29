@@ -29,7 +29,7 @@ const routes: Array<RouteConfig> = [
     component: () => import(/* webpackChunkName: "about" */ '../views/Community.vue'),
   },
   {
-    path: '/community/:id',
+    path: '/community/:badgeId',
     name: 'Community',
     component: () => import(/* webpackChunkName: "about" */ '../views/Community.vue'),
   },

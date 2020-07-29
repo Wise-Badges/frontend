@@ -35,6 +35,11 @@ export default ({
           assertionID: this.$route.params.assertionId
       });
     }
+    if(this.$route.params.badgeId !== undefined) {
+      await this.$store.dispatch('loadAssertionsByBadgeId', {
+        badgeId: this.$route.params.badgeId
+      });
+    }
   },
 })
 </script>

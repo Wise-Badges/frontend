@@ -17,8 +17,8 @@
           <img class="badge__img" :src="this.$store.state.badgeByAssertionIdApi.image" :alt="this.$store.state.badgeByAssertionIdApi.image">
           <p class="badge__title">{{this.$store.state.badgeByAssertionIdApi.name}}</p>
           <a :href="'https://api.wisebadges.osoc.be/assertion/' + this.$route.params.assertionId + '/badge'" id="prim-btn">Download</a>
-          <p v-if="this.$store.state.assertionByIdApi.accepted === true" class="badge__status">Badge has already been accepted</p>
-          <p v-if="this.$store.state.assertionByIdApi.accepted === false" class="badge__status">Badge has not been accepted.</p>
+          <p v-if="this.$store.state.assertionByIdApi.accepted" class="badge__status">Badge has already been accepted</p>
+          <p v-else="this.$store.state.assertionByIdApi.accepted" class="badge__status">Badge has not been accepted.</p>
         </div>
       </div>
     </div>

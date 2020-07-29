@@ -1,14 +1,19 @@
 <template>
   <div class="view-badges">
     <h1 class="title">Community</h1>
-    <select>
+
+    <select v-on:change="changeRout" v-model="selected">
       <option>All</option>
       <option
         v-for="badge in badges"
         v-bind:key="badge.name"
-        v-bind:value="badge.name"
+        v-bind:value="getId(badge.id)"
       >{{ badge.name }}</option>
     </select>
+
+
+    <p>{{ selected }}</p>
+
 
     <ul class="acceptedBadges">
       <!-- ALL -->
@@ -23,17 +28,26 @@
   </div>
 </template>
 
-
 <script>
   export default ({
     data() {
       return {
         assertions: this.$store.state.assertionsApi.data,
         badges: this.$store.state.badgesApi.data,
-        // assertionsTest: '';
+        selected: '',
+        // filteredAssertions: this.loadAssertionsByBadgeId(this.selected)
       };
     },
     methods: {
+      getId(id) {
+        let shortBadgeId = /[^/]*$/.exec(id)[0];
+        return shortBadgeId;
+      },
+
+      changeRout() {
+        this.$router.push({path:'/community/' + this.selected })
+      },
+
       getDate(dateString) {
         let date = new Date(dateString);
         let fullDate = `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`;
