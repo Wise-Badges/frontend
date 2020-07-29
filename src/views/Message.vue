@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="maxi-form-container">
-    <div class="data-selected-container selectedBadge-container">
+    <!--<div class="data-selected-container selectedBadge-container">
       <img class="img-badge-form" :src="checkId().image" v-bind:alt="checkId().image">
       <div class="badge-text">
         <p class="selectedBadge-name">{{checkId().name}}</p>
@@ -10,7 +10,8 @@
           <p v-if="this.$store.state.receiver[0] == undefined">Something went wrong my dear</p>
         </div>
       </div>
-    </div>
+    </div>-->
+    <BadgeExample />
     <h2 class="subtitle">Describe why this person earned this badge</h2>
       <div class="form-container">
         <textarea class="textarea-message" ref="message" name="message" id="1" cols="20" rows="10" placeholder="Type your personal message"></textarea>
@@ -33,8 +34,13 @@
 </template>
 
 <script>
+import BadgeExample from '@/components/BadgeExample.vue';
+
   export default {
     name: 'message',
+    components: {
+      BadgeExample
+    },
     methods: {
     checkId: function() {
       for(let i = 0; i < this.$store.state.badgesApi.data.length; i++) {
@@ -45,12 +51,12 @@
         // OKE DIT MOET DUS TOEGEPAST WORDEN VANBOVEN
         if (this.$route.params.id === shortId) {
           //console.log(this.$store.state.badgesApi.data[i].name);
-          
+
           let currentBadgeSelected = this.$store.state.badgesApi.data[i];
-          
+
           return currentBadgeSelected
         } else {
-          //this.$router.push('/') 
+          //this.$router.push('/')
         }
       }
     },
@@ -67,7 +73,7 @@
         }
       },
 
-  },  
+  },
 
   }
 </script>
@@ -88,7 +94,7 @@
 }
 
 .issueBadge-info {
-  opacity: 0.5;
+  color: #7C6DF1;
   width: 15rem;
   text-align: right;
   align-self: flex-end;

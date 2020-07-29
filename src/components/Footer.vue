@@ -4,14 +4,14 @@
       <div class="container">
         <ul class="social">
           <li><a href="https://twitter.com/wisebadges" target="_blank"><img alt="Twitter" src="/assets/img/footer/twitter.svg"/></a><span class="hidden">Twitter</span></li>
-          <li><img alt="Instagram" src="/assets/img/footer/instagram.svg"/><span class="hidden">Instagram</span></li>
+          <li><a href="https://www.instagram.com/wisebadges/" target="_blank"><img alt="Instagram" src="/assets/img/footer/instagram.svg"/></a><span class="hidden">Instagram</span></li>
           <li><img alt="Facebook" src="/assets/img/footer/facebook.svg"/><span class="hidden">Facebook</span></li>
         </ul>
         <div class="info">
           <p class="info__site">WiseBadges is a part of Bridges, a project funded by the Erasmus+ programme to improve gender equity in the access to STEM education</p>
           <div class="info__links">
-            <p><a href="https://bridges.openrecognition.org/" target="_blank">Open Recognition</a></p>
-            <p><a href="mailto:serge.ravet@openrecognition.org">Contact</a></p>
+            <a href="https://bridges.openrecognition.org/" target="_blank">Open Recognition</a>
+            <a href="mailto:serge.ravet@openrecognition.org">Contact</a>
           </div>
         </div>
       </div>
@@ -85,7 +85,7 @@ export default ({
       }
 
       & .info__site {
-        max-width: 24rem;
+        max-width: 28rem;
         line-height: 1.5rem;
       }
 
@@ -93,8 +93,13 @@ export default ({
         line-height: 1.5rem;
         text-align: right;
         transform: translateX(-3rem);
+        display: flex;
+        flex-direction: column;
 
-        & p {
+        & a {
+          color: $color-purpleLight;
+          text-decoration: none;
+
           @media only screen and (max-width: 630px) {
             margin-top: .5rem;
           }
@@ -106,7 +111,7 @@ export default ({
           transform: translateX(0rem);
         }
 
-        & p::after {
+        & a::after {
             content: '';
             background-image: url("/assets/img/footer/arrow.svg");
             position: absolute;
