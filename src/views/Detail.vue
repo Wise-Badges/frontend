@@ -43,7 +43,7 @@
     }),
     async created() {
       await this.$store.dispatch('loadBadges');
-      await this.$store.dispatch('loadAssertions');
+      //await this.$store.dispatch('loadAssertions');
 
       this.loading = false;
     },
