@@ -146,7 +146,6 @@ li {
 .single-badge:hover {
   font-weight: 400;
   opacity: 1;
-  cursor: pointer;
 }
 
 .imgStnd {
@@ -204,6 +203,10 @@ li {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .next-selectbadge {
