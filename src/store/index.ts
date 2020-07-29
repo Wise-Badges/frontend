@@ -108,6 +108,7 @@ export default new Vuex.Store({
           commit("SET_ASSERTIONSBYBADGEID", assertionsByBadgeIdApi);
         })
         .catch(error => {
+          router.push({ name: 'notFound' })
           return Promise.reject(error);
         });
     }
