@@ -7,7 +7,6 @@
 
       <div class="detail__info">
         <p>This badge has not been accepted yet, please accept it by liking the following Tweet. Only @{{this.$store.state.assertionByIdApi.recipient.name}} can officially accept this badge before 21/08/20.</p>
-        <p>{{this.$store.state.assertionByIdApi.recipient.name}}</p>
         <div class="tweet__wrapper">
           <blockquote class="twitter-tweet" data-lang="en">
             <p lang="en" dir="ltr">Sunsets don&#39;t get much better than this one over
@@ -30,7 +29,7 @@
       </div>
     </div>
     <div class="delete">
-      <p>Not happy with your badge? With a simple Tweet command, our bot will delete your badge Open Badge permanently. Only a tweet by @receiver_here will be accepted.</p>
+      <p>Not happy with your badge? With a simple Tweet command, our bot will delete your badge Open Badge permanently. Only a tweet by @{{this.$store.state.assertionByIdApi.recipient.name}} will be accepted.</p>
       <router-link to="/" target="_blank" id="prim-btn">Tweet to delete</router-link>
     </div>
   </div>

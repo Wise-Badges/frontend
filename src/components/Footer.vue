@@ -4,7 +4,7 @@
       <div class="container">
         <ul class="social">
           <li><a href="https://twitter.com/wisebadges" target="_blank"><img alt="Twitter" src="/assets/img/footer/twitter.svg"/></a><span class="hidden">Twitter</span></li>
-          <li><img alt="Instagram" src="/assets/img/footer/instagram.svg"/><span class="hidden">Instagram</span></li>
+          <li><a href="https://www.instagram.com/wisebadges/" target="_blank"><img alt="Instagram" src="/assets/img/footer/instagram.svg"/></a><span class="hidden">Instagram</span></li>
           <li><img alt="Facebook" src="/assets/img/footer/facebook.svg"/><span class="hidden">Facebook</span></li>
         </ul>
         <div class="info">
