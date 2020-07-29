@@ -97,6 +97,14 @@ export default ({
       & .info__site {
         max-width: 28rem;
         line-height: 1.5rem;
+
+        @media only screen and (max-width: 900px) {
+          max-width: 50%;
+        }
+
+        @media only screen and (max-width: 630px) {
+          max-width: 100%;
+        }
       }
 
       & .info__links {
