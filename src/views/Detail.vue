@@ -6,11 +6,11 @@
     <div class="detail">
 
       <div class="detail__info">
-        <p><span v-if="this.$store.state.assertionByIdApi.accepted === false"><span class="bold__text">This badge has not been accepted yet,</span> please accept it by liking the <a target="_blank" :href="'https://platform.twitter.com/embed/index.html?&embedId=twitter-widget-0&hideThread=false&theme=light&id=' + shortenAnswerId()">following Tweet.</a><br/><br/> Only @{{this.$store.state.assertionByIdApi.recipient.name}} can officially accept this badge before 21/08/20</span><span v-if="this.$store.state.assertionByIdApi.accepted === true" class="bold__text">Congratulations, this badge has already been accepted.</span></p>
+        <p><span v-if="this.$store.state.assertionByIdApi.accepted === false"><span class="bold__text">This badge has not been accepted yet,</span> please accept it by liking the <a class="tweet__link" target="_blank" :href="'https://platform.twitter.com/embed/index.html?&embedId=twitter-widget-0&hideThread=false&theme=light&id=' + shortenAnswerId()">following Tweet.</a><br/><br/> Only @{{getName()}} can officially accept this badge before 21/08/20</span><span v-if="this.$store.state.assertionByIdApi.accepted === true" class="bold__text">Congratulations, this badge has already been accepted.</span></p>
         <div class="tweet__wrapper">
           <!-- <iframe v-if="this.$store.state.assertionByIdApi.accepted === false" class="twitter-answer" :src="'https://platform.twitter.com/embed/index.html?&embedId=twitter-widget-0&hideThread=false&theme=light&id=' + shortenAnswerId()" frameborder="0" height=700 width=500></iframe> -->
           <iframe class="twitter-answer" :src="'https://platform.twitter.com/embed/index.html?&embedId=twitter-widget-0&hideThread=false&theme=light&id=' + shortenEvidenceId()" frameborder="0" height=400 width=500></iframe>
-
+          <router-link to="/community">view other earners</router-link>
         </div>
       </div>
 
@@ -28,8 +28,8 @@
       </div>
     </div>
     <div class="delete">
-      <p>Not happy with your badge? With a simple Tweet command, our bot will delete your badge Open Badge permanently. Only a tweet by @{{this.$store.state.assertionByIdApi.recipient.name}} will be accepted.</p>
-      <a target="_blank" id="prim-btn" :href="this.$store.state.twitterString + ' @wisebadges %23delete-' + shortenEvidenceId()">Tweet to delete</a>
+      <p>Not happy with your badge? With a simple Tweet command, our bot will delete your badge Open Badge permanently. Only a tweet by @{{getName()}} will be accepted.</p>
+      <a target="_blank" id="prim-btn" :href="this.$store.state.twitterString + ' @wisebadges %23delete-' + this.$route.params.assertionId">Tweet to delete</a>
     </div>
   </div>
   </div>
@@ -237,5 +237,9 @@
 .badge__info {
   opacity: 0.7;
   font-size: 0.9;
+}
+
+.tweet__link {
+  color: #7C6DF3;
 }
 </style>
