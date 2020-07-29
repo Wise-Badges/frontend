@@ -1,6 +1,15 @@
 <template>
   <div class="view-badges">
     <h1 class="title">Community</h1>
+    <select>
+      <option>All</option>
+      <option
+        v-for="badge in badges"
+        v-bind:key="badge.name"
+        v-bind:value="badge.name"
+      >{{ badge.name }}</option>
+    </select>
+
     <ul class="acceptedBadges">
       <!-- ALL -->
       <li class="acceptedBadge"v-for="assertion in assertions" :key="assertion.id">
@@ -10,8 +19,6 @@
         <p class="badge__issuer">issued on {{ getDate(assertion.issuedOn) }}</p>
         </a>
       </li>
-
-      <!-- PER BADGE -->
     </ul>
   </div>
 </template>
@@ -22,7 +29,8 @@
     data() {
       return {
         assertions: this.$store.state.assertionsApi.data,
-        badges: this.$store.state.badgesApi.data
+        badges: this.$store.state.badgesApi.data,
+        // assertionsTest: '';
       };
     },
     methods: {
