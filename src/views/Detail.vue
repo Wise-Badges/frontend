@@ -8,8 +8,9 @@
       <div class="detail__info">
         <p>This badge has not been accepted yet, please accept it by liking the following Tweet. Only @{{this.$store.state.assertionByIdApi.recipient.name}} can officially accept this badge before 21/08/20.</p>
         <div class="tweet__wrapper">
+          <iframe class="twitter-answer" :src="'https://platform.twitter.com/embed/index.html?&embedId=twitter-widget-0&hideThread=false&theme=light&id=' + shortenAnswerId()" frameborder="0" height=700 width=500></iframe>
           <iframe class="twitter-answer" :src="'https://platform.twitter.com/embed/index.html?&embedId=twitter-widget-0&hideThread=false&theme=light&id=' + shortenEvidenceId()" frameborder="0" height=300 width=500></iframe>
-          <iframe class="twitter-answer" :src="'https://platform.twitter.com/embed/index.html?&embedId=twitter-widget-0&hideThread=false&theme=light&id=' + '1288390856592982016'" frameborder="0" height=700 width=500></iframe>
+
         </div>
       </div>
 
@@ -26,7 +27,6 @@
     <div class="delete">
       <p>Not happy with your badge? With a simple Tweet command, our bot will delete your badge Open Badge permanently. Only a tweet by @{{this.$store.state.assertionByIdApi.recipient.name}} will be accepted.</p>
       <a target="_blank" id="prim-btn" :href="this.$store.state.twitterString + ' @wisebadges %23delete-' + shortenEvidenceId()">Tweet to delete</a>
-      <!-- <router-link :to="this.$store.state.twitterString + '@wisebadges %23delete-' + shortenEvidenceId()" target="_blank" id="prim-btn">Tweet to delete {{this.$store.state.twitterString}}</router-link> -->
     </div>
   </div>
   </div>
@@ -48,8 +48,17 @@
       shortenEvidenceId() {
         let fullEvidenceId = this.$store.state.assertionByIdApi.evidence.id;
         let shortEvidenceId = /[^/]*$/.exec(fullEvidenceId)[0]
-        console.log(shortEvidenceId)
+
         return shortEvidenceId
+      },
+      shortenAnswerId() {
+        let fullAnswerId = this.$store.state.assertionByIdApi.answer
+        console.log(fullAnswerId)
+
+        let shortAnswerId = /[^/]*$/.exec(fullAnswerId)[0]
+        console.log(shortAnswerId)
+
+        return shortAnswerId
       }
     }
     // mounted() {
