@@ -104,6 +104,11 @@ export default ({
         & a {
           color: $color-purpleLight;
           text-decoration: none;
+          transition: .4s;
+
+          &:hover {
+            color: white;
+          }
 
           @media only screen and (max-width: 630px) {
             margin-top: .5rem;
