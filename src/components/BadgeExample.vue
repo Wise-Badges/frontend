@@ -12,10 +12,6 @@
 </template>
 
 <script>
-<<<<<<< HEAD
-
-=======
->>>>>>> develop
 export default {
   name: 'receiver',
   data() {
@@ -24,15 +20,6 @@ export default {
     }
   },
   methods: {
-<<<<<<< HEAD
-  checkId: function() {
-    for(let i = 0; i < this.$store.state.badgesApi.data.length; i++) {
-
-      let fullId = this.$store.state.badgesApi.data[i].id;
-      let shortId = /[^/]*$/.exec(fullId)[0]
-
-      if (this.$route.params.id === shortId) {
-=======
     checkId: function() {
       for(let i = 0; i < this.$store.state.badgesApi.data.length; i++) {
         let fullId = this.$store.state.badgesApi.data[i].id;
@@ -40,7 +27,6 @@ export default {
 
         if (this.$route.params.id === shortId) {
           let currentBadgeSelected = this.$store.state.badgesApi.data[i];
->>>>>>> develop
 
           return currentBadgeSelected
         }
@@ -49,40 +35,18 @@ export default {
     handleSubmit: function(e) {
       this.$store.state.receiver = [];
 
-<<<<<<< HEAD
-        return currentBadgeSelected
-=======
       if (this.$refs.receiver.value === '') {
         this.$store.state.validField = false;
       } else {
         this.$store.state.validField = true;
->>>>>>> develop
       }
 
-<<<<<<< HEAD
-  handleSubmit: function(e) {
-    this.$store.state.receiver = [];
-
-    if (this.$refs.receiver.value === '') {
-      this.$store.state.validField = false;
-    } else {
-      this.$store.state.validField = true;
-    }
-
-    if(this.$store.state.pressedAtmark) {
-      this.$store.state.receiver.push({receiver: this.$refs.receiver.value})
-    } else {
-      this.$store.state.receiver.push({receiver: '@' + this.$refs.receiver.value})
-    }
-  }
-=======
         if(this.$store.state.pressedAtmark) {
           this.$store.state.receiver.push({receiver: this.$refs.receiver.value})
         } else {
           this.$store.state.receiver.push({receiver: '@' + this.$refs.receiver.value})
         }
     }
->>>>>>> develop
   }
 }
 </script>

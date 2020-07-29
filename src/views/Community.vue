@@ -14,6 +14,9 @@
       </select>
 
       <ul class="acceptedBadges">
+          <div v-if="currentBadge !== ''">
+            <p>OOPS NO BADGES YET ASSIGNED</p>
+          </div>
         <li class="li__badge" v-for="assertion in this.$store.state.assertionsApi.data" :key="assertion.id">
           <div v-if="currentBadge === getId(assertion.badge)">
             <div class="acceptedBadge" >
@@ -60,15 +63,8 @@
       //console.log(this.$store.state.loadAssertionsByBadgeId);
       //}
 
-
-      //console.log("created")
-      //console.log(this.$store.state.assertionsApi.data);
-
       this.loading = false;
     },
-    // mounted () {
-    //   console.log(this.$store.state.assertionsByBadgeIdApi);
-    // },
     methods: {
       getId(id) {
         let shortBadgeId = /[^/]*$/.exec(id)[0];
@@ -86,35 +82,19 @@
         return fullDate;
       },
       getBadgeNameById() {
-        //let badge = this.badges.find(badge => badge.id === id);
-        // for (let i = 0; i < 10; i++) {
-        //   let badge = this.$store.state.badgesApi.data[i].id; // alle badges opvragen
-        //   let badgeShort = /[^/]*$/.exec(badge)[0]
 
-        //   console.log(badgeShort)
-        // }
+        // if(this.$route.params.badgeId === undefined) {
+        //   console.log('all page')
 
-        if(this.$route.params.badgeId === undefined) {
-          console.log('all page')
-
-        } else {
-          console.log(this.$store.state.assertionByIdApi)
-          console.log(this.$route.params)
-        }
         // } else {
+        //   console.log(this.$store.state.assertionByIdApi)
         //   console.log(this.$route.params)
         // }
 
-        //console.log(this.$store.state)
-        // if (badge) {
-        //   return badge.name;
-        // } else {
-        //   return 'undefined';
-        // }
       },
       getAssertionInfo() {
-          console.log('test');
-          console.log(this.$store.state);
+          //console.log('test');
+          //console.log(this.$store.state);
       },
       findAllAssertions() {
         //console.log(this.$store.state)
