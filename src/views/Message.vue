@@ -66,7 +66,7 @@ import BadgeExample from '@/components/BadgeExample.vue';
         if (this.$store.state.message !== []) {
             this.$store.state.message.push({message: this.$refs.message.value})
 
-            let twitterRoute = this.$store.state.twitterString + ' @WiseBadges' + ', issue a %23'  + this.checkId().tag + ' to ' + this.$route.params.receiver + ' with this message: ' + this.$store.state.message[0].message
+            let twitterRoute = this.$store.state.twitterString + 'Hey @WiseBadges' + ', issue a %23'  + this.checkId().tag + ' to ' + this.$route.params.receiver + ' with this message: ' + this.$store.state.message[0].message
             window.open(twitterRoute)
         } else {
           //console.log('empty')

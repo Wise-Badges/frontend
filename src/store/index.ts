@@ -30,7 +30,7 @@ export default new Vuex.Store({
     assertionId: '',
 
     thrustedDomain: 'https://api.wisebadges.osoc.be',
-    twitterString: 'https://twitter.com/intent/tweet?text=Hey',
+    twitterString: 'https://twitter.com/intent/tweet?text=',
   },
   mutations: {
     SET_BADGES(state, badgesApi) {
