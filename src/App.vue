@@ -27,6 +27,7 @@ export default ({
 
     await this.$store.dispatch('loadBadges');
     await this.$store.dispatch('loadAssertions');
+
     if(this.$route.params.assertionId !== undefined) {
       await this.$store.dispatch('loadAssertionById', {
           assertionID: this.$route.params.assertionId

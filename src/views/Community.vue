@@ -2,7 +2,7 @@
   <div class="view-badges">
     <h1 class="title">Community</h1>
 
-    <select v-on:change="changeRout" v-model="selected">
+    <select v-on:change="changeRout" v-model="currentBadge">
       <option>All</option>
       <option
         v-for="badge in badges"
@@ -12,12 +12,12 @@
     </select>
 
 
-    <p>{{ selected }}</p>
+    <p>{{ currentBadge }}</p>
 
 
     <ul class="acceptedBadges">
       <!-- ALL -->
-      <li class="acceptedBadge"v-for="assertion in assertions" :key="assertion.id">
+      <li class="acceptedBadge" v-for="assertion in this.$store.state.assertionsByBadgeIdApi" :key="assertion.id">
         <a :href="assertion.evidence.id">
         <p class="badge__receiver">{{ assertion.recipient.name }} received {{ getBadgeNameById(assertion.badge) }}</p>
         <!-- <p class="badge__message">{{ assertion.message }}</p> -->
@@ -34,10 +34,10 @@
       return {
         assertions: this.$store.state.assertionsApi.data,
         badges: this.$store.state.badgesApi.data,
-        selected: '',
-        // filteredAssertions: this.loadAssertionsByBadgeId(this.selected)
+        currentBadge: '',
       };
     },
+
     methods: {
       getId(id) {
         let shortBadgeId = /[^/]*$/.exec(id)[0];
@@ -45,7 +45,8 @@
       },
 
       changeRout() {
-        this.$router.push({path:'/community/' + this.selected })
+        this.$router.push({path:'/community/' + this.selected });
+        console.log(this.$store.state.assertionsByBadgeIdApi)
       },
 
       getDate(dateString) {
