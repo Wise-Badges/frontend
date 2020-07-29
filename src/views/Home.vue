@@ -88,7 +88,6 @@ export default {
     & .title__info {
       font-size: 2.1rem;
       padding-left: 1rem;
-      transform: translateY(.6rem);
 
       @media only screen and (max-width: 1024px) {
         font-size: 1.65rem;

@@ -53,10 +53,4 @@ textarea {
     .bol-container {
         display:none;
     }
-
-    /* .selectedBadge-container {
-        background-image: url('/assets/img/flagMobile.svg');
-        background-repeat: no-repeat;
-        width: 30rem; 
-      } */
   }

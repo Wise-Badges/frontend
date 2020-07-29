@@ -29,12 +29,6 @@ body {
       opacity: 0.6;
 
     }
-
-    /* .selectedBadge-container {
-        background-image: url('/assets/img/flagMobile.svg');
-        background-repeat: no-repeat;
-        width: 30rem; 
-      } */
   }
 
   @media only screen and (min-width: 1000px) {
@@ -45,7 +39,6 @@ body {
         margin-top: 3rem;
     }
   }
-
 
 .router-item, .router-item-invalid {
     display: flex;

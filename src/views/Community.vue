@@ -1,51 +1,123 @@
 <template>
   <div class="view-badges">
-    <h1 class="title">Community</h1>
-    <select>
-      <option>All</option>
-      <option
-        v-for="badge in badges"
-        v-bind:key="badge.name"
-        v-bind:value="badge.name"
-      >{{ badge.name }}</option>
-    </select>
+    <div v-if="loading">Loading...</div>
+    <div v-else>
+      <h1 class="title">Community</h1>
 
-    <ul class="acceptedBadges">
-      <!-- ALL -->
-      <li class="acceptedBadge" v-for="assertion in assertions" :key="assertion.id">
-        <a :href="assertion.evidence.id">
-        <p class="badge__receiver">{{ assertion.recipient.name }} received {{ getBadgeNameById(assertion.badge) }}</p>
-        <!-- <p class="badge__message">{{ assertion.message }}</p> -->
-        <p class="badge__issuer">issued on {{ getDate(assertion.issuedOn) }}</p>
-        </a>
-      </li>
-    </ul>
+      <select class="badge__select" v-on:change="changeRout"  v-model="currentBadge" name="select-badge" id="">
+        <option value="" selected>All</option>
+        <option
+          v-for="badge in this.$store.state.badgesApi.data"
+          :key="badge.name"
+          :value="getId(badge.id)"
+        >{{ badge.name }}</option>
+      </select>
+
+      <ul class="acceptedBadges">
+        <li class="li__badge" v-for="assertion in this.$store.state.assertionsApi.data" :key="assertion.id">
+          <div v-if="currentBadge === getId(assertion.badge)">
+            <div class="acceptedBadge" >
+              <a :href="assertion.evidence.id">
+              <p class="badge__receiver">{{ assertion.recipient.name }} received LATER OPLOSSEN</p>
+              <p class="badge__message">{{ assertion.message }}</p>
+              <!-- <p>{{getId(assertion.badge)}}</p> -->
+              <p class="badge__issuer">issued on {{ getDate(assertion.issuedOn) }}</p>
+              </a>
+            </div>
+          </div>
+          <div class="acceptedBadge" v-if="currentBadge === ''">
+            <a :href="assertion.evidence.id">
+            <p class="badge__receiver">{{ assertion.recipient.name }} received LATER OPLOSSEN</p>
+            <!-- <p>{{getId(assertion.badge)}}</p> -->
+            <p class="badge__message">{{ assertion.message }}</p>
+            <p class="badge__issuer">issued on {{ getDate(assertion.issuedOn) }}</p>
+            </a>
+          </div>
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
-
 
 <script>
   export default ({
     data() {
       return {
-        assertions: this.$store.state.assertionsApi.data,
-        badges: this.$store.state.badgesApi.data,
-        // assertionsTest: '';
+        //assertions: this.$store.state.assertionsApi.data,
+        //badges: this.$store.state.badgesApi.data,
+        currentBadge: '',
+        loading: true,
+        currentPath: ''
       };
     },
+    async created() {
+      //console.log(this.$route.fullPath)
+      this.currentPath = this.$route.fullPath;
+      //console.log(this.currentPath)
+      await this.$store.dispatch('loadBadges');
+      await this.$store.dispatch('loadAssertions');
+      //if (this.$store.state.loadAssertionsByBadgeId !== undefined) {
+      //console.log(this.$store.state.loadAssertionsByBadgeId);
+      //}
+
+
+      //console.log("created")
+      //console.log(this.$store.state.assertionsApi.data);
+
+      this.loading = false;
+    },
+    // mounted () {
+    //   console.log(this.$store.state.assertionsByBadgeIdApi);
+    // },
     methods: {
+      getId(id) {
+        let shortBadgeId = /[^/]*$/.exec(id)[0];
+        return shortBadgeId;
+      },
+
+      changeRout() {
+        //this.$router.push(""/community/ + this.currentBadge").catch(()=>{});
+        this.$router.push({path: '/community/' + this.currentBadge }).catch(()=>{});
+        console.log(this.$store.state.assertionsByBadgeIdApi)
+      },
       getDate(dateString) {
         let date = new Date(dateString);
         let fullDate = `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`;
         return fullDate;
       },
-      getBadgeNameById(id) {
-        let badge = this.badges.find(badge => badge.id === id);
-        if (badge) {
-          return badge.name;
+      getBadgeNameById() {
+        //let badge = this.badges.find(badge => badge.id === id);
+        // for (let i = 0; i < 10; i++) {
+        //   let badge = this.$store.state.badgesApi.data[i].id; // alle badges opvragen
+        //   let badgeShort = /[^/]*$/.exec(badge)[0]
+
+        //   console.log(badgeShort)
+        // }
+
+        if(this.$route.params.badgeId === undefined) {
+          console.log('all page')
+
         } else {
-          return 'undefined';
+          console.log(this.$store.state.assertionByIdApi)
+          console.log(this.$route.params)
         }
+        // } else {
+        //   console.log(this.$route.params)
+        // }
+
+        //console.log(this.$store.state)
+        // if (badge) {
+        //   return badge.name;
+        // } else {
+        //   return 'undefined';
+        // }
+      },
+      getAssertionInfo() {
+          console.log('test');
+          console.log(this.$store.state);
+      },
+      findAllAssertions() {
+        //console.log(this.$store.state)
       }
     }
   });
@@ -62,14 +134,21 @@
   $color-red: #DF7668;
 
   .acceptedBadges {
-    display: grid;
-    grid-template: repeat(3, auto) / repeat(2, 1fr);
-    grid-gap: 1.875rem;
+    display: flex;
+    flex-direction: column;
+    margin-top: 1rem;
+    // flex-wrap: wrap;
+    // grid-template: repeat(3, auto) / repeat(2, 1fr);
+     //grid-gap: 1.875rem;
 
-    @media only screen and (max-width: 768px) {
-      grid-template: auto / repeat(1, 1fr);
-      grid-gap: 1.25rem;
-    }
+    // @media only screen and (max-width: 768px) {
+    //   grid-template: auto / repeat(1, 1fr);
+    //   grid-gap: 1.25rem;
+    // }
+  }
+
+  .li__badge {
+    margin-top: 1rem;
   }
 
   .acceptedBadge {
@@ -117,4 +196,19 @@
       }
     }
   }
+
+  .all__option {
+    color: black;
+  }
+
+
+.badge__select {
+  padding: 1rem 2rem;
+  border-radius: 3rem;
+  font-size: 1rem;
+}
+
+.badge__select:focus {
+  outline: transparent;
+}
 </style>

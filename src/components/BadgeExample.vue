@@ -12,7 +12,10 @@
 </template>
 
 <script>
+<<<<<<< HEAD
 
+=======
+>>>>>>> develop
 export default {
   name: 'receiver',
   data() {
@@ -21,6 +24,7 @@ export default {
     }
   },
   methods: {
+<<<<<<< HEAD
   checkId: function() {
     for(let i = 0; i < this.$store.state.badgesApi.data.length; i++) {
 
@@ -28,14 +32,34 @@ export default {
       let shortId = /[^/]*$/.exec(fullId)[0]
 
       if (this.$route.params.id === shortId) {
+=======
+    checkId: function() {
+      for(let i = 0; i < this.$store.state.badgesApi.data.length; i++) {
+        let fullId = this.$store.state.badgesApi.data[i].id;
+        let shortId = /[^/]*$/.exec(fullId)[0]
 
-        let currentBadgeSelected = this.$store.state.badgesApi.data[i];
+        if (this.$route.params.id === shortId) {
+          let currentBadgeSelected = this.$store.state.badgesApi.data[i];
+>>>>>>> develop
 
-        return currentBadgeSelected
+          return currentBadgeSelected
+        }
       }
-    }
-  },
+    },
+    handleSubmit: function(e) {
+      this.$store.state.receiver = [];
 
+<<<<<<< HEAD
+        return currentBadgeSelected
+=======
+      if (this.$refs.receiver.value === '') {
+        this.$store.state.validField = false;
+      } else {
+        this.$store.state.validField = true;
+>>>>>>> develop
+      }
+
+<<<<<<< HEAD
   handleSubmit: function(e) {
     this.$store.state.receiver = [];
 
@@ -51,10 +75,17 @@ export default {
       this.$store.state.receiver.push({receiver: '@' + this.$refs.receiver.value})
     }
   }
+=======
+        if(this.$store.state.pressedAtmark) {
+          this.$store.state.receiver.push({receiver: this.$refs.receiver.value})
+        } else {
+          this.$store.state.receiver.push({receiver: '@' + this.$refs.receiver.value})
+        }
+    }
+>>>>>>> develop
   }
 }
 </script>
-
 
 <style lang="scss">
 .img-badge-form {
@@ -125,7 +156,6 @@ export default {
     letter-spacing: 0.1rem;
     font-weight: 400;
     margin-left: 4rem;
-
   }
 
   .bol {

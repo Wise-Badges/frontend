@@ -1,16 +1,6 @@
 <template>
   <div>
     <div class="maxi-form-container">
-    <!--<div class="data-selected-container selectedBadge-container">
-      <img class="img-badge-form" :src="checkId().image" v-bind:alt="checkId().image">
-      <div class="badge-text">
-        <p class="selectedBadge-name">{{checkId().name}}</p>
-        <div class="selectedBadge-receiver">
-          <p v-if="this.$store.state.receiver[0]">To {{$route.params.receiver}}</p>
-          <p v-if="this.$store.state.receiver[0] == undefined">Something went wrong my dear</p>
-        </div>
-      </div>
-    </div>-->
     <BadgeExample />
     <h2 class="subtitle">Describe why this person earned this badge</h2>
       <div class="form-container">
@@ -44,19 +34,13 @@ import BadgeExample from '@/components/BadgeExample.vue';
     methods: {
     checkId: function() {
       for(let i = 0; i < this.$store.state.badgesApi.data.length; i++) {
-        //console.log(this.$store.state.badgesApi.data[i].id);
         let fullId = this.$store.state.badgesApi.data[i].id;
         let shortId = /[^/]*$/.exec(fullId)[0]
 
-        // OKE DIT MOET DUS TOEGEPAST WORDEN VANBOVEN
         if (this.$route.params.id === shortId) {
-          //console.log(this.$store.state.badgesApi.data[i].name);
-
           let currentBadgeSelected = this.$store.state.badgesApi.data[i];
 
           return currentBadgeSelected
-        } else {
-          //this.$router.push('/')
         }
       }
     },
@@ -68,11 +52,8 @@ import BadgeExample from '@/components/BadgeExample.vue';
 
             let twitterRoute = this.$store.state.twitterString + 'Hey @WiseBadges' + ', issue a %23'  + this.checkId().tag + ' to ' + this.$route.params.receiver + ' with this message: ' + this.$store.state.message[0].message
             window.open(twitterRoute)
-        } else {
-          //console.log('empty')
         }
       },
-
   },
 
   }

@@ -11,7 +11,7 @@ export default new Vuex.Store({
     assertionsApi: [],
     assertionByIdApi: [],
     badgeByAssertionIdApi: [],
-    assertionsByBadgeIdApi: [],
+    assertionsByBadgeIdApi: [ {id: 'iqejmsfk'}],
     receiver: [{ receiver: '' }],
     message: [{message: ''}],
     pressedAtmark: false,
@@ -102,15 +102,17 @@ export default new Vuex.Store({
 
     loadAssertionsByBadgeId({ commit }, badgeId) {
       return axios
-        .get('https://api.wisebadges.osoc.be/badgeclasses/' + badgeId + '/assertions')
+      // .get('https://api.wisebadges.osoc.be/badgeclass/' + badgeId.badgeId + '/assertions')
+        .get('https://api.wisebadges.osoc.be/badgeclass/' + badgeId.badgeId)
         .then(r => {
-          let assertionsByBadgeIdApi = r.data;
+          let assertionsByBadgeIdApi = r.data.data;
           commit("SET_ASSERTIONSBYBADGEID", assertionsByBadgeIdApi);
         })
         .catch(error => {
+          router.push({ name: 'notFound' })
           return Promise.reject(error);
         });
-    },
+    }
 
   },
   modules: {
