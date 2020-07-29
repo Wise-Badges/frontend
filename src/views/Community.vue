@@ -14,9 +14,6 @@
       </select>
 
       <ul class="acceptedBadges">
-          <div v-if="currentBadge !== ''">
-            <p>OOPS NO BADGES YET ASSIGNED</p>
-          </div>
         <li class="li__badge" v-for="assertion in this.$store.state.assertionsApi.data" :key="assertion.id">
           <div v-if="currentBadge === getId(assertion.badge)">
             <div class="acceptedBadge" >
