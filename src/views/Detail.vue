@@ -6,21 +6,24 @@
     <div class="detail">
 
       <div class="detail__info">
-        <p><span v-if="this.$store.state.assertionByIdApi.accepted === false">This badge has not been accepted yet, please accept it by liking the following Tweet. Only @{{this.$store.state.assertionByIdApi.recipient.name}} can officially accept this badge before 21/08/20</span><span v-if="this.$store.state.assertionByIdApi.accepted === true">This badge has already been accepted.</span></p>
+        <p><span v-if="this.$store.state.assertionByIdApi.accepted === false"><span class="bold__text">This badge has not been accepted yet,</span> please accept it by liking the <a target="_blank" :href="'https://platform.twitter.com/embed/index.html?&embedId=twitter-widget-0&hideThread=false&theme=light&id=' + shortenAnswerId()">following Tweet.</a><br/><br/> Only @{{this.$store.state.assertionByIdApi.recipient.name}} can officially accept this badge before 21/08/20</span><span v-if="this.$store.state.assertionByIdApi.accepted === true" class="bold__text">Congratulations, this badge has already been accepted.</span></p>
         <div class="tweet__wrapper">
-          <iframe v-if="this.$store.state.assertionByIdApi.accepted === false" class="twitter-answer" :src="'https://platform.twitter.com/embed/index.html?&embedId=twitter-widget-0&hideThread=false&theme=light&id=' + shortenAnswerId()" frameborder="0" height=700 width=500></iframe>
-          <iframe class="twitter-answer" :src="'https://platform.twitter.com/embed/index.html?&embedId=twitter-widget-0&hideThread=false&theme=light&id=' + shortenEvidenceId()" frameborder="0" height=600 width=500></iframe>
+          <!-- <iframe v-if="this.$store.state.assertionByIdApi.accepted === false" class="twitter-answer" :src="'https://platform.twitter.com/embed/index.html?&embedId=twitter-widget-0&hideThread=false&theme=light&id=' + shortenAnswerId()" frameborder="0" height=700 width=500></iframe> -->
+          <iframe class="twitter-answer" :src="'https://platform.twitter.com/embed/index.html?&embedId=twitter-widget-0&hideThread=false&theme=light&id=' + shortenEvidenceId()" frameborder="0" height=400 width=500></iframe>
 
         </div>
       </div>
 
       <div class="detail__badge">
+        <p class="narrative-badge">{{this.$store.state.assertionByIdApi.evidence.narrative}}</p>
         <div class="badge__container">
           <img class="badge__img" :src="this.$store.state.badgeByAssertionIdApi.image" :alt="this.$store.state.badgeByAssertionIdApi.image">
           <p class="badge__title">{{this.$store.state.badgeByAssertionIdApi.name}}</p>
+          <p class="badge__issued badge__info">Issued on: {{getDate(this.$store.state.assertionByIdApi.issuedOn)}}</p>
+          <p class="badge__info">Earned by: @{{getName()}}</p>
           <a :href="'https://api.wisebadges.osoc.be/assertion/' + this.$route.params.assertionId + '/badge'" id="prim-btn">Download</a>
-          <p v-if="this.$store.state.assertionByIdApi.accepted === true" class="badge__status">Badge has already been accepted</p>
-          <p v-if="this.$store.state.assertionByIdApi.accepted === false" class="badge__status">Badge has not been accepted.</p>
+          <p v-if="this.$store.state.assertionByIdApi.accepted === true" class="badge__status">Badge accepted</p>
+          <p v-if="this.$store.state.assertionByIdApi.accepted === false" class="badge__status">Badge not accepted yet</p>
         </div>
       </div>
     </div>
@@ -53,12 +56,22 @@
       },
       shortenAnswerId() {
         let fullAnswerId = this.$store.state.assertionByIdApi.answer
-        console.log(fullAnswerId)
-
         let shortAnswerId = /[^/]*$/.exec(fullAnswerId)[0]
+        console.log(fullAnswerId)
         console.log(shortAnswerId)
 
         return shortAnswerId
+      },
+      getDate(dateString) {
+        let date = new Date(dateString);
+        let fullDate = `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`;
+        return fullDate;
+      },
+      getName() {
+        let fullTwitterName = this.$store.state.assertionByIdApi.recipient.identity;
+        let shortTwitterName = /[^/]*$/.exec(fullTwitterName)[0]
+
+        return shortTwitterName
       }
     }
     // mounted() {
@@ -109,8 +122,16 @@
   align-items: center;
 }
 
+@media only screen and (min-width: 1024px) {
+  .detail__badge {
+      margin-top: -10rem;
+  }
+
+}
+
 .detail__badge {
   width: calc(((100% - (100% - 60rem)) - 1.875rem) /3);
+
   // calc(((100% - (100% - 60rem)) - 1.875rem) /3)
   // (60rem - 1.875rem)/3
   &::after {
@@ -146,7 +167,7 @@
   }
 
   & .badge__status {
-    margin-top: 1rem;
+    margin-top: 3rem;
     font-style: italic;
   }
 
@@ -154,6 +175,10 @@
     margin-top: 2rem;
   }
 }
+
+
+
+
 
 .delete {
   display: grid;
@@ -193,5 +218,24 @@
 .twitter-answer {
   width: 100%;
   height: 100;
+}
+
+.narrative-badge {
+  font-size: 0.8rem;
+  opacity: 0.6;
+  margin-bottom: 0.5rem;
+}
+
+.bold__text {
+  font-weight: 600;
+}
+
+.badge__issued {
+  margin-top: 1rem;
+}
+
+.badge__info {
+  opacity: 0.7;
+  font-size: 0.9;
 }
 </style>
