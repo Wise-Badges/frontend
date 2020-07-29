@@ -45,7 +45,8 @@
       },
 
       changeRout() {
-        this.$router.push({path:'/community/' + this.selected });
+        this.$router.push({path:'/community/' + this.currentBadge });
+        console.log(this.selected);
         console.log(this.$store.state.assertionsByBadgeIdApi)
       },
 
