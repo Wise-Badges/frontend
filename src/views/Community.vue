@@ -13,12 +13,12 @@
         >{{ badge.name }}</option> -->
       <!-- </select> -->
 
-      <select name="" id="">
-        <option value="all">All</option>
+      <select v-on:change="changeRout"  v-model="currentBadge" name="select-badge" id="">
+        <option value="" selected>All</option>
         <option
           v-for="badge in this.$store.state.badgesApi.data"
-          v-bind:key="badge.name"
-          v-bind:value="getId(badge.id)"
+          :key="badge.name"
+          :value="getId(badge.id)"
         >{{ badge.name }}</option>
       </select>
 
@@ -28,7 +28,16 @@
       {{findAllAssertions()}}
       <ul class="acceptedBadges">
         <!-- ALL  -->
-
+        <li  v-for="assertion in this.$store.state.assertionsApi.data" :key="assertion.id">
+          <div class="acceptedBadge" v-if="currentBadge === ''">
+            <p>{{assertion.recipient.name}} received {{getBadgeNameById()}}</p>
+            <p>{{getId(assertion.badge)}}</p>
+          </div>
+          <div class="acceptedBadge" v-if="currentBadge === getId(assertion.badge)">
+            <p>{{assertion.recipient.name}} received {{getBadgeNameById()}}</p>
+            <p>{{getId(assertion.badge)}}</p>
+          </div>
+        </li>
 
         <!-- SELECTEDBY -->
         <li class="acceptedBadge" v-for="assertion in this.$store.state.assertionsByBadgeIdApi" :key="assertion.id">
@@ -47,17 +56,23 @@
   export default ({
     data() {
       return {
-        assertions: this.$store.state.assertionsApi.data,
-        badges: this.$store.state.badgesApi.data,
+        //assertions: this.$store.state.assertionsApi.data,
+        //badges: this.$store.state.badgesApi.data,
         currentBadge: '',
         loading: true,
+        currentPath: ''
       };
     },
     async created() {
+
+      //console.log(this.$route.fullPath)
+      this.currentPath = this.$route.fullPath;
+      //console.log(this.currentPath)
       await this.$store.dispatch('loadBadges');
       await this.$store.dispatch('loadAssertions');
 
-      await (this.$store.state.assertionsByBadgeIdApi !== false)
+      //console.log("created")
+      //console.log(this.$store.state.assertionsApi.data);
 
       this.loading = false;
     },
@@ -68,25 +83,44 @@
       },
 
       changeRout() {
-        this.$router.push({path:'/community/' + this.currentBadge });
+        //this.$router.push(""/community/ + this.currentBadge").catch(()=>{});
+        this.$router.push({path: '/community/' + this.currentBadge }).catch(()=>{});
         console.log(this.$store.state.assertionsByBadgeIdApi)
       },
-
       getDate(dateString) {
         let date = new Date(dateString);
         let fullDate = `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`;
         return fullDate;
       },
-      getBadgeNameById(id) {
-        let badge = this.badges.find(badge => badge.id === id);
-        if (badge) {
-          return badge.name;
+      getBadgeNameById() {
+        //let badge = this.badges.find(badge => badge.id === id);
+        // for (let i = 0; i < 10; i++) {
+        //   let badge = this.$store.state.badgesApi.data[i].id; // alle badges opvragen
+        //   let badgeShort = /[^/]*$/.exec(badge)[0]
+
+        //   console.log(badgeShort)
+        // }
+
+        if(this.$route.params.badgeId === undefined) {
+          console.log('all page')
+
         } else {
-          return 'undefined';
+          console.log(this.$store.state.assertionByIdApi)
+          console.log(this.$route.params)
         }
+        // } else {
+        //   console.log(this.$route.params)
+        // }
+
+        //console.log(this.$store.state)
+        // if (badge) {
+        //   return badge.name;
+        // } else {
+        //   return 'undefined';
+        // }
       },
       findAllAssertions() {
-        console.log(this.$store.state)
+        //console.log(this.$store.state)
       }
     }
   });
