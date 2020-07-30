@@ -4,6 +4,7 @@
     <div v-else>
       <h1 class="title">Community</h1>
 
+      <div class="selection__container">
       <select class="badge__select" v-on:change="changeRout" v-model="currentBadge" name="select-badge" id="">
         <option value="">All</option>
         <option
@@ -13,6 +14,8 @@
           :selected="getSelectedFromQuery()"
         >{{ badge.name }}</option>
       </select>
+      <div class="white__block">whi</div>
+      </div>
 
       <ul class="acceptedBadges">
         <li class="li__badge" v-for="assertion in this.$store.state.assertionsApi.data" :key="assertion.id">
@@ -219,16 +222,35 @@
 
 .badge__select {
   padding: 1rem 2rem;
-  border-radius: 3rem;
+  border-top-left-radius: 3rem;
+  border-bottom-left-radius: 3rem;
   font-size: 1rem;
+  border: transparent;
 }
 
 .badge__select:focus {
   outline: transparent;
 }
 
+.badge__select {
+  letter-spacing: 0.05em;
+  color: #0B1147;
+  font-weight: 600;
+}
+
 .make__italic {
   font-style: italic;
   font-weight: 400;
+}
+
+.selection__container {
+  display: flex;
+}
+
+.white__block {
+  background-color: white;
+  border-top-right-radius: 3rem;
+  border-bottom-right-radius: 3rem;
+  cursor: default;
 }
 </style>
