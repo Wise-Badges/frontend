@@ -10,7 +10,7 @@
         <option
           v-for="badge in this.$store.state.badgesApi.data"
           :key="badge.name"
-          :value="getId(badge.id)"
+          :value="badge.id"
           :selected="getSelectedFromQuery(badge.id)"
         >{{ badge.name }}</option>
       </select>
@@ -19,9 +19,9 @@
 
       <ul class="acceptedBadges">
         <li class="li__badge" v-for="assertion in this.$store.state.assertionsApi.data" :key="assertion.id">
-          <div v-if="currentBadge === getId(assertion.badge)">
+          <div v-if="currentBadge === assertion.badge">
             <div class="acceptedBadge li__badge__active" >
-              <router-link target="_blank" :to="'/detail/' + assertion.id">
+              <router-link target="_blank" :to="'/detail/' + getId(assertion.id)">
               <p class="badge__receiver">{{ assertion.recipient.name }} received <span class="make__italic">#{{dirtyFunctionBecause1AM(assertion.badge)}}</span></p>
               <p class="badge__message">{{ assertion.message }}</p>
               <p class="badge__issuer">issued on {{ getDate(assertion.issuedOn) }}</p>
@@ -29,14 +29,14 @@
             </div>
           </div>
           <div class="acceptedBadge li__badge__active" v-if="currentBadge === ''">
-            <router-link target="_blank" :to="'/detail/' + assertion.id.split('/').pop()">
+            <router-link target="_blank" :to="'/detail/' + getId(assertion.id)">
             <p class="badge__receiver">{{ assertion.recipient.name }} received <span class="make__italic">#{{dirtyFunctionBecause1AM(assertion.badge)}}</span></p>
             <p class="badge__message">{{ assertion.message }}</p>
             <p class="badge__issuer">issued on {{ getDate(assertion.issuedOn) }}</p>
             </router-link>
           </div>
           <div class="acceptedBadge li__badge__active" v-if="currentBadge === undefined">
-            <router-link target="_blank" :to="'/detail/' + assertion.id.split('/').pop()">
+            <router-link target="_blank" :to="'/detail/' + getId(assertion.id)">
             <p class="badge__receiver">{{ assertion.recipient.name }} received <span class="make__italic">#{{dirtyFunctionBecause1AM(assertion.badge)}}</span></p>
             <p class="badge__message">{{ assertion.message }}</p>
             <p class="badge__issuer">issued on {{ getDate(assertion.issuedOn) }}</p>
@@ -93,7 +93,7 @@
     methods: {
       getId(id) {
         let shortBadgeId = /[^/]*$/.exec(id)[0];
-        return id;
+        return shortBadgeId;
       },
       async loadPreviousJSON() {
         this.$store.state.currentPage --;
