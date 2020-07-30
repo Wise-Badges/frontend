@@ -212,7 +212,7 @@
 
 .narrative-badge {
   font-size: 0.8rem;
-  opacity: 0.6;
+  color: $color-purpleLight;
   margin-bottom: 0.5rem;
 }
 
@@ -225,7 +225,7 @@
 }
 
 .badge__info {
-  opacity: 0.7;
+  color: $color-purpleLight;
   font-size: 0.9;
 }
 
