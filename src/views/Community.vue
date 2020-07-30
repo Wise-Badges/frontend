@@ -4,12 +4,13 @@
     <div v-else>
       <h1 class="title">Community</h1>
 
-      <select class="badge__select" v-on:change="changeRout"  v-model="currentBadge" name="select-badge" id="">
-        <option value="" selected>All</option>
+      <select class="badge__select" v-on:change="changeRout" v-model="currentBadge" name="select-badge" id="">
+        <option value="">All</option>
         <option
           v-for="badge in this.$store.state.badgesApi.data"
           :key="badge.name"
           :value="getId(badge.id)"
+          :selected="getSelectedFromQuery()"
         >{{ badge.name }}</option>
       </select>
 
@@ -48,8 +49,10 @@
     },
     async created() {
       this.currentPath = this.$route.fullPath;
+      this.currentBadge =  this.$route.params.badgeId;
       await this.$store.dispatch('loadBadges');
       await this.$store.dispatch('loadAssertions');
+
 
       this.loading = false;
     },
@@ -82,6 +85,14 @@
       },
       findAllAssertions() {
         //console.log(this.$store.state)
+      },
+      getSelectedFromQuery() {
+        // if (this.$route.params.badgeId === '5f201418631ce1068d217667') {
+        //   console.log('did not explode');
+        //   return selected
+        // } else {
+        //   return
+        // }
       },
       dirtyFunctionBecause1AM(badgeOfPerson) {
         // SORRY

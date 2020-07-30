@@ -10,7 +10,7 @@
           <!-- <p class="badge__amount">2.340</p> -->
           <p class="badge__description">{{badge.description}}</p>
           <router-link class="router-item" badge="badge"  :to="'/receiver/' + getId(badge.id)" id="prim-btn">award badge</router-link>
-          <router-link class="router-item" to="/community" id="sec-btn">View earners</router-link>
+          <router-link class="router-item" :to="'/community/' + getId(badge.id)" id="sec-btn">View earners</router-link>
         </section>
       </li>
     </ul>
@@ -34,7 +34,7 @@ export default ({
 });
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
   $color-dark: #0B1147;
   $color-purpleDark: #331F9F;
   $color-purpleLight: #7C6DF1;
