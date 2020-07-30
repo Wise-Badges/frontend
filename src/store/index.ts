@@ -19,6 +19,7 @@ export default new Vuex.Store({
     validMessage: false,
     badgeId: '',
     assertionId: '',
+    currentPage: 1,
 
     thrustedDomain: 'https://api.wisebadges.osoc.be',
     twitterString: 'https://twitter.com/intent/tweet?text=',
@@ -55,11 +56,17 @@ export default new Vuex.Store({
         });
     },
 
-    loadAssertions({commit}) {
+    loadAssertions({ commit }, badgeClass = undefined) {
+      let url = 'https://api.wisebadges.osoc.be/assertions/?page=' + this.state.currentPage + '&limit=10'
+      if (badgeClass) {
+        url = badgeClass + '/assertions?page=' + this.state.currentPage + '&limit=10'
+      }
       return axios
-        .get("https://api.wisebadges.osoc.be/assertions/")
+        .get(url)
         .then(r => {
           let assertionsApi = r.data;
+          //console.log('dit is r:' + r)
+          //console.log(assertionsApi)
           commit("SET_ASSERTIONS", assertionsApi);
         })
         .catch(error => {
