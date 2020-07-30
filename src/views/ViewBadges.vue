@@ -2,7 +2,7 @@
   <div>
     <h1 class="title">View badges</h1>
     <ul class="badges">
-      <li class="badge"v-for="badge in this.$store.state.badgesApi.data" :key="badge.name">
+      <li class="badge" v-for="badge in this.$store.state.badgesApi.data" :key="badge.name">
         <section>
           <img class="badge__img" :src="badge.image" v-bind:alt="badge.name">
           <h2 class="badge__title">{{badge.name}}</h2>
