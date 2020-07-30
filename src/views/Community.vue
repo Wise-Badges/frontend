@@ -6,7 +6,7 @@
 
       <div class="selection__container">
       <select class="badge__select" v-on:change="changeRout" v-model="currentBadge" name="select-badge" id="">
-        <option value="">All</option>
+        <option value="" selected>All</option>
         <option
           v-for="badge in this.$store.state.badgesApi.data"
           :key="badge.name"
@@ -14,7 +14,7 @@
           :selected="getSelectedFromQuery()"
         >{{ badge.name }}</option>
       </select>
-      <div class="white__block">whi</div>
+      <div class="white__block"></div>
       </div>
 
       <ul class="acceptedBadges">
@@ -233,7 +233,7 @@
 }
 
 .badge__select {
-  letter-spacing: 0.05em;
+  letter-spacing: 0.02em;
   color: #0B1147;
   font-weight: 600;
 }
@@ -251,6 +251,7 @@
   background-color: white;
   border-top-right-radius: 3rem;
   border-bottom-right-radius: 3rem;
+  width: 2rem;
   cursor: default;
 }
 </style>
