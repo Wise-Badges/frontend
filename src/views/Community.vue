@@ -14,7 +14,7 @@
           :selected="getSelectedFromQuery()"
         >{{ badge.name }}</option>
       </select>
-      <div class="white__block">whi</div>
+      <div class="white__block"></div>
       </div>
 
       <ul class="acceptedBadges">
@@ -251,6 +251,7 @@
   background-color: white;
   border-top-right-radius: 3rem;
   border-bottom-right-radius: 3rem;
+  width: 2rem;
   cursor: default;
 }
 </style>
