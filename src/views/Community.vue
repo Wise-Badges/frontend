@@ -32,6 +32,13 @@
             <p class="badge__issuer">issued on {{ getDate(assertion.issuedOn) }}</p>
             </a>
           </div>
+          <div class="acceptedBadge li__badge__active" v-if="currentBadge === undefined">
+            <a target="_blank" :href="assertion.evidence.id">
+            <p class="badge__receiver">{{ assertion.recipient.name }} received <span class="make__italic">#{{dirtyFunctionBecause1AM(assertion.badge)}}</span></p>
+            <p class="badge__message">{{ assertion.message }}</p>
+            <p class="badge__issuer">issued on {{ getDate(assertion.issuedOn) }}</p>
+            </a>
+          </div>
         </li>
       </ul>
     </div>
@@ -50,6 +57,14 @@
     async created() {
       this.currentPath = this.$route.fullPath;
       this.currentBadge =  this.$route.params.badgeId;
+
+
+      //console.log('teststss')
+      //console.log(this.$route.params.badgeId)
+      if (this.$route.params.badgeId === undefined) {
+        console.log('lqmsjfmqlsdfs')
+      }
+
       await this.$store.dispatch('loadBadges');
       await this.$store.dispatch('loadAssertions');
 
