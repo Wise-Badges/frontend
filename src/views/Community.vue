@@ -5,13 +5,13 @@
       <h1 class="title">Community</h1>
 
       <div class="selection__container">
-      <select class="badge__select" v-on:change="changeRout" v-model="currentBadge" name="select-badge" id="">
+      <select class="badge__select" v-on:change="changeRoute" v-model="currentBadge" name="select-badge" id="">
         <option value="" selected>All</option>
         <option
           v-for="badge in this.$store.state.badgesApi.data"
           :key="badge.name"
           :value="getId(badge.id)"
-          :selected="getSelectedFromQuery()"
+          :selected="getSelectedFromQuery(badge.id)"
         >{{ badge.name }}</option>
       </select>
       <div class="white__block"></div>
@@ -44,6 +44,8 @@
           </div>
         </li>
       </ul>
+      <button v-if="checkIfPreviousIsInJSON()" @click="loadPreviousJSON()">Previous</button>
+      <button v-if="checkIfNextIsInJSON()" @click="loadNextJSON()">Next</button>
     </div>
   </div>
 </template>
@@ -54,34 +56,79 @@
       return {
         currentBadge: '',
         loading: true,
-        currentPath: ''
+        currentPath: '',
+        page: 1,
+        next: false,
+        previous: false
       };
     },
     async created() {
       this.currentPath = this.$route.fullPath;
       this.currentBadge =  this.$route.params.badgeId;
 
-
-      //console.log('teststss')
-      //console.log(this.$route.params.badgeId)
-      if (this.$route.params.badgeId === undefined) {
-        console.log('lqmsjfmqlsdfs')
-      }
-
       await this.$store.dispatch('loadBadges');
       await this.$store.dispatch('loadAssertions');
 
+      //this.previous = ('previous' in this.$store.state.assertionsApi);
+      //this.next = ('next' in this.$store.state.assertionsApi);
 
       this.loading = false;
     },
+    // computed: {
+    //   checkIfNext: function () {
+    //       return ('next' in this.$store.state.assertionsApi)
+    //       console.log('reloaoaaddden')
+    //       console.log(this.$store.state.assertionsApi);
+    //   },
+    //   checkIfPrevious: function () {
+    //       return ('previous' in this.$store.state.assertionsApi)
+    //       console.log(this.$store.state.assertionsApi);
+    //   },
+    // },
     methods: {
       getId(id) {
         let shortBadgeId = /[^/]*$/.exec(id)[0];
-        return shortBadgeId;
+        return id;
       },
-      changeRout() {
-        this.$router.push({path: '/community/' + this.currentBadge }).catch(()=>{});
-        console.log(this.$store.state.assertionsByBadgeIdApi)
+      async loadPreviousJSON() {
+        this.$store.state.currentPage --;
+        await this.$store.dispatch('loadAssertions', this.currentBadge);
+
+        this.previous = ('previous' in this.$store.state.assertionsApi);
+      },
+      async loadNextJSON() {
+
+        this.$store.state.currentPage ++;
+        await this.$store.dispatch('loadAssertions', this.currentBadge);
+
+        //this.next = ('next' in this.$store.state.assertionsApi);
+      },
+      checkIfNextIsInJSON() {
+        //console.log(this.$store.state.assertionsApi);
+        console.log('dit is next')
+        console.log('next' in this.$store.state.assertionsApi);
+          return ('next' in this.$store.state.assertionsApi)
+      },
+      checkIfPreviousIsInJSON() {
+        //console.log(this.$store.state.assertionsApi);
+        console.log('dit is previous')
+        console.log('previous' in this.$store.state.assertionsApi);
+          return ('previous' in this.$store.state.assertionsApi)
+
+      },
+      async changeRoute() {
+        this.$store.state.currentPage = 1;
+
+        await this.$store.dispatch('loadAssertions', this.currentBadge);
+        //this.$router.push({path: '/community/' + this.currentBadge }).catch(()=>{});
+        //this.next = ('next' in this.$store.state.assertionsApi);
+        //this.previous = ('previous' in this.$store.state.assertionsApi);
+
+        //console.log(this.next);
+        //console.log('aaaaa');
+
+        //console.log(this.$store.state.assertionsApi);
+        //console.log(this.currentBadge)
       },
       getDate(dateString) {
         let date = new Date(dateString);
@@ -104,17 +151,16 @@
       findAllAssertions() {
         //console.log(this.$store.state)
       },
-      getSelectedFromQuery() {
-        // if (this.$route.params.badgeId === '5f201418631ce1068d217667') {
-        //   console.log('did not explode');
-        //   return selected
-        // } else {
-        //   return
-        // }
+      getSelectedFromQuery(badgeId) {
+        //console.log(badgeId)
+        //this.$store.dispatch('loadAssertions', badgeId);
       },
+
+
+
       dirtyFunctionBecause1AM(badgeOfPerson) {
         // SORRY
-        console.log(badgeOfPerson)
+        //console.log(badgeOfPerson)
         if( badgeOfPerson === 'https://api.wisebadges.osoc.be/badgeclass/5f201418631ce1068d217667') {
           return 'DidNotExplode'
         } else if (badgeOfPerson === 'https://api.wisebadges.osoc.be/badgeclass/5f201805631ce1068d217669') {
