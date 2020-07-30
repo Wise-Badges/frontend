@@ -44,8 +44,12 @@
           </div>
         </li>
       </ul>
-      <button v-if="checkIfPreviousIsInJSON()" @click="loadPreviousJSON()">Previous</button>
-      <button v-if="checkIfNextIsInJSON()" @click="loadNextJSON()">Next</button>
+      <div class="buttons__page-container">
+        <div class="buttons__pages">
+          <button class="button_specific" v-if="checkIfPreviousIsInJSON()" id="sec-btn" @click="loadPreviousJSON()">Previous</button>
+          <button class="button_specific" v-if="checkIfNextIsInJSON()" id="sec-btn" @click="loadNextJSON()">Next</button>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -63,6 +67,7 @@
       };
     },
     async created() {
+      this.$store.state.currentPage = 1
       this.currentPath = this.$route.fullPath;
       this.currentBadge =  this.$route.params.badgeId;
 
@@ -299,5 +304,25 @@
   border-bottom-right-radius: 3rem;
   width: 2rem;
   cursor: default;
+}
+
+.buttons__pages {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.button_specific {
+margin: 0 2rem;
+}
+
+.button_specific:focus {
+  outline: transparent;
+}
+
+.buttons__page-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 </style>

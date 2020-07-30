@@ -57,9 +57,9 @@ export default new Vuex.Store({
     },
 
     loadAssertions({ commit }, badgeClass = undefined) {
-      let url = 'https://api.wisebadges.osoc.be/assertions/?page=' + this.state.currentPage + '&limit=1'
+      let url = 'https://api.wisebadges.osoc.be/assertions/?page=' + this.state.currentPage + '&limit=10'
       if (badgeClass) {
-        url = badgeClass + '/assertions?page=' + this.state.currentPage + '&limit=1'
+        url = badgeClass + '/assertions?page=' + this.state.currentPage + '&limit=10'
       }
       return axios
         .get(url)
