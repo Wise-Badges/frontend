@@ -21,26 +21,26 @@
         <li class="li__badge" v-for="assertion in this.$store.state.assertionsApi.data" :key="assertion.id">
           <div v-if="currentBadge === getId(assertion.badge)">
             <div class="acceptedBadge li__badge__active" >
-              <a target="_blank" :href="assertion.evidence.id">
+              <router-link target="_blank" :to="'/detail/' + assertion.id">
               <p class="badge__receiver">{{ assertion.recipient.name }} received <span class="make__italic">#{{dirtyFunctionBecause1AM(assertion.badge)}}</span></p>
               <p class="badge__message">{{ assertion.message }}</p>
               <p class="badge__issuer">issued on {{ getDate(assertion.issuedOn) }}</p>
-              </a>
+              </router-link>
             </div>
           </div>
           <div class="acceptedBadge li__badge__active" v-if="currentBadge === ''">
-            <a target="_blank" :href="assertion.evidence.id">
+            <router-link target="_blank" :to="'/detail/' + assertion.id.split('/').pop()">
             <p class="badge__receiver">{{ assertion.recipient.name }} received <span class="make__italic">#{{dirtyFunctionBecause1AM(assertion.badge)}}</span></p>
             <p class="badge__message">{{ assertion.message }}</p>
             <p class="badge__issuer">issued on {{ getDate(assertion.issuedOn) }}</p>
-            </a>
+            </router-link>
           </div>
           <div class="acceptedBadge li__badge__active" v-if="currentBadge === undefined">
-            <a target="_blank" :href="assertion.evidence.id">
+            <router-link target="_blank" :to="'/detail/' + assertion.id.split('/').pop()">
             <p class="badge__receiver">{{ assertion.recipient.name }} received <span class="make__italic">#{{dirtyFunctionBecause1AM(assertion.badge)}}</span></p>
             <p class="badge__message">{{ assertion.message }}</p>
             <p class="badge__issuer">issued on {{ getDate(assertion.issuedOn) }}</p>
-            </a>
+            </router-link>
           </div>
         </li>
       </ul>
